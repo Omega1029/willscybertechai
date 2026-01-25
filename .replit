@@ -43,3 +43,6 @@ publicDir = "dist"
 [userenv.shared]
 VITE_SUPABASE_URL = "https://lyckinrvtdizydeomzvi.supabase.co"
 VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5Y2tpbnJ2dGRpenlkZW9tenZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4MjYzMTQsImV4cCI6MjA4MTQwMjMxNH0.mB4igwPNKNpYSA0q45SRvEayL1XsrFTz8vgnavbOQM8"
+GOOGLE_API_KEY = "AIzaSyA-W0Nf8LQ4ozqYbFzRVpoeJUYnnRGk24k"
+MAPS_API_KEY = "AIzaSyA-W0Nf8LQ4ozqYbFzRVpoeJUYnnRGk24k"
+GOOGLE_GENAI_USE_VERTEXAI = "FALSE"
