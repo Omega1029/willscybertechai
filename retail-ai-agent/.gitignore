@@ -1,0 +1,39 @@
+# --- Python / Environment ---
+venv/
+.venv/
+env/
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.idea/
+
+# --- Node / Frontend (AG-UI) ---
+app/frontend/node_modules/
+app/frontend/.next/
+app/frontend/out/
+app/frontend/.env.local
+app/frontend/.env.development.local
+app/frontend/.env.test.local
+app/frontend/.env.production.local
+
+# --- OS Specific ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- Replit Specific ---
+.replit
+replit.nix
+*.zip
+
+# --- Google Cloud / Vertex ---
+.gcloud/
+service-account-key.json
