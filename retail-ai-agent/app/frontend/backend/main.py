@@ -76,6 +76,9 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "http://localhost:5000",
+        "http://127.0.0.1:5000",
+        "https://ed1a674c-9004-40be-8619-f1fb7e9becf0-00-23f3flzbvp1et.kirk.replit.dev",
     ],
     allow_credentials=True,
     allow_methods=["*"],

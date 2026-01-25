@@ -25,13 +25,13 @@ args = "AI Agent"
 name = "Start application"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run dev"
-waitForPort = 5000
-
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd retail-ai-agent/app/frontend && npm run dev -- -p 5000 -H 0.0.0.0"
+waitForPort = 5000
 
 [[workflows.workflow]]
 name = "AI Agent"
@@ -42,16 +42,12 @@ outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd retail-ai-agent && adk web . --port 8000 --host 0.0.0.0"
+args = "cd retail-ai-agent && PYTHONPATH=. python app/frontend/backend/main.py"
 waitForPort = 8000
 
 [[ports]]
 localPort = 5000
 externalPort = 80
-
-[[ports]]
-localPort = 8000
-externalPort = 8000
 
 [deployment]
 deploymentTarget = "static"
