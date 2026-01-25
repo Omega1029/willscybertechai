@@ -42,7 +42,7 @@ outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd retail-ai-agent && adk web app --port 8000 --host 0.0.0.0"
+args = "cd retail-ai-agent && adk web . --port 8000 --host 0.0.0.0"
 waitForPort = 8000
 
 [[ports]]
