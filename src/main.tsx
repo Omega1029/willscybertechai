@@ -6,6 +6,7 @@ import AIAssistantsPage from './pages/AIAssistantsPage.tsx';
 import AIAutomationPage from './pages/AIAutomationPage.tsx';
 import CustomAIPage from './pages/CustomAIPage.tsx';
 import AboutPage from './pages/AboutPage.tsx';
+import AIAgentPage from './pages/AIAgentPage.tsx';
 import Contact from './components/Contact.tsx';
 import './index.css';
 
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/ai-automation" element={<AIAutomationPage />} />
         <Route path="/custom-ai" element={<CustomAIPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/ai-agent" element={<AIAgentPage />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>

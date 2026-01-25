@@ -11,5 +11,12 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5000,
     allowedHosts: true,
+    proxy: {
+      '/ai-agent-ui': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/ai-agent-ui/, ''),
+      },
+    },
   },
 });

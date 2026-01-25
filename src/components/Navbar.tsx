@@ -104,6 +104,9 @@ const Navbar = () => {
             <a href="#solutions" onClick={handleServicesClick} className={`${
               isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
             }`}>Solutions</a>
+            <Link to="/ai-agent" className={`${
+              isDark ? 'text-purple-400 hover:text-purple-300' : 'text-purple-600 hover:text-purple-700'
+            } font-medium`}>AI Agent</Link>
             <Link to="/about" className={`${
               isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
             }`}>About</Link>

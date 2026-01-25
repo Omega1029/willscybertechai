@@ -12,6 +12,24 @@ const nextConfig = {
   },
   // Allow all hosts for Replit proxy
   allowedDevOrigins: ['*'],
+  // Allow iframe embedding
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'ALLOWALL',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self' *",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
