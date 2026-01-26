@@ -36,16 +36,7 @@ function AIAgentPage() {
             </p>
           </div>
 
-          <button
-            onClick={handleLaunch}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-semibold text-lg transition-all shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 mb-12"
-          >
-            <Sparkles size={24} />
-            Launch AI Agent
-            <ExternalLink size={20} />
-          </button>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-6 text-left">
               <div className="p-3 bg-red-500/20 rounded-lg inline-block mb-4">
                 <MapPin className="text-red-400" size={28} />
@@ -69,7 +60,16 @@ function AIAgentPage() {
             </div>
           </div>
 
-          <div className="mt-12 p-6 bg-gray-800/30 border border-gray-700 rounded-xl">
+          <button
+            onClick={handleLaunch}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-semibold text-lg transition-all shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 mt-10"
+          >
+            <Sparkles size={24} />
+            Launch AI Agent
+            <ExternalLink size={20} />
+          </button>
+
+          <div className="mt-8 p-6 bg-gray-800/30 border border-gray-700 rounded-xl">
             <h3 className="font-semibold mb-4">Try these examples:</h3>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="px-4 py-2 bg-gray-700/50 rounded-lg text-gray-300 text-sm">"I want to open a coffee shop in downtown Seattle"</span>
