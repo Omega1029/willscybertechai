@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { CircuitBoard, ChevronDown } from 'lucide-react';
+import { CircuitBoard, Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDarkMode } from '../hooks/useDarkMode';
 
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isDark = useDarkMode();
   const navigate = useNavigate();
   const location = useLocation();
@@ -115,13 +116,71 @@ const Navbar = () => {
             }`}>Contact</Link>
           </div>
 
-          <Link 
-            to="/contact"
-            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold"
-          >
-            Get Started
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link 
+              to="/contact"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold hidden sm:block"
+            >
+              Get Started
+            </Link>
+            
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`md:hidden p-2 rounded-lg ${isDark ? 'text-white hover:bg-gray-800' : 'text-gray-900 hover:bg-gray-100'}`}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
+
+        {isMobileMenuOpen && (
+          <div className={`md:hidden border-t ${isDark ? 'border-gray-700 bg-gray-900' : 'border-gray-200 bg-white'}`}>
+            <div className="py-4 space-y-2">
+              <Link 
+                to="/" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
+              >
+                Home
+              </Link>
+              <a 
+                href="#solutions" 
+                onClick={(e) => { handleServicesClick(e); setIsMobileMenuOpen(false); }}
+                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
+              >
+                Solutions
+              </a>
+              <Link 
+                to="/ai-agent" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-2 font-medium ${isDark ? 'text-purple-400 hover:text-purple-300 hover:bg-gray-800' : 'text-purple-600 hover:text-purple-700 hover:bg-gray-100'}`}
+              >
+                AI Agent
+              </Link>
+              <Link 
+                to="/about" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
+              >
+                About
+              </Link>
+              <Link 
+                to="/contact" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
+              >
+                Contact
+              </Link>
+              <Link 
+                to="/contact" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block mx-4 mt-4 bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold text-center sm:hidden"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
