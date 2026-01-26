@@ -17,6 +17,14 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/ai-agent-ui/, ''),
       },
+      '/_next': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+      '/favicon.ico': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
     },
   },
 });
