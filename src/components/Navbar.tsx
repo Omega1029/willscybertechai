@@ -102,15 +102,15 @@ const Navbar = () => {
             <Link to="/" className={`${
               isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
             }`}>Home</Link>
+            <Link to="/blog" className={`${
+              isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+            }`}>Blog</Link>
             <a href="#services" onClick={handleServicesClick} className={`${
               isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
             }`}>Services</a>
             <Link to="/agents" className={`${
               isDark ? 'text-purple-400 hover:text-purple-300' : 'text-purple-600 hover:text-purple-700'
             } font-medium`}>Agents</Link>
-            <Link to="/blog" className={`${
-              isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-            }`}>Blog</Link>
             <Link to="/about" className={`${
               isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
             }`}>About</Link>
@@ -146,6 +146,13 @@ const Navbar = () => {
               >
                 Home
               </Link>
+              <Link 
+                to="/blog" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
+              >
+                Blog
+              </Link>
               <a 
                 href="#services" 
                 onClick={(e) => { handleServicesClick(e); setIsMobileMenuOpen(false); }}
@@ -159,13 +166,6 @@ const Navbar = () => {
                 className={`block px-4 py-2 font-medium ${isDark ? 'text-purple-400 hover:text-purple-300 hover:bg-gray-800' : 'text-purple-600 hover:text-purple-700 hover:bg-gray-100'}`}
               >
                 Agents
-              </Link>
-              <Link 
-                to="/blog" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
-              >
-                Blog
               </Link>
               <Link 
                 to="/about" 
