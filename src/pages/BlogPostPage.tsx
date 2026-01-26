@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import { supabase } from '../lib/supabase';
+import { formatBlogContent } from '../utils/formatBlogContent';
 
 interface BlogPost {
   id: string;
@@ -118,10 +119,11 @@ function BlogPostPage() {
             </div>
           </div>
 
-          <div className="prose prose-invert prose-lg max-w-none">
-            <div className="text-gray-300 leading-relaxed whitespace-pre-wrap">
-              {post.content}
-            </div>
+          <div className="blog-content">
+            <div
+              className="text-gray-300 leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: formatBlogContent(post.content) }}
+            />
           </div>
         </div>
       </div>
