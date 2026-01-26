@@ -8,6 +8,7 @@ import CustomAIPage from './pages/CustomAIPage.tsx';
 import AboutPage from './pages/AboutPage.tsx';
 import AgentsPage from './pages/AgentsPage.tsx';
 import BlogPage from './pages/BlogPage.tsx';
+import BlogPostPage from './pages/BlogPostPage.tsx';
 import Contact from './components/Contact.tsx';
 import './index.css';
 
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/about" element={<AboutPage />} />
         <Route path="/agents" element={<AgentsPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
