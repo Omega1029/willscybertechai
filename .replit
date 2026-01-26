@@ -17,14 +17,6 @@ author = "agent"
 task = "workflow.run"
 args = "Start application"
 
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "AI Agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "AG-UI Frontend"
-
 [[workflows.workflow]]
 name = "Start application"
 author = "agent"
@@ -36,30 +28,6 @@ outputType = "webview"
 task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
-
-[[workflows.workflow]]
-name = "AI Agent"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd retail-ai-agent && PYTHONPATH=. python app/frontend/backend/main.py"
-waitForPort = 8000
-
-[[workflows.workflow]]
-name = "AG-UI Frontend"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd retail-ai-agent/app/frontend && npm run dev -- -p 3000 -H 0.0.0.0"
-waitForPort = 3000
-
-[workflows.workflow.metadata]
-outputType = "console"
 
 [[ports]]
 localPort = 3000
