@@ -200,7 +200,7 @@ function App() {
       </section>
 
       {/* Solutions Section */}
-      <section id="solutions" className="py-20 bg-gray-800/50">
+      <section id="services" className="py-20 bg-gray-800/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">AI Solutions We Build</h2>
