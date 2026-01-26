@@ -1,31 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
-import { ArrowLeft, Bot, MapPin, TrendingUp, FileText, ExternalLink, Sparkles, Search, BarChart3 } from 'lucide-react';
+import { ArrowLeft, Bot, ExternalLink, Sparkles, Search, BarChart3, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function AIAgentPage() {
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const agentUrl = 'https://my-retail-agent-496311446948.us-east1.run.app/dev-ui';
 
-  if (isFullscreen) {
-    return (
-      <div className="fixed inset-0 z-50 bg-gray-900">
-        <div className="absolute top-4 right-4 z-10">
-          <button
-            onClick={() => setIsFullscreen(false)}
-            className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg border border-gray-600 transition-colors"
-          >
-            Exit Fullscreen
-          </button>
-        </div>
-        <iframe 
-          src="/ai-agent-ui"
-          className="w-full h-full border-0"
-          title="Retail AI Location Strategy"
-          allow="clipboard-read; clipboard-write"
-        />
-      </div>
-    );
-  }
+  const handleLaunch = () => {
+    window.open(agentUrl, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -54,7 +37,7 @@ function AIAgentPage() {
           </div>
 
           <button
-            onClick={() => setIsFullscreen(true)}
+            onClick={handleLaunch}
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-semibold text-lg transition-all shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 mb-12"
           >
             <Sparkles size={24} />
