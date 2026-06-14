@@ -1,132 +1,105 @@
 import React from 'react';
-import { Settings, Monitor, FileText, Cpu, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useDarkMode } from '../hooks/useDarkMode';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
+const useCases = [
+  {
+    icon: 'settings',
+    title: 'Operations Automation',
+    description: 'Streamline complex business processes with intelligent automation systems.',
+    examples: [
+      'Invoice processing and approval workflows',
+      'Customer service ticket routing',
+      'Inventory management and reordering',
+      'Quality assurance automation',
+    ],
+    metrics: '60-80% reduction in manual work',
+    image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    icon: 'monitor',
+    title: 'Intelligent Monitoring',
+    description: 'Deploy AI systems that continuously monitor operations and detect anomalies in real time.',
+    examples: [
+      'Equipment health monitoring',
+      'Network security threat detection',
+      'Performance anomaly identification',
+      'Predictive maintenance alerts',
+    ],
+    metrics: '90% faster issue detection',
+    image: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    icon: 'description',
+    title: 'Document & Image Processing',
+    description: 'Extract insights from documents, images, and unstructured data at scale.',
+    examples: [
+      'Contract analysis and extraction',
+      'Medical image analysis',
+      'Receipt and form processing',
+      'Content moderation systems',
+    ],
+    metrics: '95% accuracy in data extraction',
+    image: 'https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+];
 
 const UseCasesPage = () => {
-  const isDark = useDarkMode();
-
-  const useCases = [
-    {
-      icon: <Settings className="w-8 h-8" />,
-      title: 'Operations Automation',
-      description: 'Streamline complex business processes with intelligent automation systems.',
-      examples: [
-        'Invoice processing and approval workflows',
-        'Customer service ticket routing',
-        'Inventory management and reordering',
-        'Quality assurance automation'
-      ],
-      metrics: '60-80% reduction in manual work',
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-    },
-    {
-      icon: <Monitor className="w-8 h-8" />,
-      title: 'Intelligent Monitoring',
-      description: 'Deploy AI systems that continuously monitor operations and detect anomalies.',
-      examples: [
-        'Equipment health monitoring',
-        'Network security threat detection',
-        'Performance anomaly identification',
-        'Predictive maintenance alerts'
-      ],
-      metrics: '90% faster issue detection',
-      image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80'
-    },
-    {
-      icon: <FileText className="w-8 h-8" />,
-      title: 'Document & Image Processing',
-      description: 'Extract insights from documents, images, and unstructured data at scale.',
-      examples: [
-        'Contract analysis and extraction',
-        'Medical image analysis',
-        'Receipt and form processing',
-        'Content moderation systems'
-      ],
-      metrics: '95% accuracy in data extraction',
-      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-    }
-  ];
-
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
-    }`}>
+    <div className="min-h-screen bg-background text-on-background font-sans">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-              AI Use Cases
-            </h1>
-            <p className={`text-xl md:text-2xl mb-8 max-w-3xl mx-auto ${
-              isDark ? 'text-gray-300' : 'text-gray-700'
-            }`}>
-              Real-world AI applications that deliver measurable business value.
-            </p>
-          </div>
+
+      {/* Hero */}
+      <section className="relative hero-gradient overflow-hidden pt-32 pb-24">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <span className="inline-block px-4 py-1 rounded-full border border-primary-container/20 bg-primary-container/5 text-primary-container text-label-caps mb-6">
+            Real Applications
+          </span>
+          <h1 className="text-headline-xl text-on-surface mb-6">AI Use Cases</h1>
+          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Real-world AI applications that deliver measurable business value.
+          </p>
         </div>
       </section>
 
       {/* Use Cases */}
-      <section className={`py-20 ${
-        isDark ? 'bg-gray-800/50' : 'bg-white/50'
-      }`}>
-        <div className="container mx-auto px-4">
-          <div className="space-y-20">
-            {useCases.map((useCase, index) => (
-              <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}>
+      <section className="py-24 bg-surface-container-lowest">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="space-y-24">
+            {useCases.map((uc, index) => (
+              <div key={uc.title} className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className={`w-16 h-16 rounded-lg flex items-center justify-center mb-6 ${
-                    isDark ? 'bg-blue-500/20' : 'bg-blue-100'
-                  }`}>
-                    <div className="text-blue-500">
-                      {useCase.icon}
-                    </div>
+                  <div className="bg-primary-container/10 p-3 rounded-lg border border-primary-container/20 w-fit mb-6">
+                    <span className="material-symbols-outlined text-primary-container">{uc.icon}</span>
                   </div>
-                  
-                  <h3 className={`text-3xl font-bold mb-4 ${
-                    isDark ? 'text-white' : 'text-gray-900'
-                  }`}>{useCase.title}</h3>
-                  
-                  <p className={`text-lg mb-6 ${
-                    isDark ? 'text-gray-300' : 'text-gray-600'
-                  }`}>{useCase.description}</p>
-
-                  <div className="mb-6">
-                    <h4 className={`font-semibold mb-3 ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>Common Applications</h4>
-                    <ul className="space-y-2">
-                      {useCase.examples.map((example, exampleIndex) => (
-                        <li key={exampleIndex} className="flex items-start">
-                          <ArrowRight className="w-4 h-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span className={`${
-                            isDark ? 'text-gray-300' : 'text-gray-600'
-                          }`}>{example}</span>
+                  <h3 className="text-headline-md text-on-surface mb-4">{uc.title}</h3>
+                  <p className="text-body-lg text-on-surface-variant mb-6">{uc.description}</p>
+                  <div className="mb-8">
+                    <h4 className="text-sm font-bold uppercase tracking-widest text-on-surface mb-4">Common Applications</h4>
+                    <ul className="space-y-3">
+                      {uc.examples.map((ex) => (
+                        <li key={ex} className="flex items-start gap-3">
+                          <span className="material-symbols-outlined text-primary-container flex-shrink-0" style={{ fontSize: '18px' }}>arrow_forward</span>
+                          <span className="text-on-surface-variant">{ex}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-
-                  <div className={`inline-flex items-center px-4 py-2 rounded-lg ${
-                    isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700'
-                  }`}>
-                    <span className="font-semibold">{useCase.metrics}</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container/10 border border-primary-container/20 text-primary-container font-bold text-sm">
+                    <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>trending_up</span>
+                    {uc.metrics}
                   </div>
                 </div>
 
                 <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <img 
-                    src={useCase.image}
-                    alt={useCase.title}
-                    className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-                  />
+                  <div className="glass-card rounded-2xl overflow-hidden">
+                    <img
+                      src={uc.image}
+                      alt={uc.title}
+                      className="w-full h-80 object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             ))}
@@ -134,30 +107,24 @@ const UseCasesPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className={`py-20 ${
-        isDark ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20' : 'bg-gradient-to-r from-blue-50 to-purple-50'
-      }`}>
-        <div className="container mx-auto px-4 text-center">
-          <h2 className={`text-4xl font-bold mb-6 ${
-            isDark ? 'text-white' : 'text-gray-900'
-          }`}>
-            See Your Use Case Here?
-          </h2>
-          <p className={`text-xl mb-8 max-w-2xl mx-auto ${
-            isDark ? 'text-gray-300' : 'text-gray-700'
-          }`}>
+      {/* CTA */}
+      <section className="py-24 border-t border-slate-900">
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <h2 className="text-headline-xl text-on-surface mb-6">See Your Use Case Here?</h2>
+          <p className="text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
             Let's discuss how AI can solve your specific business challenges.
           </p>
-          <Link 
+          <Link
             to="/contact"
-            className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold"
+            className="inline-flex items-center gap-2 bg-primary-container text-on-primary-fixed font-bold py-4 px-12 rounded-xl hover:shadow-[0_0_20px_rgba(160,120,255,0.4)] transition-all"
           >
             Discuss Your Use Case
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>
           </Link>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

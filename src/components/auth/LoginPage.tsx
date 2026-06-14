@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
-import { CircuitBoard, Eye, EyeOff, Mail, Lock } from 'lucide-react';
-import { useDarkMode } from '../../hooks/useDarkMode';
+import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +10,6 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'error' | 'success'; text: string } | null>(null);
   const navigate = useNavigate();
-  const isDark = useDarkMode();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,18 +17,14 @@ const LoginPage = () => {
     setMessage(null);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         setMessage({ type: 'error', text: error.message });
       } else {
         setMessage({ type: 'success', text: 'Login successful! Redirecting...' });
         setTimeout(() => navigate('/'), 1000);
       }
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'An unexpected error occurred' });
     } finally {
       setLoading(false);
@@ -38,100 +32,69 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
-      isDark ? 'bg-gray-900' : 'bg-gray-50'
-    }`}>
+    <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="max-w-md w-full mx-4">
-        <div className={`rounded-2xl shadow-xl p-8 ${
-          isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white'
-        }`}>
-          {/* Header */}
+        <div className="bg-white border border-blue-100 rounded-2xl shadow-sm p-8">
+
           <div className="text-center mb-8">
-            <Link to="/" className="inline-flex items-center space-x-2 mb-6">
-              <CircuitBoard className="w-8 h-8 text-blue-600" />
-              <CircuitBoard className="w-8 h-8 text-purple-600" />
-              <span className={`text-2xl font-bold ${
-                isDark ? 'text-white' : 'text-gray-900'
-              }`}>wct</span>
+            <Link to="/" className="inline-flex items-center gap-2 mb-6">
+              <span className="material-symbols-outlined text-blue-600" style={{ fontSize: '26px' }}>security_update_good</span>
+              <span className="text-xl font-bold tracking-tighter text-blue-700 uppercase">NEURAL INDEX</span>
             </Link>
-            <h1 className={`text-3xl font-bold ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}>Welcome Back</h1>
-            <p className={`mt-2 ${
-              isDark ? 'text-gray-400' : 'text-gray-600'
-            }`}>Sign in to your account</p>
+            <h1 className="text-2xl font-bold text-slate-900">Welcome Back</h1>
+            <p className="mt-1.5 text-slate-500">Sign in to your account</p>
           </div>
 
-          {/* Message */}
           {message && (
-            <div className={`mb-6 p-4 rounded-lg ${
-              message.type === 'error' 
-                ? 'bg-red-50 text-red-700 border border-red-200' 
-                : 'bg-green-50 text-green-700 border border-green-200'
+            <div className={`mb-6 p-4 rounded-lg text-sm ${
+              message.type === 'error'
+                ? 'bg-red-50 text-red-700 border border-red-200'
+                : 'bg-blue-50 text-blue-700 border border-blue-200'
             }`}>
               {message.text}
             </div>
           )}
 
-          {/* Form */}
-          <form onSubmit={handleLogin} className="space-y-6">
+          <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label htmlFor="email" className={`block text-sm font-medium mb-2 ${
-                isDark ? 'text-gray-300' : 'text-gray-700'
-              }`}>
+              <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1.5">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 ${
-                  isDark ? 'text-gray-400' : 'text-gray-400'
-                }`} />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
                   id="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors ${
-                    isDark 
-                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                      : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
-                  }`}
+                  className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg bg-white text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
                   placeholder="Enter your email"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className={`block text-sm font-medium mb-2 ${
-                isDark ? 'text-gray-300' : 'text-gray-700'
-              }`}>
+              <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-1.5">
                 Password
               </label>
               <div className="relative">
-                <Lock className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 ${
-                  isDark ? 'text-gray-400' : 'text-gray-400'
-                }`} />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors ${
-                    isDark 
-                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                      : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
-                  }`}
+                  className="w-full pl-10 pr-12 py-3 border border-slate-200 rounded-lg bg-white text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${
-                    isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-400 hover:text-gray-600'
-                  }`}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
             </div>
@@ -139,7 +102,7 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center"
+              className="w-full btn-cyber font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -149,14 +112,10 @@ const LoginPage = () => {
             </button>
           </form>
 
-          {/* Footer */}
-          <div className="mt-8 text-center">
-            <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          <div className="mt-6 text-center">
+            <p className="text-slate-500 text-sm">
               Don't have an account?{' '}
-              <Link 
-                to="/signup" 
-                className="text-purple-600 hover:text-purple-700 font-semibold"
-              >
+              <Link to="/signup" className="text-blue-600 hover:text-blue-700 font-semibold">
                 Sign up
               </Link>
             </p>
