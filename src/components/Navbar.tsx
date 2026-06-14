@@ -28,13 +28,13 @@ const Navbar = () => {
   const isActive = (href: string) => location.pathname === href;
 
   const headerClass = scrolled
-    ? 'bg-slate-950/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20'
-    : 'bg-transparent border-b border-transparent';
+    ? 'bg-slate-400 backdrop-blur-xl border-b border-slate-300/60 shadow-lg'
+    : 'bg-slate-400 border-b border-slate-300/40';
 
   const linkClass = (href: string) =>
     isActive(href)
-      ? 'text-cyan-300 border-b-2 border-cyan-400 pb-1'
-      : 'text-slate-300 hover:text-white';
+      ? 'text-white font-bold border-b-2 border-white pb-1'
+      : 'text-white/80 hover:text-white';
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${headerClass}`}>
@@ -60,7 +60,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/login"
-            className="hidden md:block px-5 py-2 text-sm font-semibold transition-colors text-slate-300 hover:text-white"
+            className="hidden md:block px-5 py-2 text-sm font-semibold transition-colors text-white/80 hover:text-white"
           >
             Sign In
           </Link>
@@ -73,7 +73,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 transition-colors text-slate-300 hover:text-white"
+            className="md:hidden p-2 transition-colors text-white/80 hover:text-white"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -82,14 +82,14 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10">
+        <div className="md:hidden bg-slate-400 border-t border-slate-300/40">
           <div className="px-8 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 className={`block py-2.5 text-sm font-sans tracking-tight transition-colors ${
-                  isActive(link.href) ? 'text-cyan-300 font-semibold' : 'text-slate-300 hover:text-white'
+                  isActive(link.href) ? 'text-white font-bold' : 'text-white/80 hover:text-white'
                 }`}
               >
                 {link.label}
