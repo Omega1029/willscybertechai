@@ -146,11 +146,11 @@ const BlogPostPage = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background text-on-background font-sans">
+      <div className="min-h-screen bg-cyber-dark text-slate-100 font-sans">
         <Navbar />
         <div className="pt-40 pb-20 px-8 text-center">
-          <h1 className="text-headline-md text-on-surface mb-4">Post Not Found</h1>
-          <Link to="/blog" className="text-primary-container hover:text-primary-fixed-dim transition-colors">
+          <h1 className="text-3xl font-bold text-white mb-4">Post Not Found</h1>
+          <Link to="/blog" className="text-cyan-300 hover:text-cyan-200 transition-colors">
             Back to Blog
           </Link>
         </div>
@@ -160,7 +160,7 @@ const BlogPostPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background text-on-background font-sans">
+    <div className="min-h-screen bg-cyber-dark text-slate-100 font-sans">
       <Navbar />
 
       <div className="pt-24 pb-16 px-4">
@@ -168,14 +168,14 @@ const BlogPostPage = () => {
           {/* Back Link */}
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary-container transition-colors mb-10"
+            className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-cyan-300 transition-colors mb-10"
           >
             <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_back</span>
             Back to Blog
           </Link>
 
           {/* Hero Image */}
-          <div className="w-full h-80 md:h-96 overflow-hidden rounded-xl mb-10 glass-card">
+          <div className="w-full h-80 md:h-96 overflow-hidden rounded-xl mb-10 glass-dark glow-ring">
             <img
               src={post.image}
               alt={post.title}
@@ -185,17 +185,17 @@ const BlogPostPage = () => {
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="px-3 py-1 text-label-caps text-primary-container bg-primary-container/10 border border-primary-container/20 rounded-full">
+            <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 rounded-full">
               {post.tag}
             </span>
-            <span className="text-xs text-on-surface-variant uppercase tracking-widest">{post.readTime}</span>
+            <span className="text-xs text-slate-400 uppercase tracking-widest">{post.readTime}</span>
           </div>
 
           {/* Title */}
-          <h1 className="text-headline-xl text-on-surface mb-6 leading-tight">{post.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">{post.title}</h1>
 
           {/* Author / Date */}
-          <div className="flex items-center gap-6 text-on-surface-variant text-sm mb-10 pb-10 border-b border-slate-800">
+          <div className="flex items-center gap-6 text-slate-400 text-sm mb-10 pb-10 border-b border-white/10">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>person</span>
               {post.author}
@@ -207,15 +207,15 @@ const BlogPostPage = () => {
           </div>
 
           {/* Content */}
-          <div className="text-on-surface-variant text-body-lg leading-relaxed whitespace-pre-wrap">
+          <div className="text-slate-400 text-lg leading-relaxed whitespace-pre-wrap blog-content">
             {post.content}
           </div>
 
           {/* Back CTA */}
-          <div className="mt-16 pt-10 border-t border-slate-800">
+          <div className="mt-16 pt-10 border-t border-white/10">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-sm font-bold text-primary-container hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-sm font-bold text-cyan-300 hover:gap-3 hover:text-cyan-200 transition-all"
             >
               <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_back</span>
               Back to Blog

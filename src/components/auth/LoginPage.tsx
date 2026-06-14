@@ -32,23 +32,23 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="min-h-screen flex items-center justify-center bg-cyber-dark">
       <div className="max-w-md w-full mx-4">
-        <div className="bg-white border border-blue-100 rounded-2xl shadow-sm p-8">
+        <div className="glass-dark rounded-2xl p-8 glow-ring">
 
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center gap-2 mb-6">
-<span className="text-xl font-bold tracking-tighter text-blue-700 uppercase">NEURAL INDEX</span>
+              <span className="text-xl font-bold tracking-tighter text-gradient-bright uppercase">NEURAL INDEX</span>
             </Link>
-            <h1 className="text-2xl font-bold text-slate-900">Welcome Back</h1>
-            <p className="mt-1.5 text-slate-500">Sign in to your account</p>
+            <h1 className="text-2xl font-bold text-white">Welcome Back</h1>
+            <p className="mt-1.5 text-slate-400">Sign in to your account</p>
           </div>
 
           {message && (
             <div className={`mb-6 p-4 rounded-lg text-sm ${
               message.type === 'error'
-                ? 'bg-red-50 text-red-700 border border-red-200'
-                : 'bg-blue-50 text-blue-700 border border-blue-200'
+                ? 'bg-red-900/30 text-red-300 border border-red-500/30'
+                : 'bg-cyan-400/10 text-cyan-300 border border-cyan-400/30'
             }`}>
               {message.text}
             </div>
@@ -56,42 +56,42 @@ const LoginPage = () => {
 
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1.5">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
                   id="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg bg-white text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
+                  className="w-full pl-10 pr-4 py-3 border border-white/10 rounded-lg bg-slate-900/60 text-slate-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/20 focus:border-cyan-400/50 transition-colors"
                   placeholder="Enter your email"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-1.5">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full pl-10 pr-12 py-3 border border-slate-200 rounded-lg bg-white text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
+                  className="w-full pl-10 pr-12 py-3 border border-white/10 rounded-lg bg-slate-900/60 text-slate-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/20 focus:border-cyan-400/50 transition-colors"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -112,9 +112,9 @@ const LoginPage = () => {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-slate-500 text-sm">
+            <p className="text-slate-400 text-sm">
               Don't have an account?{' '}
-              <Link to="/signup" className="text-blue-600 hover:text-blue-700 font-semibold">
+              <Link to="/signup" className="text-cyan-300 hover:text-cyan-200 font-semibold">
                 Sign up
               </Link>
             </p>

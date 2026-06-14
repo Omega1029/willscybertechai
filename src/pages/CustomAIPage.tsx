@@ -164,29 +164,30 @@ const CustomAIPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-on-background font-sans">
+    <div className="min-h-screen bg-cyber-dark text-slate-100 font-sans">
       {showModal && <GetStartedModal onClose={() => setShowModal(false)} />}
       <Navbar />
 
       {/* Hero */}
-      <section className="relative hero-gradient overflow-hidden pt-32 pb-24">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-primary-container/20 bg-primary-container/5 text-primary-container text-label-caps mb-6">
+      <section className="relative overflow-hidden pt-32 pb-24">
+        <div className="absolute inset-0 cyber-grid" aria-hidden="true" />
+        <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
+          <span className="inline-block px-4 py-1 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-cyan-300 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Custom AI
           </span>
-          <h1 className="text-headline-xl text-on-surface mb-6 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto">
             Custom AI Solutions Built for Your Business
           </h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
             We design custom AI solutions tailored to your workflows, data, and goals — without forcing you into one-size-fits-all software.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => setShowModal(true)} className="bg-primary-container text-on-primary-fixed font-bold py-4 px-10 rounded-xl hover:shadow-[0_0_20px_rgba(160,120,255,0.4)] transition-all flex items-center gap-2">
+            <button onClick={() => setShowModal(true)} className="btn-cyber font-semibold py-4 px-10 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 transition-transform">
               Get Started
               <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>
             </button>
             <a href="#how-it-works" onClick={(e) => { e.preventDefault(); document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="border border-purple-500/50 text-purple-500 font-bold py-4 px-10 rounded-xl hover:bg-purple-500/5 transition-all">
+              className="border border-white/15 text-slate-100 font-semibold py-4 px-10 rounded-xl hover:bg-white/5 transition-all">
               Learn More
             </a>
           </div>
@@ -194,33 +195,33 @@ const CustomAIPage = () => {
       </section>
 
       {/* Why Custom AI */}
-      <section className="py-24 bg-surface-container-lowest">
+      <section className="py-24 bg-white/[0.02] border-t border-white/5">
         <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-headline-md text-on-surface mb-4">Why Custom AI</h2>
-          <div className="h-1 w-20 bg-primary-container mx-auto mb-8"></div>
-          <p className="text-body-lg text-on-surface-variant">
+          <h2 className="text-3xl font-bold text-white mb-4">Why Custom AI</h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-8"></div>
+          <p className="text-lg text-slate-400">
             Off-the-shelf AI tools don't always fit how a business actually works. Custom AI solutions are designed to match your processes, tools, and objectives exactly.
           </p>
         </div>
       </section>
 
       {/* What We Build */}
-      <section className="py-24 bg-surface-container">
+      <section className="py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-headline-md text-on-surface mb-4">What We Build</h2>
-            <div className="h-1 w-20 bg-primary-container mx-auto"></div>
+            <h2 className="text-3xl font-bold text-white mb-4">What We Build</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((s) => (
-              <div key={s.title} className="glass-card p-8 rounded-xl">
-                <div className="bg-primary-container/10 p-3 rounded-lg border border-primary-container/20 w-fit mb-6">
-                  <span className="material-symbols-outlined text-primary-container">{s.icon}</span>
+              <div key={s.title} className="gradient-border rounded-2xl p-8 group hover:-translate-y-1 transition-transform duration-300">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-400/20 mb-6">
+                  <span className="material-symbols-outlined text-cyan-300">{s.icon}</span>
                 </div>
-                <h3 className="text-headline-sm text-on-surface mb-3">{s.title}</h3>
-                <p className="text-on-surface-variant mb-4">{s.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-3">{s.title}</h3>
+                <p className="text-slate-400 mb-4">{s.description}</p>
                 {s.hasReceiptDemo && (
-                  <button onClick={showReceiptDemo} className="flex items-center gap-2 text-sm font-bold text-primary-container hover:gap-3 transition-all mt-2">
+                  <button onClick={showReceiptDemo} className="flex items-center gap-2 text-sm font-bold text-cyan-300 hover:gap-3 transition-all mt-2">
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>receipt_long</span>
                     See Receipt Demo
                   </button>
@@ -232,31 +233,31 @@ const CustomAIPage = () => {
       </section>
 
       {/* Tax Demo */}
-      <section className="py-24 bg-surface-container-lowest">
+      <section className="py-24 bg-white/[0.02] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-headline-md text-on-surface mb-4">Live Demo: Tax Consultation AI</h2>
-            <p className="text-on-surface-variant max-w-2xl mx-auto">See our custom AI solution in action — an intelligent tax consultation system</p>
+            <h2 className="text-3xl font-bold text-white mb-4">Live Demo: Tax Consultation AI</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">See our custom AI solution in action — an intelligent tax consultation system</p>
           </div>
-          <div className="max-w-4xl mx-auto glass-card rounded-2xl p-8">
-            <div className="aspect-video w-full bg-surface-container rounded-xl border border-slate-800 flex items-center justify-center relative overflow-hidden">
+          <div className="max-w-4xl mx-auto glass-dark rounded-2xl p-8 glow-ring">
+            <div className="aspect-video w-full bg-slate-900/60 rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden">
               <div className="text-center z-10 px-8">
-                <div className="bg-primary-container/10 p-5 rounded-2xl border border-primary-container/20 w-fit mx-auto mb-6">
-                  <span className="material-symbols-outlined text-primary-container" style={{ fontSize: '48px' }}>description</span>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-400/20 mx-auto mb-6">
+                  <span className="material-symbols-outlined text-cyan-300" style={{ fontSize: '48px' }}>description</span>
                 </div>
-                <h3 className="text-headline-sm text-on-surface mb-4">Tax Consultation AI</h3>
-                <p className="text-on-surface-variant mb-8">Interactive AI system for tax consultation and advice</p>
+                <h3 className="text-xl font-semibold text-white mb-4">Tax Consultation AI</h3>
+                <p className="text-slate-400 mb-8">Interactive AI system for tax consultation and advice</p>
                 <a href="https://taxpro.netlify.app/" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-primary-container text-on-primary-fixed font-bold py-3 px-8 rounded-xl hover:shadow-[0_0_20px_rgba(160,120,255,0.4)] transition-all">
+                  className="inline-flex items-center gap-2 btn-cyber font-semibold py-3 px-8 rounded-xl hover:-translate-y-0.5 transition-transform">
                   Launch Demo
                   <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>open_in_new</span>
                 </a>
               </div>
             </div>
-            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-on-surface-variant">
+            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
               {['Custom AI Logic', 'Interactive Interface', 'Real-time Responses'].map((f) => (
                 <div key={f} className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary-container" style={{ fontSize: '16px' }}>check_circle</span>
+                  <span className="material-symbols-outlined text-cyan-300" style={{ fontSize: '16px' }}>check_circle</span>
                   {f}
                 </div>
               ))}
@@ -266,17 +267,17 @@ const CustomAIPage = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-24 bg-surface-container">
+      <section className="py-24 border-t border-white/5">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-headline-md text-on-surface mb-4">Benefits for Your Business</h2>
-            <div className="h-1 w-20 bg-primary-container mx-auto"></div>
+            <h2 className="text-3xl font-bold text-white mb-4">Benefits for Your Business</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {benefits.map((b) => (
-              <div key={b} className="glass-card p-5 rounded-xl flex items-center gap-4">
-                <span className="material-symbols-outlined text-primary-container flex-shrink-0">check_circle</span>
-                <span className="text-on-surface-variant">{b}</span>
+              <div key={b} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 flex items-center gap-4">
+                <span className="material-symbols-outlined text-cyan-300 flex-shrink-0">check_circle</span>
+                <span className="text-slate-400">{b}</span>
               </div>
             ))}
           </div>
@@ -284,18 +285,18 @@ const CustomAIPage = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 bg-surface-container-lowest">
+      <section id="how-it-works" className="py-24 bg-white/[0.02] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-headline-md text-on-surface mb-4">How It Works</h2>
-            <div className="h-1 w-20 bg-primary-container mx-auto"></div>
+            <h2 className="text-3xl font-bold text-white mb-4">How It Works</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step) => (
-              <div key={step.number} className="glass-card p-8 rounded-xl text-center">
-                <div className="text-3xl font-black text-primary-container mb-4">{step.number}</div>
-                <h3 className="text-headline-sm text-on-surface mb-3">{step.title}</h3>
-                <p className="text-on-surface-variant text-sm">{step.description}</p>
+              <div key={step.number} className="rounded-xl border border-white/10 bg-slate-900/40 p-8 text-center">
+                <div className="text-3xl font-black text-cyan-300 mb-4">{step.number}</div>
+                <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
+                <p className="text-slate-400 text-sm">{step.description}</p>
               </div>
             ))}
           </div>
@@ -303,11 +304,11 @@ const CustomAIPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-slate-900">
+      <section className="py-24 border-t border-white/5">
         <div className="max-w-3xl mx-auto px-8">
           <div className="text-center mb-10">
-            <h2 className="text-headline-xl text-on-surface mb-4">Looking for an AI solution that fits your business?</h2>
-            <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">Looking for an AI solution that fits your business?</h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
               Fill out the form below and we'll be in touch to build a custom AI solution tailored to your needs.
             </p>
           </div>

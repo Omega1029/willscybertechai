@@ -9,33 +9,33 @@ export const Dashboard: React.FC = () => {
   const { loading, planName, isActive } = useSubscription();
 
   const stats = [
-    { label: 'Total Users', value: '1,234', icon: Users, color: 'text-blue-600', bg: 'bg-blue-50' },
-    { label: 'Revenue', value: '$12,345', icon: DollarSign, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-    { label: 'Growth', value: '+12.5%', icon: TrendingUp, color: 'text-cyan-600', bg: 'bg-cyan-50' },
-    { label: 'Analytics', value: 'View Reports', icon: BarChart3, color: 'text-sky-600', bg: 'bg-sky-50' },
+    { label: 'Total Users', value: '1,234', icon: Users, color: 'text-cyan-300', bg: 'bg-cyan-400/10 border border-cyan-400/20' },
+    { label: 'Revenue', value: '$12,345', icon: DollarSign, color: 'text-emerald-400', bg: 'bg-emerald-400/10 border border-emerald-400/20' },
+    { label: 'Growth', value: '+12.5%', icon: TrendingUp, color: 'text-blue-400', bg: 'bg-blue-400/10 border border-blue-400/20' },
+    { label: 'Analytics', value: 'View Reports', icon: BarChart3, color: 'text-sky-400', bg: 'bg-sky-400/10 border border-sky-400/20' },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-cyber-dark text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
         {/* Header */}
         <div className="mb-10">
-          <h1 className="text-headline-lg text-on-surface mb-1">Dashboard</h1>
-          <p className="text-on-surface-variant">Welcome back, {user?.email}</p>
+          <h1 className="text-3xl font-bold text-white mb-1">Dashboard</h1>
+          <p className="text-slate-400">Welcome back, {user?.email}</p>
 
           {!loading && (
             <div className="mt-5">
               {isActive && planName ? (
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 text-sm font-semibold">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-400/10 border border-cyan-400/20 rounded-lg text-cyan-300 text-sm font-semibold">
                   <Crown className="w-4 h-4" />
                   Current Plan: {planName}
                 </div>
               ) : (
-                <div className="inline-flex items-center gap-3 px-5 py-3 bg-amber-50 border border-amber-200 rounded-lg">
-                  <p className="text-amber-800 text-sm">
+                <div className="inline-flex items-center gap-3 px-5 py-3 bg-amber-400/10 border border-amber-400/20 rounded-lg">
+                  <p className="text-amber-300 text-sm">
                     No active subscription.{' '}
-                    <Link to="/pricing" className="font-semibold text-amber-900 underline hover:no-underline">
+                    <Link to="/pricing" className="font-semibold text-amber-200 underline hover:no-underline">
                       View plans
                     </Link>
                   </p>
@@ -48,14 +48,14 @@ export const Dashboard: React.FC = () => {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {stats.map(({ label, value, icon: Icon, color, bg }) => (
-            <div key={label} className="bg-white border border-blue-100 rounded-xl shadow-sm p-6">
+            <div key={label} className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
               <div className="flex items-center gap-4">
                 <div className={`${bg} p-3 rounded-lg`}>
                   <Icon className={`h-6 w-6 ${color}`} />
                 </div>
                 <div>
-                  <p className="text-sm text-on-surface-variant">{label}</p>
-                  <p className="text-lg font-bold text-on-surface">{value}</p>
+                  <p className="text-sm text-slate-400">{label}</p>
+                  <p className="text-lg font-bold text-white">{value}</p>
                 </div>
               </div>
             </div>
@@ -63,23 +63,23 @@ export const Dashboard: React.FC = () => {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white border border-blue-100 rounded-xl shadow-sm">
-          <div className="px-6 py-5 border-b border-slate-100">
-            <h3 className="text-headline-sm text-on-surface">Recent Activity</h3>
+        <div className="rounded-xl border border-white/10 bg-slate-900/40">
+          <div className="px-6 py-5 border-b border-white/10">
+            <h3 className="text-xl font-semibold text-white">Recent Activity</h3>
           </div>
           <div className="p-6 space-y-5">
             {[
-              { icon: Users, bg: 'bg-blue-50', color: 'text-blue-600', label: 'New user registered', time: '2 minutes ago' },
-              { icon: DollarSign, bg: 'bg-emerald-50', color: 'text-emerald-600', label: 'Payment received', time: '5 minutes ago' },
-              { icon: TrendingUp, bg: 'bg-cyan-50', color: 'text-cyan-600', label: 'Analytics updated', time: '10 minutes ago' },
+              { icon: Users, bg: 'bg-cyan-400/10 border border-cyan-400/20', color: 'text-cyan-300', label: 'New user registered', time: '2 minutes ago' },
+              { icon: DollarSign, bg: 'bg-emerald-400/10 border border-emerald-400/20', color: 'text-emerald-400', label: 'Payment received', time: '5 minutes ago' },
+              { icon: TrendingUp, bg: 'bg-blue-400/10 border border-blue-400/20', color: 'text-blue-400', label: 'Analytics updated', time: '10 minutes ago' },
             ].map(({ icon: Icon, bg, color, label, time }) => (
               <div key={label} className="flex items-center gap-4">
                 <div className={`${bg} p-2 rounded-full`}>
                   <Icon className={`h-4 w-4 ${color}`} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-on-surface">{label}</p>
-                  <p className="text-xs text-on-surface-variant">{time}</p>
+                  <p className="text-sm font-medium text-white">{label}</p>
+                  <p className="text-xs text-slate-400">{time}</p>
                 </div>
               </div>
             ))}
