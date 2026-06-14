@@ -78,8 +78,7 @@ const SignupPage = () => {
 
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center gap-2 mb-6">
-              <span className="material-symbols-outlined text-blue-600" style={{ fontSize: '26px' }}>security_update_good</span>
-              <span className="text-xl font-bold tracking-tighter text-blue-700 uppercase">NEURAL INDEX</span>
+<span className="text-xl font-bold tracking-tighter text-blue-700 uppercase">NEURAL INDEX</span>
             </Link>
             <h1 className="text-2xl font-bold text-slate-900">Create Account</h1>
             <p className="mt-1.5 text-slate-500">Sign up to get started</p>

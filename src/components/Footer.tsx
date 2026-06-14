@@ -7,8 +7,7 @@ const Footer = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-blue-400" style={{ fontSize: '22px' }}>security_update_good</span>
-            <div className="text-lg font-black text-white">NEURAL INDEX</div>
+<div className="text-lg font-black text-white">NEURAL INDEX</div>
           </div>
           <p className="text-slate-400 font-sans text-xs uppercase tracking-widest leading-relaxed">
             The future of secure document intelligence for the modern enterprise.

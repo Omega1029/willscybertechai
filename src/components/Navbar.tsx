@@ -51,13 +51,7 @@ const Navbar = () => {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${headerClass}`}>
       <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
         <Link to="/" className="flex items-center gap-3">
-          <span
-            className={`material-symbols-outlined ${dark ? 'text-cyan-400' : 'text-blue-600'}`}
-            style={{ fontSize: '26px' }}
-          >
-            security_update_good
-          </span>
-          <span
+<span
             className={`text-xl font-bold tracking-tighter uppercase ${dark ? 'text-white' : 'text-blue-700'}`}
           >
             NEURAL INDEX
