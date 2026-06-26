@@ -1,198 +1,110 @@
 import React, { useState, useEffect } from 'react';
-import { CircuitBoard, Menu, X } from 'lucide-react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useDarkMode } from '../hooks/useDarkMode';
-
+import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isDark = useDarkMode();
-  const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (!target.closest('.services-dropdown')) {
-        setIsServicesOpen(false);
-      }
-    };
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToService = (e: React.MouseEvent, href: string) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      const navHeight = 80; // Height of the navbar
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
+  const navLinks = [
+    { label: 'Features', href: '/features' },
+    { label: 'Security', href: '/security' },
+    { label: 'Use Cases', href: '/use-cases' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Contact', href: '/contact' },
+  ];
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    setIsServicesOpen(false);
-  };
+  const isActive = (href: string) => location.pathname === href;
 
-  const handleServicesClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (location.pathname !== '/') {
-      navigate('/');
-      // Wait for navigation to complete, then scroll
-      setTimeout(() => {
-        const servicesSection = document.getElementById('services');
-        if (servicesSection) {
-          const navHeight = 80;
-          const elementPosition = servicesSection.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - navHeight;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
-    } else {
-      const servicesSection = document.getElementById('services');
-      if (servicesSection) {
-        const navHeight = 80;
-        const elementPosition = servicesSection.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navHeight;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }
-  };
+  const headerClass = scrolled
+    ? 'bg-black/95 backdrop-blur-xl border-b border-zinc-800'
+    : 'bg-black border-b border-zinc-900';
 
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      const navHeight = 80;
-      const elementPosition = contactSection.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const linkClass = (href: string) =>
+    isActive(href)
+      ? 'text-white font-semibold'
+      : 'text-zinc-400 hover:text-white';
 
   return (
-    <nav className={`fixed w-full z-50 backdrop-blur-sm border-b transition-colors duration-300 ${
-      isDark ? 'bg-gray-900/80 border-gray-700' : 'bg-white/80 border-gray-200'
-    }`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-2">
-            <CircuitBoard className="w-8 h-8 text-purple-600" />
-            <span className={`text-2xl font-bold ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}>wct</span>
-          </Link>
-          
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className={`${
-              isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-            }`}>Home</Link>
-            <Link to="/blog" className={`${
-              isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-            }`}>Blog</Link>
-            <a href="#services" onClick={handleServicesClick} className={`${
-              isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-            }`}>Services</a>
-            <Link to="/agents" className={`${
-              isDark ? 'text-purple-400 hover:text-purple-300' : 'text-purple-600 hover:text-purple-700'
-            } font-medium`}>Agents</Link>
-            <Link to="/about" className={`${
-              isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-            }`}>About</Link>
-            <Link to="/contact" className={`${
-              isDark ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-            }`}>Contact</Link>
-          </div>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${headerClass}`}>
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+        <Link to="/" className="flex items-center gap-3">
+          <span className="text-xl font-bold tracking-tighter uppercase text-white">
+            NEURAL INDEX
+          </span>
+        </Link>
 
-          <div className="flex items-center gap-4">
-            <Link 
-              to="/contact"
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold hidden sm:block"
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className={`font-sans text-sm tracking-tight transition-colors ${linkClass(link.href)}`}
             >
-              Get Started
+              {link.label}
             </Link>
-            
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg ${isDark ? 'text-white hover:bg-gray-800' : 'text-gray-900 hover:bg-gray-100'}`}
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <Link
+            to="/login"
+            className="hidden md:block px-5 py-2 text-sm font-semibold transition-colors text-zinc-400 hover:text-white"
+          >
+            Sign In
+          </Link>
+          <Link
+            to="/contact"
+            className="hidden md:block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2 rounded-lg text-sm transition-colors"
+          >
+            Book a Demo
+          </Link>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 transition-colors text-zinc-400 hover:text-white"
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-black border-t border-zinc-900">
+          <div className="px-8 py-4 space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`block py-2.5 text-sm font-sans tracking-tight transition-colors ${
+                  isActive(link.href) ? 'text-white font-semibold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              to="/contact"
+              className="block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-6 py-3 rounded-lg text-sm mt-3 transition-colors"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              Book a Demo
+            </Link>
           </div>
         </div>
-
-        {isMobileMenuOpen && (
-          <div className={`md:hidden border-t ${isDark ? 'border-gray-700 bg-gray-900' : 'border-gray-200 bg-white'}`}>
-            <div className="py-4 space-y-2">
-              <Link 
-                to="/" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
-              >
-                Home
-              </Link>
-              <Link 
-                to="/blog" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
-              >
-                Blog
-              </Link>
-              <a 
-                href="#services" 
-                onClick={(e) => { handleServicesClick(e); setIsMobileMenuOpen(false); }}
-                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
-              >
-                Services
-              </a>
-              <Link 
-                to="/agents" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-2 font-medium ${isDark ? 'text-purple-400 hover:text-purple-300 hover:bg-gray-800' : 'text-purple-600 hover:text-purple-700 hover:bg-gray-100'}`}
-              >
-                Agents
-              </Link>
-              <Link 
-                to="/about" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
-              >
-                About
-              </Link>
-              <Link 
-                to="/contact" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-2 ${isDark ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
-              >
-                Contact
-              </Link>
-              <Link 
-                to="/contact" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block mx-4 mt-4 bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold text-center sm:hidden"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
 
