@@ -109,7 +109,7 @@ const ServicesPage = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             What We Build
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Services</h1>
@@ -125,15 +125,15 @@ const ServicesPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <div key={service.title} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 flex flex-col group hover:-translate-y-1 transition-transform duration-300">
-                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-6">
-                  <span className="material-symbols-outlined text-emerald-400">{service.icon}</span>
+                <div className="bg-blue-900/30 border border-blue-700/20 p-2.5 rounded-lg inline-flex mb-6">
+                  <span className="material-symbols-outlined text-blue-400">{service.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
                 <p className="text-zinc-400 mb-6 flex-1">{service.description}</p>
                 <ul className="space-y-2 mb-8">
                   {service.examples.map((ex) => (
                     <li key={ex} className="flex items-center gap-3 text-sm text-zinc-400">
-                      <span className="material-symbols-outlined text-emerald-400" style={{ fontSize: '16px' }}>check_circle</span>
+                      <span className="material-symbols-outlined text-blue-400" style={{ fontSize: '16px' }}>check_circle</span>
                       {ex}
                     </li>
                   ))}
@@ -141,7 +141,7 @@ const ServicesPage = () => {
                 {service.link ? (
                   <Link
                     to={service.link}
-                    className="flex items-center gap-2 text-sm font-bold text-emerald-400 group-hover:gap-3 transition-all hover:text-emerald-300"
+                    className="flex items-center gap-2 text-sm font-bold text-blue-400 group-hover:gap-3 transition-all hover:text-blue-300"
                   >
                     Learn More
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_forward</span>
@@ -149,7 +149,7 @@ const ServicesPage = () => {
                 ) : (
                   <button
                     onClick={() => setServiceForm(service.formModal)}
-                    className="flex items-center gap-2 text-sm font-bold text-emerald-400 hover:gap-3 hover:text-emerald-300 transition-all w-fit"
+                    className="flex items-center gap-2 text-sm font-bold text-blue-400 hover:gap-3 hover:text-blue-300 transition-all w-fit"
                   >
                     Get Started
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_forward</span>
@@ -170,7 +170,7 @@ const ServicesPage = () => {
           </p>
           <button
             onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
           >
             Get Started
             <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>

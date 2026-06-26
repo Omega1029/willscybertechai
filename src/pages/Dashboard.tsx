@@ -9,10 +9,10 @@ export const Dashboard: React.FC = () => {
   const { loading, planName, isActive } = useSubscription();
 
   const stats = [
-    { label: 'Total Users', value: '1,234', icon: Users, color: 'text-emerald-400', bg: 'bg-emerald-900/30 border border-emerald-700/20' },
-    { label: 'Revenue', value: '$12,345', icon: DollarSign, color: 'text-emerald-400', bg: 'bg-emerald-900/30 border border-emerald-700/20' },
-    { label: 'Growth', value: '+12.5%', icon: TrendingUp, color: 'text-emerald-400', bg: 'bg-emerald-900/30 border border-emerald-700/20' },
-    { label: 'Analytics', value: 'View Reports', icon: BarChart3, color: 'text-emerald-400', bg: 'bg-emerald-900/30 border border-emerald-700/20' },
+    { label: 'Total Users', value: '1,234', icon: Users, color: 'text-blue-400', bg: 'bg-blue-900/30 border border-blue-700/20' },
+    { label: 'Revenue', value: '$12,345', icon: DollarSign, color: 'text-blue-400', bg: 'bg-blue-900/30 border border-blue-700/20' },
+    { label: 'Growth', value: '+12.5%', icon: TrendingUp, color: 'text-blue-400', bg: 'bg-blue-900/30 border border-blue-700/20' },
+    { label: 'Analytics', value: 'View Reports', icon: BarChart3, color: 'text-blue-400', bg: 'bg-blue-900/30 border border-blue-700/20' },
   ];
 
   return (
@@ -27,7 +27,7 @@ export const Dashboard: React.FC = () => {
           {!loading && (
             <div className="mt-5">
               {isActive && planName ? (
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-900/30 border border-emerald-700/20 rounded-lg text-emerald-400 text-sm font-semibold">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900/30 border border-blue-700/20 rounded-lg text-blue-400 text-sm font-semibold">
                   <Crown className="w-4 h-4" />
                   Current Plan: {planName}
                 </div>
@@ -69,9 +69,9 @@ export const Dashboard: React.FC = () => {
           </div>
           <div className="p-6 space-y-5">
             {[
-              { icon: Users, bg: 'bg-emerald-900/30 border border-emerald-700/20', color: 'text-emerald-400', label: 'New user registered', time: '2 minutes ago' },
-              { icon: DollarSign, bg: 'bg-emerald-900/30 border border-emerald-700/20', color: 'text-emerald-400', label: 'Payment received', time: '5 minutes ago' },
-              { icon: TrendingUp, bg: 'bg-emerald-900/30 border border-emerald-700/20', color: 'text-emerald-400', label: 'Analytics updated', time: '10 minutes ago' },
+              { icon: Users, bg: 'bg-blue-900/30 border border-blue-700/20', color: 'text-blue-400', label: 'New user registered', time: '2 minutes ago' },
+              { icon: DollarSign, bg: 'bg-blue-900/30 border border-blue-700/20', color: 'text-blue-400', label: 'Payment received', time: '5 minutes ago' },
+              { icon: TrendingUp, bg: 'bg-blue-900/30 border border-blue-700/20', color: 'text-blue-400', label: 'Analytics updated', time: '10 minutes ago' },
             ].map(({ icon: Icon, bg, color, label, time }) => (
               <div key={label} className="flex items-center gap-4">
                 <div className={`${bg} p-2 rounded-full`}>

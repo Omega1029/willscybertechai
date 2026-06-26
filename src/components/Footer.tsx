@@ -18,10 +18,10 @@ const Footer = () => {
           <div>
             <h5 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Product</h5>
             <ul className="flex flex-col gap-3">
-              <li><Link to="/features" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Features</Link></li>
-              <li><Link to="/security" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Security</Link></li>
-              <li><Link to="/pricing" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Pricing</Link></li>
-              <li><Link to="/use-cases" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Use Cases</Link></li>
+              <li><Link to="/features" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Features</Link></li>
+              <li><Link to="/security" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Security</Link></li>
+              <li><Link to="/pricing" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Pricing</Link></li>
+              <li><Link to="/use-cases" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Use Cases</Link></li>
             </ul>
           </div>
 
@@ -29,9 +29,9 @@ const Footer = () => {
           <div>
             <h5 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Company</h5>
             <ul className="flex flex-col gap-3">
-              <li><Link to="/features" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Local AI Details</Link></li>
-              <li><Link to="/contact" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Contact</Link></li>
-              <li><a href="mailto:willscybertech@gmail.com" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">willscybertech@gmail.com</a></li>
+              <li><Link to="/features" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Local AI Details</Link></li>
+              <li><Link to="/contact" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Contact</Link></li>
+              <li><a href="mailto:willscybertech@gmail.com" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">willscybertech@gmail.com</a></li>
             </ul>
           </div>
 
@@ -39,8 +39,8 @@ const Footer = () => {
           <div>
             <h5 className="text-white font-bold mb-5 uppercase text-xs tracking-widest">Legal</h5>
             <ul className="flex flex-col gap-3">
-              <li><Link to="/privacy" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Terms of Service</Link></li>
+              <li><Link to="/privacy" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-sm text-zinc-400 hover:text-blue-400 transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>

@@ -29,7 +29,7 @@ export const Success: React.FC = () => {
     <div className="min-h-screen bg-[#0a0a0a] text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <CheckCircle className="mx-auto h-16 w-16 text-emerald-400" />
+          <CheckCircle className="mx-auto h-16 w-16 text-blue-400" />
           <h2 className="mt-6 text-3xl font-extrabold text-white">
             Payment Successful!
           </h2>
@@ -42,15 +42,15 @@ export const Success: React.FC = () => {
           <h3 className="text-lg font-semibold text-white mb-4">What's Next?</h3>
           <ul className="space-y-3 text-sm text-zinc-400">
             <li className="flex items-start">
-              <span className="flex-shrink-0 h-5 w-5 text-emerald-400 mt-0.5">✓</span>
+              <span className="flex-shrink-0 h-5 w-5 text-blue-400 mt-0.5">✓</span>
               <span className="ml-2">You'll receive a confirmation email shortly</span>
             </li>
             <li className="flex items-start">
-              <span className="flex-shrink-0 h-5 w-5 text-emerald-400 mt-0.5">✓</span>
+              <span className="flex-shrink-0 h-5 w-5 text-blue-400 mt-0.5">✓</span>
               <span className="ml-2">Our team will contact you within 24 hours to schedule your consultation</span>
             </li>
             <li className="flex items-start">
-              <span className="flex-shrink-0 h-5 w-5 text-emerald-400 mt-0.5">✓</span>
+              <span className="flex-shrink-0 h-5 w-5 text-blue-400 mt-0.5">✓</span>
               <span className="ml-2">You can view your purchase history in your account</span>
             </li>
           </ul>
@@ -67,7 +67,7 @@ export const Success: React.FC = () => {
         <div className="flex flex-col space-y-3">
           <Link
             to="/dashboard"
-            className="w-full flex justify-center items-center px-4 py-3 rounded-xl text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-black transition-colors"
+            className="w-full flex justify-center items-center px-4 py-3 rounded-xl text-sm font-semibold bg-blue-500 hover:bg-blue-400 text-black transition-colors"
           >
             Go to Dashboard
             <ArrowRight className="ml-2 h-4 w-4" />

@@ -66,7 +66,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/contact"
-            className="hidden md:block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2 rounded-lg text-sm transition-colors"
+            className="hidden md:block bg-blue-500 hover:bg-blue-400 text-black font-semibold px-5 py-2 rounded-lg text-sm transition-colors"
           >
             Book a Demo
           </Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
             ))}
             <Link
               to="/contact"
-              className="block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-6 py-3 rounded-lg text-sm mt-3 transition-colors"
+              className="block w-full text-center bg-blue-500 hover:bg-blue-400 text-black font-semibold px-6 py-3 rounded-lg text-sm mt-3 transition-colors"
             >
               Book a Demo
             </Link>

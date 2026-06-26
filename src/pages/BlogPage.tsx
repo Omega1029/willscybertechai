@@ -68,7 +68,7 @@ const BlogPage = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Insights &amp; Research
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Blog</h1>
@@ -93,7 +93,7 @@ const BlogPage = () => {
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-emerald-400 bg-emerald-900/30 border border-emerald-700/20 rounded-full">
+                    <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-blue-400 bg-blue-900/30 border border-blue-700/20 rounded-full">
                       {post.tag}
                     </span>
                     <span className="text-xs text-zinc-400 uppercase tracking-widest">{post.readTime}</span>
@@ -110,7 +110,7 @@ const BlogPage = () => {
                     </div>
                     <Link
                       to={`/blog/${post.id}`}
-                      className="flex items-center gap-1 text-sm font-bold text-emerald-400 hover:gap-2 hover:text-emerald-300 transition-all"
+                      className="flex items-center gap-1 text-sm font-bold text-blue-400 hover:gap-2 hover:text-blue-300 transition-all"
                     >
                       Read More
                       <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_forward</span>
@@ -135,7 +135,7 @@ const BlogPage = () => {
             <div className={`mb-6 p-4 rounded-lg text-sm ${
               message.type === 'error'
                 ? 'bg-red-900/30 text-red-300 border border-red-500/30'
-                : 'bg-emerald-900/30 text-emerald-400 border border-emerald-700/20'
+                : 'bg-blue-900/30 text-blue-400 border border-blue-700/20'
             }`}>
               {message.text}
             </div>
@@ -148,12 +148,12 @@ const BlogPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="ENTER YOUR EMAIL"
               required
-              className="flex-1 bg-zinc-900 border border-zinc-800 text-xs font-sans p-4 text-slate-100 placeholder-zinc-500 focus:outline-none focus:border-emerald-500/50 transition-colors"
+              className="flex-1 bg-zinc-900 border border-zinc-800 text-xs font-sans p-4 text-slate-100 placeholder-zinc-500 focus:outline-none focus:border-blue-500/50 transition-colors"
             />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 font-bold text-xs uppercase tracking-widest disabled:opacity-50 flex items-center gap-2 transition-colors"
+              className="bg-blue-500 hover:bg-blue-400 text-black px-6 font-bold text-xs uppercase tracking-widest disabled:opacity-50 flex items-center gap-2 transition-colors"
             >
               {isSubmitting ? (
                 <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />

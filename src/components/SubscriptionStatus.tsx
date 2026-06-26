@@ -27,7 +27,7 @@ export const SubscriptionStatus: React.FC = () => {
   }
 
   return (
-    <div className="flex items-center space-x-2 bg-emerald-900/30 border border-emerald-700/20 text-emerald-400 px-3 py-1 rounded-full">
+    <div className="flex items-center space-x-2 bg-blue-900/30 border border-blue-700/20 text-blue-400 px-3 py-1 rounded-full">
       <Crown className="w-4 h-4" />
       <span className="text-sm font-medium">{product.name}</span>
     </div>

@@ -48,7 +48,7 @@ const LoginPage = () => {
             <div className={`mb-6 p-4 rounded-lg text-sm ${
               message.type === 'error'
                 ? 'bg-red-900/30 text-red-300 border border-red-500/30'
-                : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
+                : 'bg-blue-500/10 text-blue-400 border border-blue-500/30'
             }`}>
               {message.text}
             </div>
@@ -67,7 +67,7 @@ const LoginPage = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-zinc-700 rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors"
+                  className="w-full pl-10 pr-4 py-3 border border-zinc-700 rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
                   placeholder="Enter your email"
                 />
               </div>
@@ -85,7 +85,7 @@ const LoginPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full pl-10 pr-12 py-3 border border-zinc-700 rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors"
+                  className="w-full pl-10 pr-12 py-3 border border-zinc-700 rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
                   placeholder="Enter your password"
                 />
                 <button
@@ -101,7 +101,7 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60"
+              className="w-full bg-blue-500 hover:bg-blue-400 text-black font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
@@ -114,7 +114,7 @@ const LoginPage = () => {
           <div className="mt-6 text-center">
             <p className="text-zinc-400 text-sm">
               Don't have an account?{' '}
-              <Link to="/signup" className="text-emerald-400 hover:text-emerald-300 font-semibold">
+              <Link to="/signup" className="text-blue-400 hover:text-blue-300 font-semibold">
                 Sign up
               </Link>
             </p>

@@ -91,7 +91,7 @@ const CustomAIPage = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Security
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto">
@@ -103,7 +103,7 @@ const CustomAIPage = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-10 rounded-xl inline-flex items-center gap-2 transition-colors"
+              className="bg-blue-500 hover:bg-blue-400 text-black font-semibold py-4 px-10 rounded-xl inline-flex items-center gap-2 transition-colors"
             >
               Book a Demo <ArrowRight className="w-5 h-5" />
             </Link>
@@ -121,7 +121,7 @@ const CustomAIPage = () => {
       <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Core Protections</span>
+            <span className="text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase">Core Protections</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
               Your Data Never Leaves
             </h2>
@@ -135,8 +135,8 @@ const CustomAIPage = () => {
                 key={title}
                 className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 flex items-start gap-5"
               >
-                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex shrink-0 mt-1">
-                  <Icon className="w-6 h-6 text-emerald-400" />
+                <div className="bg-blue-900/30 border border-blue-700/20 p-2.5 rounded-lg inline-flex shrink-0 mt-1">
+                  <Icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
@@ -152,7 +152,7 @@ const CustomAIPage = () => {
       <section className="py-24 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Access Control</span>
+            <span className="text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase">Access Control</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
               Everyone Has Access, Nobody Has Too Much
             </h2>
@@ -166,8 +166,8 @@ const CustomAIPage = () => {
                 key={title}
                 className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 flex items-start gap-5"
               >
-                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex shrink-0 mt-1">
-                  <Icon className="w-6 h-6 text-emerald-400" />
+                <div className="bg-blue-900/30 border border-blue-700/20 p-2.5 rounded-lg inline-flex shrink-0 mt-1">
+                  <Icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
@@ -183,7 +183,7 @@ const CustomAIPage = () => {
       <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Compliance</span>
+            <span className="text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase">Compliance</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
               Built for Financial Compliance
             </h2>
@@ -197,8 +197,8 @@ const CustomAIPage = () => {
                 key={title}
                 className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 flex items-start gap-5"
               >
-                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex shrink-0 mt-1">
-                  <Icon className="w-6 h-6 text-emerald-400" />
+                <div className="bg-blue-900/30 border border-blue-700/20 p-2.5 rounded-lg inline-flex shrink-0 mt-1">
+                  <Icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
@@ -221,7 +221,7 @@ const CustomAIPage = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
           >
             Book a Demo <ArrowRight className="w-5 h-5" />
           </Link>

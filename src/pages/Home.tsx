@@ -134,12 +134,12 @@ export const Home: React.FC = () => {
       <section className="relative">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-7">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-7">
               <Sparkles className="w-3.5 h-3.5" /> Self-Hosted &middot; Private AI for Finance
             </span>
             <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
               Let your team chat with your financial documents.{' '}
-              <span className="text-emerald-400">Privately.</span>
+              <span className="text-blue-400">Privately.</span>
             </h1>
             <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-xl">
               Neural Index turns your firm's financial documents into a secure AI assistant
@@ -149,7 +149,7 @@ export const Home: React.FC = () => {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-8 rounded-xl inline-flex items-center gap-2 transition-colors"
+                className="bg-blue-500 hover:bg-blue-400 text-black font-semibold py-4 px-8 rounded-xl inline-flex items-center gap-2 transition-colors"
               >
                 Book a Demo <ArrowRight className="w-5 h-5" />
               </Link>
@@ -163,10 +163,10 @@ export const Home: React.FC = () => {
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-10 text-sm text-zinc-400">
               <span className="inline-flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" /> SOX &amp; GAAP Ready
+                <CheckCircle2 className="w-4 h-4 text-blue-400" /> SOX &amp; GAAP Ready
               </span>
               <span className="inline-flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Client data stays on-prem
+                <CheckCircle2 className="w-4 h-4 text-blue-400" /> Client data stays on-prem
               </span>
             </div>
           </div>
@@ -178,26 +178,26 @@ export const Home: React.FC = () => {
                 <div>
                   <p className="text-sm font-semibold text-white">Financial Document Assistant</p>
                   <p className="text-xs text-zinc-400 flex items-center gap-1.5">
-                    <Server className="w-3 h-3 text-emerald-400" /> Running on-prem &middot; offline
+                    <Server className="w-3 h-3 text-blue-400" /> Running on-prem &middot; offline
                   </p>
                 </div>
                 <div className="flex gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-blue-400/80" />
                 </div>
               </div>
 
               <div className="flex items-center gap-2 rounded-lg bg-zinc-950 border border-zinc-800 px-3 py-2.5 mb-4">
-                <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+                <MessageSquare className="w-4 h-4 text-blue-400 shrink-0" />
                 <span className="text-sm text-zinc-300">What were Q3 revenue variances vs budget?</span>
               </div>
 
-              <div className="rounded-lg bg-emerald-900/20 border border-emerald-700/20 p-4 mb-4">
+              <div className="rounded-lg bg-blue-900/20 border border-blue-700/20 p-4 mb-4">
                 <p className="text-sm text-zinc-200 leading-relaxed">
                   Q3 revenue was{' '}
-                  <span className="text-emerald-400 font-semibold">$4.2M</span>, unfavorable
-                  to budget by <span className="text-emerald-400 font-semibold">$318K (7%)</span>.
+                  <span className="text-blue-400 font-semibold">$4.2M</span>, unfavorable
+                  to budget by <span className="text-blue-400 font-semibold">$318K (7%)</span>.
                   Primary driver was a shortfall in advisory fees, partially offset by stronger
                   tax service revenue.
                 </p>
@@ -246,7 +246,7 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <p className="text-4xl font-bold text-emerald-400 mb-1">{s.value}</p>
+              <p className="text-4xl font-bold text-blue-400 mb-1">{s.value}</p>
               <p className="text-sm text-zinc-400">{s.label}</p>
             </div>
           ))}
@@ -257,10 +257,10 @@ export const Home: React.FC = () => {
       <section className="py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Why Neural Index</span>
+            <span className="text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase">Why Neural Index</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3 mb-4">
               Private AI for your{' '}
-              <span className="text-emerald-400">financial documents</span>
+              <span className="text-blue-400">financial documents</span>
             </h2>
             <p className="text-zinc-400 text-lg">
               A document assistant your accounting team can trust — running entirely on your own terms.
@@ -273,8 +273,8 @@ export const Home: React.FC = () => {
                 key={title}
                 className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 group hover:-translate-y-1 transition-transform duration-300"
               >
-                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-5">
-                  <Icon className="w-6 h-6 text-emerald-400" />
+                <div className="bg-blue-900/30 border border-blue-700/20 p-2.5 rounded-lg inline-flex mb-5">
+                  <Icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
                 <p className="text-zinc-400 leading-relaxed">{body}</p>
@@ -288,7 +288,7 @@ export const Home: React.FC = () => {
       <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">How it works</span>
+            <span className="text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase">How it works</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3">
               Live in three steps
             </h2>
@@ -297,9 +297,9 @@ export const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {steps.map(({ icon: Icon, title, body }, i) => (
               <div key={title} className="relative text-center px-4">
-                <div className="mx-auto mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 text-emerald-400 relative">
+                <div className="mx-auto mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 text-blue-400 relative">
                   <Icon className="w-7 h-7" />
-                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-emerald-500 text-black text-xs font-bold flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-blue-500 text-black text-xs font-bold flex items-center justify-center">
                     {i + 1}
                   </span>
                 </div>
@@ -315,7 +315,7 @@ export const Home: React.FC = () => {
       <section className="py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Customer stories</span>
+            <span className="text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase">Customer stories</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3">
               Trusted by firms that keep client data in-house
             </h2>
@@ -332,7 +332,7 @@ export const Home: React.FC = () => {
       <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-14">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Beyond document chat</span>
+            <span className="text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase">Beyond document chat</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3 mb-4">
               Other services
             </h2>
@@ -345,9 +345,9 @@ export const Home: React.FC = () => {
             {otherServices.map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 hover:border-emerald-500/30 transition-colors"
+                className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 hover:border-blue-500/30 transition-colors"
               >
-                <Icon className="w-7 h-7 text-emerald-400 mb-4" />
+                <Icon className="w-7 h-7 text-blue-400 mb-4" />
                 <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">{body}</p>
               </div>
@@ -357,7 +357,7 @@ export const Home: React.FC = () => {
           <div className="text-center mt-12">
             <Link
               to="/features"
-              className="inline-flex items-center gap-2 text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
+              className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-blue-300 transition-colors"
             >
               Explore all features <ArrowRight className="w-4 h-4" />
             </Link>
@@ -372,7 +372,7 @@ export const Home: React.FC = () => {
             <div className="relative">
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
                 Put your financial documents to work —{' '}
-                <span className="text-emerald-400">without giving them away</span>
+                <span className="text-blue-400">without giving them away</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-xl mx-auto mb-10">
                 Give your team a private AI assistant for your financial documents,
@@ -381,7 +381,7 @@ export const Home: React.FC = () => {
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   to="/contact"
-                  className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-8 rounded-xl inline-flex items-center gap-2 transition-colors"
+                  className="bg-blue-500 hover:bg-blue-400 text-black font-semibold py-4 px-8 rounded-xl inline-flex items-center gap-2 transition-colors"
                 >
                   Book a Demo <ArrowRight className="w-5 h-5" />
                 </Link>

@@ -150,7 +150,7 @@ const BlogPostPage = () => {
         <Navbar />
         <div className="pt-40 pb-20 px-8 text-center">
           <h1 className="text-3xl font-bold text-white mb-4">Post Not Found</h1>
-          <Link to="/blog" className="text-emerald-400 hover:text-emerald-300 transition-colors">
+          <Link to="/blog" className="text-blue-400 hover:text-blue-300 transition-colors">
             Back to Blog
           </Link>
         </div>
@@ -168,7 +168,7 @@ const BlogPostPage = () => {
           {/* Back Link */}
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-emerald-400 transition-colors mb-10"
+            className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-blue-400 transition-colors mb-10"
           >
             <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_back</span>
             Back to Blog
@@ -185,7 +185,7 @@ const BlogPostPage = () => {
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-emerald-400 bg-emerald-900/30 border border-emerald-700/20 rounded-full">
+            <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-blue-400 bg-blue-900/30 border border-blue-700/20 rounded-full">
               {post.tag}
             </span>
             <span className="text-xs text-zinc-400 uppercase tracking-widest">{post.readTime}</span>
@@ -215,7 +215,7 @@ const BlogPostPage = () => {
           <div className="mt-16 pt-10 border-t border-zinc-800">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:gap-3 hover:text-emerald-300 transition-all"
+              className="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:gap-3 hover:text-blue-300 transition-all"
             >
               <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_back</span>
               Back to Blog

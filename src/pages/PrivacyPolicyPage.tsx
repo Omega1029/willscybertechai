@@ -6,7 +6,7 @@ const PrivacyPolicyPage = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-16 pb-20 border-b border-zinc-900">
         <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Legal
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Privacy Policy</h1>
@@ -88,7 +88,7 @@ const PrivacyPolicyPage = () => {
               <h2 className="text-xl font-semibold text-white mb-4">8. Your Rights</h2>
               <p className="text-zinc-400 leading-relaxed">
                 You have the right to access, correct, export, or delete the personal data we hold about you at any time. To exercise any of these rights, contact us at{' '}
-                <a href="mailto:willscybertech@gmail.com" className="text-emerald-400 hover:underline font-medium">
+                <a href="mailto:willscybertech@gmail.com" className="text-blue-400 hover:underline font-medium">
                   willscybertech@gmail.com
                 </a>
                 . We will respond to all verifiable requests within 30 days. If you are located in the European Economic Area or the United Kingdom, you may also have the right to lodge a complaint with your local data protection authority (DPA). California residents may exercise rights under the CCPA including the right to know, delete, and opt out of sale (we do not sell personal data).
@@ -110,7 +110,7 @@ const PrivacyPolicyPage = () => {
               <h2 className="text-xl font-semibold text-white mb-4">10. Contact Us</h2>
               <p className="text-zinc-400 leading-relaxed">
                 If you have questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please contact us at{' '}
-                <a href="mailto:willscybertech@gmail.com" className="text-emerald-400 hover:underline font-medium">
+                <a href="mailto:willscybertech@gmail.com" className="text-blue-400 hover:underline font-medium">
                   willscybertech@gmail.com
                 </a>
                 . Neural Index is operated by Wills Cyber Tech. We are committed to resolving privacy concerns promptly and transparently.

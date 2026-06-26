@@ -33,7 +33,7 @@ const SignupPage = () => {
   const strength = ruleResults.filter(Boolean).length;
 
   const strengthLabel = ['', 'Weak', 'Fair', 'Good', 'Strong'][strength];
-  const strengthColor = ['', 'bg-red-400', 'bg-amber-400', 'bg-blue-400', 'bg-emerald-500'][strength];
+  const strengthColor = ['', 'bg-red-400', 'bg-amber-400', 'bg-blue-400', 'bg-blue-500'][strength];
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,7 +88,7 @@ const SignupPage = () => {
             <div className={`mb-6 p-4 rounded-lg text-sm ${
               message.type === 'error'
                 ? 'bg-red-900/30 text-red-300 border border-red-500/30'
-                : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
+                : 'bg-blue-500/10 text-blue-400 border border-blue-500/30'
             }`}>
               {message.text}
             </div>
@@ -108,7 +108,7 @@ const SignupPage = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-zinc-700 rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors"
+                  className="w-full pl-10 pr-4 py-3 border border-zinc-700 rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors"
                   placeholder="Enter your email"
                 />
               </div>
@@ -127,7 +127,7 @@ const SignupPage = () => {
                   value={password}
                   onChange={(e) => { setPassword(e.target.value); setPasswordTouched(true); }}
                   required
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors ${
+                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors ${
                     passwordTouched && !allRulesPassed ? 'border-red-500/50' : 'border-zinc-700'
                   }`}
                   placeholder="Create a password"
@@ -164,11 +164,11 @@ const SignupPage = () => {
                   {PASSWORD_RULES.map((rule, i) => (
                     <li key={rule.label} className="flex items-center gap-2 text-xs">
                       {ruleResults[i] ? (
-                        <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <Check className="w-3.5 h-3.5 text-blue-400 shrink-0" />
                       ) : (
                         <X className="w-3.5 h-3.5 text-red-400 shrink-0" />
                       )}
-                      <span className={ruleResults[i] ? 'text-emerald-400' : 'text-zinc-500'}>
+                      <span className={ruleResults[i] ? 'text-blue-400' : 'text-zinc-500'}>
                         {rule.label}
                       </span>
                     </li>
@@ -190,9 +190,9 @@ const SignupPage = () => {
                   value={confirmPassword}
                   onChange={(e) => { setConfirmPassword(e.target.value); setConfirmTouched(true); }}
                   required
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors ${
+                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors ${
                     confirmTouched && confirmPassword.length > 0
-                      ? passwordsMatch ? 'border-emerald-400/50' : 'border-red-500/50'
+                      ? passwordsMatch ? 'border-blue-400/50' : 'border-red-500/50'
                       : 'border-zinc-700'
                   }`}
                   placeholder="Confirm your password"
@@ -206,7 +206,7 @@ const SignupPage = () => {
                 </button>
               </div>
               {confirmTouched && confirmPassword.length > 0 && (
-                <p className={`mt-1.5 text-xs flex items-center gap-1.5 ${passwordsMatch ? 'text-emerald-400' : 'text-red-400'}`}>
+                <p className={`mt-1.5 text-xs flex items-center gap-1.5 ${passwordsMatch ? 'text-blue-400' : 'text-red-400'}`}>
                   {passwordsMatch
                     ? <><Check className="w-3.5 h-3.5" /> Passwords match</>
                     : <><X className="w-3.5 h-3.5" /> Passwords do not match</>
@@ -218,7 +218,7 @@ const SignupPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60"
+              className="w-full bg-blue-500 hover:bg-blue-400 text-black font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
@@ -231,7 +231,7 @@ const SignupPage = () => {
           <div className="mt-6 text-center">
             <p className="text-zinc-400 text-sm">
               Already have an account?{' '}
-              <Link to="/login" className="text-emerald-400 hover:text-emerald-300 font-semibold">
+              <Link to="/login" className="text-blue-400 hover:text-blue-300 font-semibold">
                 Sign in
               </Link>
             </p>

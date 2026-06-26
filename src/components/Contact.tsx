@@ -10,7 +10,7 @@ const Contact = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Reach Out
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>

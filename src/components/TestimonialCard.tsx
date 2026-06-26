@@ -15,7 +15,7 @@ const TestimonialCard = ({ quote, author, position, isDark }: TestimonialCardPro
         ? 'bg-zinc-900 border-zinc-800'
         : 'bg-white border-gray-100 shadow-sm'
     }`}>
-      <Quote className={`mb-4 ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`} size={32} />
+      <Quote className={`mb-4 ${isDark ? 'text-blue-400' : 'text-blue-500'}`} size={32} />
       <p className={`${isDark ? 'text-zinc-300' : 'text-gray-700'} mb-6 text-lg`}>{quote}</p>
       <div>
         <h4 className={`font-semibold text-lg ${

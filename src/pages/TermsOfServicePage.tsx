@@ -6,7 +6,7 @@ const TermsOfServicePage = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-16 pb-20 border-b border-zinc-900">
         <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Legal
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Terms of Service</h1>
@@ -77,7 +77,7 @@ const TermsOfServicePage = () => {
               <h2 className="text-xl font-semibold text-white mb-4">7. Data and Privacy</h2>
               <p className="text-zinc-400 leading-relaxed">
                 Your use of the Service is also governed by our{' '}
-                <a href="/privacy" className="text-emerald-400 hover:underline font-medium">Privacy Policy</a>
+                <a href="/privacy" className="text-blue-400 hover:underline font-medium">Privacy Policy</a>
                 , which is incorporated into these Terms by reference. For on-premise deployments, your documents and outputs remain entirely within your designated infrastructure. Neural Index personnel do not access your document data except as necessary to resolve a specific support request you have initiated, and with your explicit consent.
               </p>
             </div>
@@ -124,7 +124,7 @@ const TermsOfServicePage = () => {
               <h2 className="text-xl font-semibold text-white mb-4">12. Contact</h2>
               <p className="text-zinc-400 leading-relaxed">
                 For questions about these Terms, please contact us at{' '}
-                <a href="mailto:willscybertech@gmail.com" className="text-emerald-400 hover:underline font-medium">
+                <a href="mailto:willscybertech@gmail.com" className="text-blue-400 hover:underline font-medium">
                   willscybertech@gmail.com
                 </a>
                 . Neural Index is operated by Wills Cyber Tech.

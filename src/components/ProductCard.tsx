@@ -63,7 +63,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-emerald-500/30 transition-all p-6 flex flex-col">
+    <div className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-blue-500/30 transition-all p-6 flex flex-col">
       <h3 className="text-xl font-semibold text-white mb-2">{product.name}</h3>
       <p className="text-zinc-400 text-sm mb-6 flex-1">{product.description}</p>
 
@@ -88,7 +88,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <button
         onClick={handleCheckout}
         disabled={loading}
-        className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full bg-blue-500 hover:bg-blue-400 text-black font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {loading ? (
           <>

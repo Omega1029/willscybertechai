@@ -133,7 +133,7 @@ const UseCasesPage = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Use Cases
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto">
@@ -159,13 +159,13 @@ const UseCasesPage = () => {
                   className="w-full flex items-center justify-between px-8 py-6 text-left group hover:bg-zinc-800/50 transition-colors"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex shrink-0">
-                      <Icon className="w-5 h-5 text-emerald-400" />
+                    <div className="bg-blue-900/30 border border-blue-700/20 p-2.5 rounded-lg inline-flex shrink-0">
+                      <Icon className="w-5 h-5 text-blue-400" />
                     </div>
                     <span className="text-lg font-semibold text-white">{title}</span>
                   </div>
                   {openIndex === i ? (
-                    <ChevronUp className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <ChevronUp className="w-5 h-5 text-blue-400 shrink-0" />
                   ) : (
                     <ChevronDown className="w-5 h-5 text-zinc-400 shrink-0 group-hover:text-zinc-200 transition-colors" />
                   )}
@@ -176,7 +176,7 @@ const UseCasesPage = () => {
                     <ul className="mt-6 space-y-3">
                       {bullets.map((bullet) => (
                         <li key={bullet} className="flex items-start gap-3">
-                          <ArrowRight className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                          <ArrowRight className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                           <span className="text-zinc-400">{bullet}</span>
                         </li>
                       ))}
@@ -198,7 +198,7 @@ const UseCasesPage = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
           >
             Book a Demo <ArrowRight className="w-5 h-5" />
           </Link>
