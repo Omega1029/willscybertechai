@@ -91,28 +91,28 @@ const CustomAIPage = () => {
     const modal = document.createElement('div');
     modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-sm overflow-y-auto py-8';
     modal.innerHTML = `
-      <div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-lg mx-4 text-center shadow-2xl w-full">
-        <span class="material-symbols-outlined text-purple-500 mb-4 block" style="font-size:48px">receipt_long</span>
+      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 max-w-lg mx-4 text-center shadow-2xl w-full">
+        <span class="material-symbols-outlined text-emerald-400 mb-4 block" style="font-size:48px">receipt_long</span>
         <h3 class="text-2xl font-bold text-white mb-2">Receipt Processing Demo</h3>
-        <p class="text-slate-400 mb-6">Upload a receipt image to see our AI extract structured data</p>
+        <p class="text-zinc-400 mb-6">Upload a receipt image to see our AI extract structured data</p>
         <div class="mb-6">
           <input type="file" id="receiptUpload" accept="image/*" class="hidden"/>
-          <label for="receiptUpload" class="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-400 text-slate-950 px-6 py-3 rounded-lg font-bold cursor-pointer transition-colors">
+          <label for="receiptUpload" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black px-6 py-3 rounded-lg font-bold cursor-pointer transition-colors">
             <span class="material-symbols-outlined" style="font-size:20px">upload</span>
             Upload Receipt
           </label>
         </div>
-        <div id="processingStatus" class="hidden mb-4 bg-purple-500/10 border border-purple-500/20 rounded-lg p-3">
-          <div class="text-purple-400 font-bold">Processing...</div>
-          <div class="text-purple-300 text-sm">Extracting data from your receipt</div>
+        <div id="processingStatus" class="hidden mb-4 bg-emerald-900/30 border border-emerald-700/20 rounded-lg p-3">
+          <div class="text-emerald-400 font-bold">Processing...</div>
+          <div class="text-emerald-400/70 text-sm">Extracting data from your receipt</div>
         </div>
         <div id="errorStatus" class="hidden mb-4 bg-red-900/30 border border-red-500/30 rounded-lg p-3">
           <div class="text-red-400 font-bold">Error</div>
           <div class="text-red-500 text-sm" id="errorMessage">Something went wrong</div>
         </div>
         <div id="results" class="hidden mb-6 text-left"></div>
-        <div class="text-xs text-slate-500 mb-4">Upload any receipt image (PNG, JPG, etc.) to see the AI in action</div>
-        <button onclick="this.closest('.fixed').remove()" class="bg-slate-700 hover:bg-slate-600 text-white px-6 py-2 rounded-lg font-bold transition-colors">Close</button>
+        <div class="text-xs text-zinc-500 mb-4">Upload any receipt image (PNG, JPG, etc.) to see the AI in action</div>
+        <button onclick="this.closest('.fixed').remove()" class="bg-zinc-700 hover:bg-zinc-600 text-white px-6 py-2 rounded-lg font-bold transition-colors">Close</button>
       </div>
     `;
     document.body.appendChild(modal);
@@ -137,16 +137,16 @@ const CustomAIPage = () => {
         const result = await processReceiptWithOpenAI(publicUrl);
         const formatAmount = (a: string | null) => !a ? 'N/A' : (a.startsWith('$') ? a : `$${a}`);
         results.innerHTML = `
-          <div class="bg-slate-800 border border-slate-700 rounded-xl p-4">
-            <div class="text-center border-b border-slate-700 pb-3 mb-4">
+          <div class="bg-zinc-800 border border-zinc-700 rounded-xl p-4">
+            <div class="text-center border-b border-zinc-700 pb-3 mb-4">
               <div class="text-lg font-bold text-white">${result.merchant_name || 'Unknown Merchant'}</div>
-              <div class="text-sm text-slate-400">${result.date || 'Date not detected'}</div>
-              ${result.business_category ? `<span class="inline-block mt-1 px-2 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full border border-purple-500/20">${result.business_category}</span>` : ''}
+              <div class="text-sm text-zinc-400">${result.date || 'Date not detected'}</div>
+              ${result.business_category ? `<span class="inline-block mt-1 px-2 py-1 bg-emerald-900/30 text-emerald-400 text-xs rounded-full border border-emerald-700/20">${result.business_category}</span>` : ''}
             </div>
-            ${result.line_items?.length ? `<div class="mb-4 space-y-2">${result.line_items.map((item: any) => `<div class="flex justify-between text-sm py-2 px-3 bg-slate-900 rounded border-l-2 border-purple-500"><span class="text-slate-300">${item.description || 'Item'}</span><span class="font-bold text-white">${formatAmount(item.amount)}</span></div>`).join('')}</div>` : ''}
-            <div class="border-t border-slate-700 pt-3 flex justify-between text-lg font-bold">
-              <span class="text-slate-300">Total</span>
-              <span class="text-purple-400">${formatAmount(result.total_amount)}</span>
+            ${result.line_items?.length ? `<div class="mb-4 space-y-2">${result.line_items.map((item: any) => `<div class="flex justify-between text-sm py-2 px-3 bg-zinc-900 rounded border-l-2 border-emerald-500"><span class="text-zinc-300">${item.description || 'Item'}</span><span class="font-bold text-white">${formatAmount(item.amount)}</span></div>`).join('')}</div>` : ''}
+            <div class="border-t border-zinc-700 pt-3 flex justify-between text-lg font-bold">
+              <span class="text-zinc-300">Total</span>
+              <span class="text-emerald-400">${formatAmount(result.total_amount)}</span>
             </div>
           </div>
         `;
@@ -164,30 +164,29 @@ const CustomAIPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-slate-100 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-100 font-sans">
       {showModal && <GetStartedModal onClose={() => setShowModal(false)} />}
       <Navbar />
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
-        <div className="absolute inset-0 cyber-grid" aria-hidden="true" />
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-cyan-300 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Custom AI
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto">
             Custom AI Solutions Built for Your Business
           </h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto mb-10">
             We design custom AI solutions tailored to your workflows, data, and goals — without forcing you into one-size-fits-all software.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => setShowModal(true)} className="btn-cyber font-semibold py-4 px-10 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 transition-transform">
+            <button onClick={() => setShowModal(true)} className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-10 rounded-xl inline-flex items-center gap-2 transition-colors">
               Get Started
               <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>
             </button>
             <a href="#how-it-works" onClick={(e) => { e.preventDefault(); document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="border border-white/15 text-slate-100 font-semibold py-4 px-10 rounded-xl hover:bg-white/5 transition-all">
+              className="border border-zinc-700 text-zinc-100 font-semibold py-4 px-10 rounded-xl hover:bg-zinc-800 transition-all">
               Learn More
             </a>
           </div>
@@ -195,33 +194,33 @@ const CustomAIPage = () => {
       </section>
 
       {/* Why Custom AI */}
-      <section className="py-24 bg-white/[0.02] border-t border-white/5">
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Why Custom AI</h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-8"></div>
-          <p className="text-lg text-slate-400">
+          <div className="h-1 w-20 bg-emerald-500 mx-auto mb-8"></div>
+          <p className="text-lg text-zinc-400">
             Off-the-shelf AI tools don't always fit how a business actually works. Custom AI solutions are designed to match your processes, tools, and objectives exactly.
           </p>
         </div>
       </section>
 
       {/* What We Build */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">What We Build</h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto"></div>
+            <div className="h-1 w-20 bg-emerald-500 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((s) => (
-              <div key={s.title} className="gradient-border rounded-2xl p-8 group hover:-translate-y-1 transition-transform duration-300">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-400/20 mb-6">
-                  <span className="material-symbols-outlined text-cyan-300">{s.icon}</span>
+              <div key={s.title} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 group hover:-translate-y-1 transition-transform duration-300">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-900/30 border border-emerald-700/20 mb-6">
+                  <span className="material-symbols-outlined text-emerald-400">{s.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{s.title}</h3>
-                <p className="text-slate-400 mb-4">{s.description}</p>
+                <p className="text-zinc-400 mb-4">{s.description}</p>
                 {s.hasReceiptDemo && (
-                  <button onClick={showReceiptDemo} className="flex items-center gap-2 text-sm font-bold text-cyan-300 hover:gap-3 transition-all mt-2">
+                  <button onClick={showReceiptDemo} className="flex items-center gap-2 text-sm font-bold text-emerald-400 hover:gap-3 transition-all mt-2">
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>receipt_long</span>
                     See Receipt Demo
                   </button>
@@ -233,31 +232,31 @@ const CustomAIPage = () => {
       </section>
 
       {/* Tax Demo */}
-      <section className="py-24 bg-white/[0.02] border-t border-white/5">
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Live Demo: Tax Consultation AI</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">See our custom AI solution in action — an intelligent tax consultation system</p>
+            <p className="text-zinc-400 max-w-2xl mx-auto">See our custom AI solution in action — an intelligent tax consultation system</p>
           </div>
-          <div className="max-w-4xl mx-auto glass-dark rounded-2xl p-8 glow-ring">
-            <div className="aspect-video w-full bg-slate-900/60 rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-zinc-900 border border-zinc-800 rounded-xl p-8">
+            <div className="aspect-video w-full bg-zinc-950 rounded-xl border border-zinc-800 flex items-center justify-center relative overflow-hidden">
               <div className="text-center z-10 px-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-400/20 mx-auto mb-6">
-                  <span className="material-symbols-outlined text-cyan-300" style={{ fontSize: '48px' }}>description</span>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-900/30 border border-emerald-700/20 mx-auto mb-6">
+                  <span className="material-symbols-outlined text-emerald-400" style={{ fontSize: '48px' }}>description</span>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4">Tax Consultation AI</h3>
-                <p className="text-slate-400 mb-8">Interactive AI system for tax consultation and advice</p>
+                <p className="text-zinc-400 mb-8">Interactive AI system for tax consultation and advice</p>
                 <a href="https://taxpro.netlify.app/" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 btn-cyber font-semibold py-3 px-8 rounded-xl hover:-translate-y-0.5 transition-transform">
+                  className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-3 px-8 rounded-xl transition-colors">
                   Launch Demo
                   <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>open_in_new</span>
                 </a>
               </div>
             </div>
-            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
+            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-zinc-400">
               {['Custom AI Logic', 'Interactive Interface', 'Real-time Responses'].map((f) => (
                 <div key={f} className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-cyan-300" style={{ fontSize: '16px' }}>check_circle</span>
+                  <span className="material-symbols-outlined text-emerald-400" style={{ fontSize: '16px' }}>check_circle</span>
                   {f}
                 </div>
               ))}
@@ -267,17 +266,17 @@ const CustomAIPage = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Benefits for Your Business</h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto"></div>
+            <div className="h-1 w-20 bg-emerald-500 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {benefits.map((b) => (
-              <div key={b} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 flex items-center gap-4">
-                <span className="material-symbols-outlined text-cyan-300 flex-shrink-0">check_circle</span>
-                <span className="text-slate-400">{b}</span>
+              <div key={b} className="rounded-xl border border-zinc-800 bg-zinc-900 p-5 flex items-center gap-4">
+                <span className="material-symbols-outlined text-emerald-400 flex-shrink-0">check_circle</span>
+                <span className="text-zinc-400">{b}</span>
               </div>
             ))}
           </div>
@@ -285,18 +284,18 @@ const CustomAIPage = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 bg-white/[0.02] border-t border-white/5">
+      <section id="how-it-works" className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">How It Works</h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto"></div>
+            <div className="h-1 w-20 bg-emerald-500 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step) => (
-              <div key={step.number} className="rounded-xl border border-white/10 bg-slate-900/40 p-8 text-center">
-                <div className="text-3xl font-black text-cyan-300 mb-4">{step.number}</div>
+              <div key={step.number} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-center">
+                <div className="text-3xl font-black text-emerald-400 mb-4">{step.number}</div>
                 <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
-                <p className="text-slate-400 text-sm">{step.description}</p>
+                <p className="text-zinc-400 text-sm">{step.description}</p>
               </div>
             ))}
           </div>
@@ -304,11 +303,11 @@ const CustomAIPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-3xl mx-auto px-8">
           <div className="text-center mb-10">
             <h2 className="text-4xl font-bold text-white mb-4">Looking for an AI solution that fits your business?</h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
               Fill out the form below and we'll be in touch to build a custom AI solution tailored to your needs.
             </p>
           </div>

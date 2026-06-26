@@ -47,54 +47,53 @@ const useCases = [
 
 const UseCasesPage = () => {
   return (
-    <div className="min-h-screen bg-cyber-dark text-slate-100 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-100 font-sans">
       <Navbar />
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
-        <div className="absolute inset-0 cyber-grid" aria-hidden="true" />
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-cyan-300 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Real Applications
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">AI Use Cases</h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Real-world AI applications that deliver measurable business value.
           </p>
         </div>
       </section>
 
       {/* Use Cases */}
-      <section className="py-24 bg-white/[0.02] border-t border-white/5">
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="space-y-24">
             {useCases.map((uc, index) => (
               <div key={uc.title} className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-400/20 mb-6">
-                    <span className="material-symbols-outlined text-cyan-300">{uc.icon}</span>
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-900/30 border border-emerald-700/20 mb-6">
+                    <span className="material-symbols-outlined text-emerald-400">{uc.icon}</span>
                   </div>
                   <h3 className="text-3xl font-bold text-white mb-4">{uc.title}</h3>
-                  <p className="text-lg text-slate-400 mb-6">{uc.description}</p>
+                  <p className="text-lg text-zinc-400 mb-6">{uc.description}</p>
                   <div className="mb-8">
                     <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-4">Common Applications</h4>
                     <ul className="space-y-3">
                       {uc.examples.map((ex) => (
                         <li key={ex} className="flex items-start gap-3">
-                          <span className="material-symbols-outlined text-cyan-300 flex-shrink-0" style={{ fontSize: '18px' }}>arrow_forward</span>
-                          <span className="text-slate-400">{ex}</span>
+                          <span className="material-symbols-outlined text-emerald-400 flex-shrink-0" style={{ fontSize: '18px' }}>arrow_forward</span>
+                          <span className="text-zinc-400">{ex}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-400/10 border border-cyan-400/20 text-cyan-300 font-bold text-sm">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-900/30 border border-emerald-700/20 text-emerald-400 font-bold text-sm">
                     <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>trending_up</span>
                     {uc.metrics}
                   </div>
                 </div>
 
                 <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <div className="glass-dark rounded-2xl overflow-hidden glow-ring">
+                  <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
                     <img
                       src={uc.image}
                       alt={uc.title}
@@ -109,15 +108,15 @@ const UseCasesPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">See Your Use Case Here?</h2>
-          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
             Let's discuss how AI can solve your specific business challenges.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 btn-cyber font-semibold py-4 px-12 rounded-xl hover:-translate-y-0.5 transition-transform"
+            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
           >
             Discuss Your Use Case
             <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>

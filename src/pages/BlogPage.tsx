@@ -62,29 +62,28 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-slate-100 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-100 font-sans">
       <Navbar />
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
-        <div className="absolute inset-0 cyber-grid" aria-hidden="true" />
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-cyan-300 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Insights &amp; Research
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Blog</h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Insights on AI engineering, industry trends, and case studies
           </p>
         </div>
       </section>
 
       {/* Posts */}
-      <section className="py-24 bg-white/[0.02] border-t border-white/5">
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.id} className="gradient-border rounded-2xl overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+              <article key={post.id} className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={post.image}
@@ -94,15 +93,15 @@ const BlogPage = () => {
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-cyan-300 bg-cyan-400/10 border border-cyan-400/20 rounded-full">
+                    <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-emerald-400 bg-emerald-900/30 border border-emerald-700/20 rounded-full">
                       {post.tag}
                     </span>
-                    <span className="text-xs text-slate-400 uppercase tracking-widest">{post.readTime}</span>
+                    <span className="text-xs text-zinc-400 uppercase tracking-widest">{post.readTime}</span>
                   </div>
                   <h2 className="text-xl font-semibold text-white mb-4 leading-snug">{post.title}</h2>
-                  <p className="text-slate-400 mb-6 leading-relaxed">{post.excerpt}</p>
+                  <p className="text-zinc-400 mb-6 leading-relaxed">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3 text-sm text-slate-400">
+                    <div className="flex items-center gap-3 text-sm text-zinc-400">
                       <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>person</span>
                       {post.author}
                       <span>·</span>
@@ -111,7 +110,7 @@ const BlogPage = () => {
                     </div>
                     <Link
                       to={`/blog/${post.id}`}
-                      className="flex items-center gap-1 text-sm font-bold text-cyan-300 hover:gap-2 hover:text-cyan-200 transition-all"
+                      className="flex items-center gap-1 text-sm font-bold text-emerald-400 hover:gap-2 hover:text-emerald-300 transition-all"
                     >
                       Read More
                       <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_forward</span>
@@ -125,10 +124,10 @@ const BlogPage = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-2xl mx-auto px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Stay Updated</h2>
-          <p className="text-lg text-slate-400 mb-10">
+          <p className="text-lg text-zinc-400 mb-10">
             Get the latest insights on AI engineering and industry trends delivered to your inbox.
           </p>
 
@@ -136,7 +135,7 @@ const BlogPage = () => {
             <div className={`mb-6 p-4 rounded-lg text-sm ${
               message.type === 'error'
                 ? 'bg-red-900/30 text-red-300 border border-red-500/30'
-                : 'bg-cyan-400/10 text-cyan-300 border border-cyan-400/30'
+                : 'bg-emerald-900/30 text-emerald-400 border border-emerald-700/20'
             }`}>
               {message.text}
             </div>
@@ -149,15 +148,15 @@ const BlogPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="ENTER YOUR EMAIL"
               required
-              className="flex-1 bg-slate-900/60 border border-white/10 text-xs font-sans p-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-400/50 transition-colors"
+              className="flex-1 bg-zinc-900 border border-zinc-800 text-xs font-sans p-4 text-slate-100 placeholder-zinc-500 focus:outline-none focus:border-emerald-500/50 transition-colors"
             />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-cyber px-6 font-bold text-xs uppercase tracking-widest disabled:opacity-50 flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 font-bold text-xs uppercase tracking-widest disabled:opacity-50 flex items-center gap-2 transition-colors"
             >
               {isSubmitting ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
               ) : (
                 <>
                   Subscribe

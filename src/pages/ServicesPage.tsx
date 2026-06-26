@@ -75,23 +75,23 @@ const ServicesPage = () => {
   const [serviceForm, setServiceForm] = useState<ServiceFormModal | null>(null);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-slate-100 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-100 font-sans">
       {showModal && <GetStartedModal onClose={() => setShowModal(false)} />}
 
       {serviceForm && (
         <div
-          className="fixed inset-0 bg-slate-900/70 backdrop-blur-sm flex items-start justify-center z-50 overflow-y-auto py-8 px-4"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-start justify-center z-50 overflow-y-auto py-8 px-4"
           onClick={(e) => { if (e.target === e.currentTarget) setServiceForm(null); }}
         >
-          <div className="glass-dark rounded-2xl glow-ring w-full max-w-2xl shadow-2xl my-auto">
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl w-full max-w-2xl shadow-2xl my-auto">
+            <div className="flex items-center justify-between p-6 border-b border-zinc-800">
               <div>
                 <h2 className="text-lg font-bold text-white">{serviceForm.title}</h2>
-                <p className="text-sm text-slate-400 mt-0.5">Fill out the form and we'll be in touch shortly</p>
+                <p className="text-sm text-zinc-400 mt-0.5">Fill out the form and we'll be in touch shortly</p>
               </div>
               <button
                 onClick={() => setServiceForm(null)}
-                className="p-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-white/10 transition-colors"
+                className="p-2 rounded-lg text-zinc-400 hover:text-slate-100 hover:bg-zinc-800 transition-colors"
                 aria-label="Close"
               >
                 <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>close</span>
@@ -108,33 +108,32 @@ const ServicesPage = () => {
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
-        <div className="absolute inset-0 cyber-grid" aria-hidden="true" />
         <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-cyan-300 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             What We Build
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Services</h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Production-ready AI solutions designed for real business challenges in compliance-heavy industries.
           </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-white/[0.02] border-t border-white/5">
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
-              <div key={service.title} className="gradient-border rounded-2xl p-8 flex flex-col group hover:-translate-y-1 transition-transform duration-300">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-400/20 mb-6">
-                  <span className="material-symbols-outlined text-cyan-300">{service.icon}</span>
+              <div key={service.title} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 flex flex-col group hover:-translate-y-1 transition-transform duration-300">
+                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-6">
+                  <span className="material-symbols-outlined text-emerald-400">{service.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                <p className="text-slate-400 mb-6 flex-1">{service.description}</p>
+                <p className="text-zinc-400 mb-6 flex-1">{service.description}</p>
                 <ul className="space-y-2 mb-8">
                   {service.examples.map((ex) => (
-                    <li key={ex} className="flex items-center gap-3 text-sm text-slate-400">
-                      <span className="material-symbols-outlined text-cyan-300" style={{ fontSize: '16px' }}>check_circle</span>
+                    <li key={ex} className="flex items-center gap-3 text-sm text-zinc-400">
+                      <span className="material-symbols-outlined text-emerald-400" style={{ fontSize: '16px' }}>check_circle</span>
                       {ex}
                     </li>
                   ))}
@@ -142,7 +141,7 @@ const ServicesPage = () => {
                 {service.link ? (
                   <Link
                     to={service.link}
-                    className="flex items-center gap-2 text-sm font-bold text-cyan-300 group-hover:gap-3 transition-all hover:text-cyan-200"
+                    className="flex items-center gap-2 text-sm font-bold text-emerald-400 group-hover:gap-3 transition-all hover:text-emerald-300"
                   >
                     Learn More
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_forward</span>
@@ -150,7 +149,7 @@ const ServicesPage = () => {
                 ) : (
                   <button
                     onClick={() => setServiceForm(service.formModal)}
-                    className="flex items-center gap-2 text-sm font-bold text-cyan-300 hover:gap-3 hover:text-cyan-200 transition-all w-fit"
+                    className="flex items-center gap-2 text-sm font-bold text-emerald-400 hover:gap-3 hover:text-emerald-300 transition-all w-fit"
                   >
                     Get Started
                     <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_forward</span>
@@ -163,15 +162,15 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-white/5">
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
             Let's discuss how our AI solutions can help you automate processes, improve efficiency, and drive growth.
           </p>
           <button
             onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 btn-cyber font-semibold py-4 px-12 rounded-xl hover:-translate-y-0.5 transition-transform"
+            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
           >
             Get Started
             <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>

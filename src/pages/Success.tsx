@@ -26,21 +26,21 @@ export const Success: React.FC = () => {
   }, [sessionId]);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <CheckCircle className="mx-auto h-16 w-16 text-emerald-400" />
           <h2 className="mt-6 text-3xl font-extrabold text-white">
             Payment Successful!
           </h2>
-          <p className="mt-2 text-sm text-slate-400">
+          <p className="mt-2 text-sm text-zinc-400">
             Thank you for your purchase. Your consultation has been confirmed.
           </p>
         </div>
 
-        <div className="gradient-border rounded-2xl p-6">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
           <h3 className="text-lg font-semibold text-white mb-4">What's Next?</h3>
-          <ul className="space-y-3 text-sm text-slate-400">
+          <ul className="space-y-3 text-sm text-zinc-400">
             <li className="flex items-start">
               <span className="flex-shrink-0 h-5 w-5 text-emerald-400 mt-0.5">✓</span>
               <span className="ml-2">You'll receive a confirmation email shortly</span>
@@ -57,8 +57,8 @@ export const Success: React.FC = () => {
         </div>
 
         {sessionId && (
-          <div className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-            <p className="text-xs text-slate-400">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+            <p className="text-xs text-zinc-400">
               Session ID: {sessionId}
             </p>
           </div>
@@ -67,14 +67,14 @@ export const Success: React.FC = () => {
         <div className="flex flex-col space-y-3">
           <Link
             to="/dashboard"
-            className="w-full flex justify-center items-center px-4 py-3 rounded-xl text-sm font-semibold btn-cyber hover:-translate-y-0.5 transition-transform"
+            className="w-full flex justify-center items-center px-4 py-3 rounded-xl text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-black transition-colors"
           >
             Go to Dashboard
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
           <Link
             to="/"
-            className="w-full flex justify-center items-center px-4 py-3 border border-white/15 rounded-xl text-sm font-semibold text-slate-100 hover:bg-white/5 transition-all"
+            className="w-full flex justify-center items-center px-4 py-3 border border-zinc-700 rounded-xl text-sm font-semibold text-slate-100 hover:bg-zinc-900 transition-all"
           >
             Return to Home
           </Link>
