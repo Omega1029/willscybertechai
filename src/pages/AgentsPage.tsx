@@ -25,7 +25,7 @@ function AIAgentPage() {
           </Link>
 
           <div className="mb-12">
-            <div className="bg-emerald-900/30 border border-emerald-700/20 p-4 rounded-xl inline-flex mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-emerald-900/30 border border-emerald-700/20 mb-6">
               <Bot className="text-emerald-400" size={48} />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Retail AI Location Strategy</h1>
@@ -37,22 +37,22 @@ function AIAgentPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 text-left hover:border-emerald-500/30 transition-colors">
-              <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-4">
+            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 text-left hover:border-emerald-700/40 transition-colors">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-900/30 border border-emerald-700/20 mb-4">
                 <MapPin className="text-emerald-400" size={28} />
               </div>
               <h3 className="font-semibold text-lg text-white mb-2">Competitor Mapping</h3>
               <p className="text-zinc-400">Google Maps API for real competitor locations and density analysis</p>
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 text-left hover:border-emerald-500/30 transition-colors">
-              <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-4">
+            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 text-left hover:border-emerald-700/40 transition-colors">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-900/30 border border-emerald-700/20 mb-4">
                 <Search className="text-emerald-400" size={28} />
               </div>
               <h3 className="font-semibold text-lg text-white mb-2">Market Research</h3>
               <p className="text-zinc-400">Live web search for market trends, demographics, and insights</p>
             </div>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 text-left hover:border-emerald-500/30 transition-colors">
-              <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-4">
+            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6 text-left hover:border-emerald-700/40 transition-colors">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-900/30 border border-emerald-700/20 mb-4">
                 <BarChart3 className="text-emerald-400" size={28} />
               </div>
               <h3 className="font-semibold text-lg text-white mb-2">Strategic Reports</h3>
@@ -69,7 +69,7 @@ function AIAgentPage() {
             <ExternalLink size={20} />
           </button>
 
-          <div className="mt-8 p-6 bg-zinc-900 border border-zinc-800 rounded-xl">
+          <div className="mt-8 p-6 bg-zinc-900 border border-zinc-800 rounded-2xl">
             <h3 className="font-semibold text-white mb-4">Try these examples:</h3>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="px-4 py-2 rounded-xl border border-zinc-800 bg-zinc-950 text-zinc-400 text-sm">"I want to open a coffee shop in downtown Seattle"</span>

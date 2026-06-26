@@ -74,7 +74,7 @@ export const Success: React.FC = () => {
           </Link>
           <Link
             to="/"
-            className="w-full flex justify-center items-center px-4 py-3 border border-zinc-700 rounded-xl text-sm font-semibold text-slate-100 hover:bg-zinc-900 transition-all"
+            className="w-full flex justify-center items-center px-4 py-3 border border-zinc-700 rounded-xl text-sm font-semibold text-zinc-100 hover:bg-zinc-800 transition-all"
           >
             Return to Home
           </Link>

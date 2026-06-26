@@ -51,7 +51,7 @@ const DemosPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {demos.map((demo) => (
               <div key={demo.id} className="bg-zinc-900 border border-zinc-800 rounded-xl p-10 flex flex-col group hover:-translate-y-1 transition-transform duration-300">
-                <div className="bg-emerald-900/30 border border-emerald-700/20 p-3 rounded-lg inline-flex mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-emerald-900/30 border border-emerald-700/20 mb-6">
                   <span className="material-symbols-outlined text-emerald-400" style={{ fontSize: '32px' }}>{demo.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{demo.title}</h3>

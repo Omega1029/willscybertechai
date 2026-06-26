@@ -34,7 +34,7 @@ const AIAgentPage = () => {
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-24">
         <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
-          <div className="bg-emerald-900/30 border border-emerald-700/20 p-4 rounded-xl inline-flex mx-auto mb-8">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-emerald-900/30 border border-emerald-700/20 mx-auto mb-8">
             <span className="material-symbols-outlined text-emerald-400" style={{ fontSize: '48px' }}>location_on</span>
           </div>
           <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
@@ -53,7 +53,7 @@ const AIAgentPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((f) => (
               <div key={f.title} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-center group hover:-translate-y-1 transition-transform duration-300">
-                <div className="bg-emerald-900/30 border border-emerald-700/20 p-3 rounded-lg inline-flex mx-auto mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-emerald-900/30 border border-emerald-700/20 mx-auto mb-6">
                   <span className="material-symbols-outlined text-emerald-400" style={{ fontSize: '32px' }}>{f.icon}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{f.title}</h3>
@@ -78,7 +78,7 @@ const AIAgentPage = () => {
             <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>open_in_new</span>
           </a>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-left">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-left">
             <h3 className="text-xl font-semibold text-white mb-6">Try these examples:</h3>
             <div className="space-y-4">
               {examples.map((ex) => (
