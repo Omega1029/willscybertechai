@@ -1,14 +1,10 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const PrivacyPolicyPage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-100">
-      <Navbar />
-
       {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-20 border-b border-zinc-900">
+      <section className="relative overflow-hidden pt-16 pb-20 border-b border-zinc-900">
         <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
           <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Legal
@@ -125,7 +121,6 @@ const PrivacyPolicyPage = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

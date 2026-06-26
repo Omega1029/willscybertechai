@@ -18,11 +18,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services' },
-    { label: 'Demos', href: '/demos' },
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
+    { label: 'Features', href: '/features' },
+    { label: 'Security', href: '/security' },
+    { label: 'Use Cases', href: '/use-cases' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -68,7 +68,7 @@ const Navbar = () => {
             to="/contact"
             className="hidden md:block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-5 py-2 rounded-lg text-sm transition-colors"
           >
-            Contact
+            Book a Demo
           </Link>
 
           <button
@@ -99,7 +99,7 @@ const Navbar = () => {
               to="/contact"
               className="block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-6 py-3 rounded-lg text-sm mt-3 transition-colors"
             >
-              Contact
+              Book a Demo
             </Link>
           </div>
         </div>
