@@ -72,23 +72,23 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cyber-dark py-12">
+    <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a] py-12">
       <div className="max-w-md w-full mx-4">
-        <div className="glass-dark rounded-2xl p-8 glow-ring">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
 
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center gap-2 mb-6">
-              <span className="text-xl font-bold tracking-tighter text-gradient-bright uppercase">NEURAL INDEX</span>
+              <span className="text-xl font-bold tracking-tighter text-white uppercase">NEURAL INDEX</span>
             </Link>
             <h1 className="text-2xl font-bold text-white">Create Account</h1>
-            <p className="mt-1.5 text-slate-400">Sign up to get started</p>
+            <p className="mt-1.5 text-zinc-400">Sign up to get started</p>
           </div>
 
           {message && (
             <div className={`mb-6 p-4 rounded-lg text-sm ${
               message.type === 'error'
                 ? 'bg-red-900/30 text-red-300 border border-red-500/30'
-                : 'bg-cyan-400/10 text-cyan-300 border border-cyan-400/30'
+                : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
             }`}>
               {message.text}
             </div>
@@ -97,18 +97,18 @@ const SignupPage = () => {
           <form onSubmit={handleSignup} className="space-y-5">
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1.5">
+              <label htmlFor="email" className="block text-sm font-medium text-zinc-300 mb-1.5">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
                 <input
                   id="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-white/10 rounded-lg bg-slate-900/60 text-slate-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/20 focus:border-cyan-400/50 transition-colors"
+                  className="w-full pl-10 pr-4 py-3 border border-zinc-700 rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors"
                   placeholder="Enter your email"
                 />
               </div>
@@ -116,26 +116,26 @@ const SignupPage = () => {
 
             {/* Password */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-1.5">
+              <label htmlFor="password" className="block text-sm font-medium text-zinc-300 mb-1.5">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => { setPassword(e.target.value); setPasswordTouched(true); }}
                   required
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-slate-900/60 text-slate-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/20 focus:border-cyan-400/50 transition-colors ${
-                    passwordTouched && !allRulesPassed ? 'border-red-500/50' : 'border-white/10'
+                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors ${
+                    passwordTouched && !allRulesPassed ? 'border-red-500/50' : 'border-zinc-700'
                   }`}
                   placeholder="Create a password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -149,12 +149,12 @@ const SignupPage = () => {
                       <div
                         key={i}
                         className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                          i <= strength ? strengthColor : 'bg-slate-700'
+                          i <= strength ? strengthColor : 'bg-zinc-700'
                         }`}
                       />
                     ))}
                   </div>
-                  <p className="text-xs text-slate-500">{strengthLabel}</p>
+                  <p className="text-xs text-zinc-500">{strengthLabel}</p>
                 </div>
               )}
 
@@ -168,7 +168,7 @@ const SignupPage = () => {
                       ) : (
                         <X className="w-3.5 h-3.5 text-red-400 shrink-0" />
                       )}
-                      <span className={ruleResults[i] ? 'text-emerald-400' : 'text-slate-500'}>
+                      <span className={ruleResults[i] ? 'text-emerald-400' : 'text-zinc-500'}>
                         {rule.label}
                       </span>
                     </li>
@@ -179,28 +179,28 @@ const SignupPage = () => {
 
             {/* Confirm Password */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-slate-300 mb-1.5">
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-zinc-300 mb-1.5">
                 Confirm Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
                 <input
                   id="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
                   value={confirmPassword}
                   onChange={(e) => { setConfirmPassword(e.target.value); setConfirmTouched(true); }}
                   required
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-slate-900/60 text-slate-100 placeholder-slate-500 focus:ring-2 focus:ring-cyan-400/20 focus:border-cyan-400/50 transition-colors ${
+                  className={`w-full pl-10 pr-12 py-3 border rounded-lg bg-zinc-950 text-white placeholder-zinc-500 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-colors ${
                     confirmTouched && confirmPassword.length > 0
                       ? passwordsMatch ? 'border-emerald-400/50' : 'border-red-500/50'
-                      : 'border-white/10'
+                      : 'border-zinc-700'
                   }`}
                   placeholder="Confirm your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300"
                 >
                   {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -218,10 +218,10 @@ const SignupPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn-cyber font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60"
+              className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60"
             >
               {loading ? (
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
               ) : (
                 'Create Account'
               )}
@@ -229,9 +229,9 @@ const SignupPage = () => {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-slate-400 text-sm">
+            <p className="text-zinc-400 text-sm">
               Already have an account?{' '}
-              <Link to="/login" className="text-cyan-300 hover:text-cyan-200 font-semibold">
+              <Link to="/login" className="text-emerald-400 hover:text-emerald-300 font-semibold">
                 Sign in
               </Link>
             </p>
