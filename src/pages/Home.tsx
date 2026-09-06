@@ -18,6 +18,7 @@ import {
   Boxes,
 } from 'lucide-react';
 import TestimonialCard from '../components/TestimonialCard';
+import PricingSection from '../components/PricingSection';
 
 const stats = [
   { value: '100%', label: 'Self-hosted / on-prem' },
@@ -361,6 +362,8 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <PricingSection />
 
       {/* ===== Final CTA ===== */}
       <section className="pb-28 pt-4">

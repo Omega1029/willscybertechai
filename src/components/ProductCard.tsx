@@ -63,12 +63,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl border border-blue-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all p-6 flex flex-col">
-      <h3 className="text-xl font-semibold text-slate-900 mb-2">{product.name}</h3>
-      <p className="text-slate-500 text-sm mb-6 flex-1">{product.description}</p>
+    <div className="glass-dark rounded-2xl border border-white/10 hover:border-cyan-400/30 transition-all p-7 flex flex-col">
+      <h3 className="text-xl font-bold text-white mb-2">{product.name}</h3>
+      <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">{product.description}</p>
 
       <div className="flex items-end justify-between mb-6">
-        <span className="text-3xl font-bold text-slate-900">
+        <span className="text-3xl font-bold text-white">
           {formatPrice(product.price, product.currency)}
         </span>
         {product.mode === 'subscription' ? (
@@ -79,7 +79,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       {error && (
-        <div className="flex items-start gap-2 mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+        <div className="flex items-start gap-2 mb-4 p-3 bg-red-500/10 border border-red-400/30 rounded-lg text-sm text-red-300">
           <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
           {error}
         </div>
@@ -88,7 +88,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <button
         onClick={handleCheckout}
         disabled={loading}
-        className="w-full btn-cyber font-semibold py-3 px-4 rounded-lg transition-all flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full btn-cyber font-semibold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {loading ? (
           <>
