@@ -73,7 +73,8 @@ export const Pricing: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" /> Built for Financial Practices
           </span>
           <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-            Pricing built for <span className="text-gradient-bright">advisory firms.</span>
+            Pricing built for{" "}
+            <span className="text-gradient-bright">financial advisory firms.</span>
           </h1>
           <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">
             Every engagement pairs a one-time build with a monthly retainer that keeps the
