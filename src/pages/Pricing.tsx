@@ -25,7 +25,7 @@ const comparisonRows: { label: string; values: (string | boolean)[] }[] = [
   { label: 'Uptime SLA', values: [false, false, false, false, true] },
   {
     label: 'Monthly support',
-    values: ['Hourly', '1 hr', '3 hrs', '5 hrs + priority', 'Continuous'],
+    values: ['Hourly', '20 hrs', '60 hrs', '100 hrs + priority', 'Continuous'],
   },
 ];
 
