@@ -7,7 +7,7 @@ export interface PricingTier {
   blurb: string;
   setupFee: number;
   retainer: number;
-  /** Prior rate, rendered struck through beside the current retainer. */
+  /** Prior rate. Retained for reference only — not shown on the site. */
   legacyRetainer: number | null;
   scope: string[];
   allocation: string;

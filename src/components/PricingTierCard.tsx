@@ -102,11 +102,6 @@ export const PricingTierCard: React.FC<Props> = ({ tier }) => {
             {money(tier.retainer)}{suffix}
             <span className="text-sm text-zinc-400 font-normal">/mo</span>
           </span>
-          {tier.legacyRetainer !== null && (
-            <span className="text-sm text-zinc-500 line-through">
-              was {money(tier.legacyRetainer)}
-            </span>
-          )}
         </div>
       </div>
 
