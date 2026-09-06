@@ -62,28 +62,28 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-on-background font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-100 font-sans">
       <Navbar />
 
       {/* Hero */}
-      <section className="relative hero-gradient overflow-hidden pt-32 pb-24">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-primary-container/20 bg-primary-container/5 text-primary-container text-label-caps mb-6">
+      <section className="relative overflow-hidden pt-32 pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
+          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
             Insights &amp; Research
           </span>
-          <h1 className="text-headline-xl text-on-surface mb-6">Blog</h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Blog</h1>
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Insights on AI engineering, industry trends, and case studies
           </p>
         </div>
       </section>
 
       {/* Posts */}
-      <section className="py-24 bg-surface-container-lowest">
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.id} className="glass-card rounded-xl overflow-hidden group hover:border-primary-container/40 transition-all">
+              <article key={post.id} className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={post.image}
@@ -93,24 +93,24 @@ const BlogPage = () => {
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="px-3 py-1 text-label-caps text-primary-container bg-primary-container/10 border border-primary-container/20 rounded-full">
+                    <span className="px-3 py-1 text-xs font-semibold tracking-[0.18em] uppercase text-emerald-400 bg-emerald-900/30 border border-emerald-700/20 rounded-full">
                       {post.tag}
                     </span>
-                    <span className="text-xs text-on-surface-variant uppercase tracking-widest">{post.readTime}</span>
+                    <span className="text-xs text-zinc-400 uppercase tracking-widest">{post.readTime}</span>
                   </div>
-                  <h2 className="text-headline-sm text-on-surface mb-4 leading-snug">{post.title}</h2>
-                  <p className="text-on-surface-variant text-body-md mb-6 leading-relaxed">{post.excerpt}</p>
+                  <h2 className="text-xl font-semibold text-white mb-4 leading-snug">{post.title}</h2>
+                  <p className="text-zinc-400 mb-6 leading-relaxed">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3 text-sm text-on-surface-variant">
+                    <div className="flex items-center gap-3 text-sm text-zinc-400">
                       <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>person</span>
                       {post.author}
-                      <span className="text-outline-variant">·</span>
+                      <span>·</span>
                       <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>calendar_today</span>
                       {post.date}
                     </div>
                     <Link
                       to={`/blog/${post.id}`}
-                      className="flex items-center gap-1 text-sm font-bold text-primary-container hover:gap-2 transition-all"
+                      className="flex items-center gap-1 text-sm font-bold text-emerald-400 hover:gap-2 hover:text-emerald-300 transition-all"
                     >
                       Read More
                       <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_forward</span>
@@ -124,18 +124,18 @@ const BlogPage = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="py-24 bg-surface-container">
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-2xl mx-auto px-8 text-center">
-          <h2 className="text-headline-md text-on-surface mb-4">Stay Updated</h2>
-          <p className="text-body-lg text-on-surface-variant mb-10">
+          <h2 className="text-3xl font-bold text-white mb-4">Stay Updated</h2>
+          <p className="text-lg text-zinc-400 mb-10">
             Get the latest insights on AI engineering and industry trends delivered to your inbox.
           </p>
 
           {message && (
             <div className={`mb-6 p-4 rounded-lg text-sm ${
               message.type === 'error'
-                ? 'bg-error-container/30 text-on-error-container border border-error/30'
-                : 'bg-primary-container/10 text-primary-container border border-primary-container/30'
+                ? 'bg-red-900/30 text-red-300 border border-red-500/30'
+                : 'bg-emerald-900/30 text-emerald-400 border border-emerald-700/20'
             }`}>
               {message.text}
             </div>
@@ -148,15 +148,15 @@ const BlogPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="ENTER YOUR EMAIL"
               required
-              className="flex-1 bg-white border border-slate-200 text-xs font-sans p-4 text-slate-700 placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
+              className="flex-1 bg-zinc-900 border border-zinc-800 text-xs font-sans p-4 text-slate-100 placeholder-zinc-500 focus:outline-none focus:border-emerald-500/50 transition-colors"
             />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-blue-600 text-white px-6 font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-400 text-black px-6 font-bold text-xs uppercase tracking-widest disabled:opacity-50 flex items-center gap-2 transition-colors"
             >
               {isSubmitting ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
               ) : (
                 <>
                   Subscribe

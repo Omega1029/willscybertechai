@@ -1,169 +1,230 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import GetStartedModal from '../components/GetStartedModal';
-import AirtableForm from '../components/AirtableForm';
+import {
+  ArrowRight,
+  TrendingUp,
+  FileText,
+  Search,
+  ShieldCheck,
+  FileStack,
+  Sparkles,
+  BarChart2,
+  DollarSign,
+  Calculator,
+  Database,
+  Clock,
+  WifiOff,
+  Users,
+  Cpu,
+  Workflow,
+  GitBranch,
+} from 'lucide-react';
 
-const services = [
+const coreCapabilities = [
   {
-    icon: 'chat',
-    title: 'Customer Support Chatbots',
-    description: 'Handle common customer questions and reduce support ticket volume automatically — 24/7.',
-    demo: null,
+    icon: BarChart2,
+    title: 'Financial Statement Analysis',
+    body: 'Query P&Ls, balance sheets, and cash flow statements in seconds.',
   },
   {
-    icon: 'help',
-    title: 'Internal Knowledge Assistants',
-    description: 'Help employees quickly find answers from internal documents, policies, and FAQs.',
-    demo: null,
+    icon: FileText,
+    title: 'Tax Document Processing',
+    body: 'Extract data from returns, W-2s, 1099s, and filings instantly.',
   },
   {
-    icon: 'support_agent',
-    title: 'Website & Helpdesk AI',
-    description: 'Guide visitors, route requests, and provide instant support directly on your website or helpdesk.',
-    demo: { label: 'See Phone Demo', phone: '+1 (678) 203-2281' },
+    icon: Search,
+    title: 'Audit Workpaper Review',
+    body: 'Summarize workpapers, flag discrepancies, surface key findings.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Compliance Review',
+    body: 'Cross-reference documents against GAAP, SOX, and regulatory requirements.',
+  },
+  {
+    icon: FileStack,
+    title: 'Client Report Drafting',
+    body: 'Generate professional client summaries and correspondence from your data.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Fully Customizable',
+    body: 'Train the model on your chart of accounts, templates, and firm workflows.',
   },
 ];
 
-const benefits = [
-  'Faster response times',
-  'Reduced manual workload',
-  'Consistent answers',
-  '24/7 availability',
-  'Easy to integrate into existing workflows',
+const advanced = [
+  {
+    icon: Database,
+    title: 'Document Intelligence',
+    body: 'Extract key figures, dates, and obligations from any financial document format.',
+  },
+  {
+    icon: Search,
+    title: 'Knowledge Base Search',
+    body: "Turn your firm's entire document history into a searchable knowledge base.",
+  },
+  {
+    icon: TrendingUp,
+    title: 'Variance Analysis',
+    body: 'Automatically compare actuals vs. budget/prior period and surface key variances.',
+  },
+  {
+    icon: BarChart2,
+    title: 'Data Visualization',
+    body: 'Generate charts and summaries from financial data for reports and presentations.',
+  },
+  {
+    icon: Clock,
+    title: 'Timeline Generation',
+    body: 'Build chronologies from transaction logs, audit trails, and correspondence.',
+  },
+  {
+    icon: Workflow,
+    title: 'Workflow Automation',
+    body: 'Automate reconciliations, data entry, period-end checklists, and reporting tasks.',
+  },
 ];
 
-const steps = [
-  { number: '01', title: 'Understand your needs', description: 'We learn about your business and support challenges' },
-  { number: '02', title: 'Design the AI assistant', description: 'Create a solution tailored to your specific requirements' },
-  { number: '03', title: 'Train on your content', description: 'Use your existing knowledge base and documentation' },
-  { number: '04', title: 'Deploy and improve', description: 'Launch your assistant and continuously optimize performance' },
+const platform = [
+  {
+    icon: Users,
+    title: 'Multi-User Access',
+    body: 'Every staff member, accountant, and manager accesses the AI from their workstation.',
+  },
+  {
+    icon: Cpu,
+    title: 'Local Data Processing',
+    body: 'All processing happens on your hardware. Financial data never leaves your premises.',
+  },
+  {
+    icon: Clock,
+    title: 'Fast Response Times',
+    body: 'No cloud latency. Get answers in seconds, not minutes.',
+  },
+  {
+    icon: WifiOff,
+    title: 'No Internet Required',
+    body: 'Once deployed, the system operates completely independently. Air-gap capable.',
+  },
 ];
 
 const AIAssistantsPage = () => {
-  const [showModal, setShowModal] = useState(false);
-  const showPhoneDemo = () => {
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-50 backdrop-blur-sm';
-    modal.innerHTML = `
-      <div class="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-md mx-4 text-center shadow-2xl">
-        <span class="material-symbols-outlined text-purple-500 mb-4 block" style="font-size:48px">call</span>
-        <h3 class="text-2xl font-bold text-white mb-2">Shipping Expert Demo</h3>
-        <p class="text-slate-400 mb-6">Call our AI assistant to see how it handles shipping questions</p>
-        <div class="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4 mb-6">
-          <div class="text-2xl font-bold text-purple-400 mb-1">+1 (678) 203-2281</div>
-          <div class="text-sm text-purple-300">Available 24/7</div>
-        </div>
-        <button onclick="this.closest('.fixed').remove()" class="bg-purple-500 hover:bg-purple-400 text-slate-950 px-6 py-2 rounded-lg font-bold transition-colors">Close</button>
-      </div>
-    `;
-    document.body.appendChild(modal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
-  };
-
   return (
-    <div className="min-h-screen bg-background text-on-background font-sans">
-      {showModal && <GetStartedModal onClose={() => setShowModal(false)} />}
-      <Navbar />
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-100 font-sans">
 
       {/* Hero */}
-      <section className="relative hero-gradient overflow-hidden pt-32 pb-24">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-primary-container/20 bg-primary-container/5 text-primary-container text-label-caps mb-6">
-            AI Assistants
+      <section className="relative overflow-hidden pt-32 pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
+          <span className="inline-block px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+            Features
           </span>
-          <h1 className="text-headline-xl text-on-surface mb-6 max-w-4xl mx-auto">
-            AI Assistants That Support Your Team and Customers 24/7
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto">
+            Built for Financial Work, Not Generic Chat
           </h1>
-          <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
-            We build AI assistants that answer questions, handle requests, and support customers — freeing your team to focus on higher-value work.
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto mb-10">
+            A purpose-built AI trained on financial frameworks, accounting standards, and the nuances of financial language.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => setShowModal(true)} className="bg-primary-container text-on-primary-fixed font-bold py-4 px-10 rounded-xl hover:shadow-[0_0_20px_rgba(160,120,255,0.4)] transition-all flex items-center gap-2">
-              Get Started
-              <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>
-            </button>
-            <a href="#how-it-works" onClick={(e) => { e.preventDefault(); document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="border border-purple-500/50 text-purple-500 font-bold py-4 px-10 rounded-xl hover:bg-purple-500/5 transition-all">
-              Learn More
-            </a>
+            <Link
+              to="/contact"
+              className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-10 rounded-xl inline-flex items-center gap-2 transition-colors"
+            >
+              Book a Demo <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              to="/pricing"
+              className="border border-zinc-700 text-zinc-100 font-semibold py-4 px-10 rounded-xl hover:bg-zinc-800 transition-all"
+            >
+              View Pricing
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* What They Do */}
-      <section className="py-24 bg-surface-container-lowest">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-headline-md text-on-surface mb-4">What AI Assistants Do</h2>
-          <div className="h-1 w-20 bg-primary-container mx-auto mb-8"></div>
-          <p className="text-body-lg text-on-surface-variant">
-            AI assistants help businesses respond faster, stay consistent, and reduce repetitive work by handling common questions and requests automatically.
-          </p>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-24 bg-surface-container">
+      {/* Core Capabilities */}
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-headline-md text-on-surface mb-4">How We Can Help</h2>
-            <div className="h-1 w-20 bg-primary-container mx-auto"></div>
+            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Core Capabilities</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+              Everything Your Finance Team Needs
+            </h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">
+              Designed from the ground up for accounting and finance workflows.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((s) => (
-              <div key={s.title} className="glass-card p-8 rounded-xl">
-                <div className="bg-primary-container/10 p-3 rounded-lg border border-primary-container/20 w-fit mb-6">
-                  <span className="material-symbols-outlined text-primary-container">{s.icon}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {coreCapabilities.map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 group hover:-translate-y-1 transition-transform duration-300"
+              >
+                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-5">
+                  <Icon className="w-6 h-6 text-emerald-400" />
                 </div>
-                <h3 className="text-headline-sm text-on-surface mb-3">{s.title}</h3>
-                <p className="text-on-surface-variant mb-4">{s.description}</p>
-                {s.demo && (
-                  <button onClick={showPhoneDemo} className="flex items-center gap-2 text-sm font-bold text-primary-container hover:gap-3 transition-all mt-2">
-                    <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>call</span>
-                    {s.demo.label}
-                  </button>
-                )}
-                {s.title === 'Customer Support Chatbots' && (
-                  <p className="text-xs text-on-surface-variant mt-2">Try our chatbot in the bottom right corner!</p>
-                )}
+                <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+                <p className="text-zinc-400 leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-24 bg-surface-container-lowest">
-        <div className="max-w-4xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-headline-md text-on-surface mb-4">Benefits for Your Business</h2>
-            <div className="h-1 w-20 bg-primary-container mx-auto"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {benefits.map((b) => (
-              <div key={b} className="glass-card p-5 rounded-xl flex items-center gap-4">
-                <span className="material-symbols-outlined text-primary-container flex-shrink-0">check_circle</span>
-                <span className="text-on-surface-variant">{b}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section id="how-it-works" className="py-24 bg-surface-container">
+      {/* Advanced */}
+      <section className="py-24 border-t border-zinc-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-headline-md text-on-surface mb-4">How It Works</h2>
-            <div className="h-1 w-20 bg-primary-container mx-auto"></div>
+            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Advanced</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+              Beyond Basic AI
+            </h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">
+              Advanced capabilities that go further than simple document search.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step) => (
-              <div key={step.number} className="glass-card p-8 rounded-xl text-center">
-                <div className="text-3xl font-black text-primary-container mb-4">{step.number}</div>
-                <h3 className="text-headline-sm text-on-surface mb-3">{step.title}</h3>
-                <p className="text-on-surface-variant text-sm">{step.description}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {advanced.map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 group hover:-translate-y-1 transition-transform duration-300"
+              >
+                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-5">
+                  <Icon className="w-6 h-6 text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+                <p className="text-zinc-400 leading-relaxed">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Platform */}
+      <section className="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Platform</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+              How It Runs
+            </h2>
+            <p className="text-zinc-400 max-w-2xl mx-auto">
+              Everything runs on your hardware — no cloud dependency, no data exposure.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {platform.map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 flex items-start gap-5"
+              >
+                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex shrink-0 mt-1">
+                  <Icon className="w-6 h-6 text-emerald-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+                  <p className="text-zinc-400 leading-relaxed">{body}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -171,22 +232,23 @@ const AIAssistantsPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-slate-900">
-        <div className="max-w-3xl mx-auto px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-headline-xl text-on-surface mb-4">Ready to see how an AI assistant can support your business?</h2>
-            <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-              Fill out the form below and we'll be in touch to discuss how we can build the right AI assistant for your team.
-            </p>
-          </div>
-          <AirtableForm
-            src="https://airtable.com/embed/appRwTy67k4QiQOS5/pagZTgKPxp6J6SNoK/form"
-            title="AI Assistants & Chatbots Discovery Form"
-          />
+      <section className="py-24 border-t border-zinc-900">
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Stop sending client financials to the cloud
+          </h2>
+          <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
+            See how Neural Index keeps your financial documents secure while making them instantly queryable by your entire team.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold py-4 px-12 rounded-xl transition-colors"
+          >
+            Book a Demo <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

@@ -60,32 +60,32 @@ export const Pricing: React.FC = () => {
   const alaCarte = STRIPE_PRODUCTS;
 
   return (
-    <div className="bg-cyber-dark text-slate-100 overflow-hidden" style={{ marginTop: '-5rem' }}>
+    <div className="bg-[#0a0a0a] text-slate-100 overflow-hidden" style={{ marginTop: '-5rem' }}>
       {/* ===== Hero ===== */}
       <section className="relative">
-        <div className="absolute inset-0 cyber-grid" aria-hidden="true" />
+        
         <div
-          className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[60rem] rounded-full bg-blue-500/20 blur-[120px]"
+          className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[60rem] rounded-full bg-emerald-500/10 blur-[120px]"
           aria-hidden="true"
         />
         <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 pt-36 pb-16 text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-cyan-300 text-xs font-semibold tracking-[0.18em] uppercase mb-7">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase mb-7">
             <Sparkles className="w-3.5 h-3.5" /> Built for Financial Practices
           </span>
           <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
             Pricing built for <span className="text-gradient-bright">advisory firms.</span>
           </h1>
-          <p className="text-lg text-slate-300/90 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">
             Every engagement pairs a one-time build with a monthly retainer that keeps the
             site fast, monitored and current. Transparent scope, fixed allocations, and no
             surprise invoices.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-sm text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-sm text-zinc-400">
             <span className="inline-flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-cyan-400" /> You own the code and the data
+              <ShieldCheck className="w-4 h-4 text-emerald-400" /> You own the code and the data
             </span>
             <span className="inline-flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-cyan-400" /> Scope agreed before work starts
+              <ShieldCheck className="w-4 h-4 text-emerald-400" /> Scope agreed before work starts
             </span>
           </div>
         </div>
@@ -103,7 +103,7 @@ export const Pricing: React.FC = () => {
             </div>
           ))}
         </div>
-        <p className="text-center text-xs text-slate-500 mt-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-center text-xs text-zinc-500 mt-8 max-w-2xl mx-auto leading-relaxed">
           Figures shown in USD. Setup fees are billed once at kickoff; retainers bill monthly
           and can be cancelled with 30 days&rsquo; notice. Custom engagements start at the
           published figure and are quoted against final scope.
@@ -111,22 +111,22 @@ export const Pricing: React.FC = () => {
       </section>
 
       {/* ===== Comparison table ===== */}
-      <section className="relative border-t border-white/10 py-20">
+      <section className="relative border-t border-zinc-800 py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-3">Compare every tier</h2>
-          <p className="text-center text-slate-400 mb-12">
+          <p className="text-center text-zinc-400 mb-12">
             The full scope of each engagement, side by side.
           </p>
 
-          <div className="overflow-x-auto rounded-2xl glass-dark">
+          <div className="overflow-x-auto rounded-2xl bg-zinc-900 border border-zinc-800">
             <table className="w-full min-w-[52rem] text-sm">
               <thead>
-                <tr className="border-b border-white/10">
-                  <th className="text-left font-semibold text-slate-400 p-4 w-56">Feature</th>
+                <tr className="border-b border-zinc-800">
+                  <th className="text-left font-semibold text-zinc-400 p-4 w-56">Feature</th>
                   {PRICING_TIERS.map((t) => (
                     <th key={t.id} className="p-4 text-center font-semibold text-white">
                       {t.name}
-                      <span className="block mt-1 text-xs font-normal text-cyan-300">
+                      <span className="block mt-1 text-xs font-normal text-emerald-400">
                         {money(t.retainer)}
                         {OPEN_ENDED_TIERS.includes(t.id) ? '+' : ''}/mo
                       </span>
@@ -138,26 +138,26 @@ export const Pricing: React.FC = () => {
                 {comparisonRows.map((row, i) => (
                   <tr
                     key={row.label}
-                    className={i % 2 ? 'bg-white/[0.02]' : undefined}
+                    className={i % 2 ? 'bg-zinc-950' : undefined}
                   >
-                    <td className="p-4 text-slate-300">{row.label}</td>
+                    <td className="p-4 text-zinc-300">{row.label}</td>
                     {row.values.map((v, j) => (
                       <td key={j} className="p-4 text-center">
                         {typeof v === 'boolean' ? (
                           v ? (
-                            <Check className="w-4 h-4 text-cyan-400 mx-auto" />
+                            <Check className="w-4 h-4 text-emerald-400 mx-auto" />
                           ) : (
-                            <Minus className="w-4 h-4 text-slate-600 mx-auto" />
+                            <Minus className="w-4 h-4 text-zinc-700 mx-auto" />
                           )
                         ) : (
-                          <span className="text-slate-200">{v}</span>
+                          <span className="text-zinc-200">{v}</span>
                         )}
                       </td>
                     ))}
                   </tr>
                 ))}
-                <tr className="border-t border-white/10">
-                  <td className="p-4 text-slate-300 font-semibold">One-time setup</td>
+                <tr className="border-t border-zinc-800">
+                  <td className="p-4 text-zinc-300 font-semibold">One-time setup</td>
                   {PRICING_TIERS.map((t) => (
                     <td key={t.id} className="p-4 text-center font-semibold text-white">
                       {money(t.setupFee)}
@@ -173,10 +173,10 @@ export const Pricing: React.FC = () => {
 
       {/* ===== A la carte ===== */}
       {alaCarte.length > 0 && (
-        <section className="relative border-t border-white/10 py-20">
+        <section className="relative border-t border-zinc-800 py-20">
           <div className="max-w-5xl mx-auto px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center mb-3">Single engagements</h2>
-            <p className="text-center text-slate-400 mb-12">
+            <p className="text-center text-zinc-400 mb-12">
               Not ready for a retainer? Start with a one-off session.
             </p>
             <div className="flex flex-wrap justify-center gap-6 [&>*]:w-full [&>*]:sm:w-80">
@@ -189,7 +189,7 @@ export const Pricing: React.FC = () => {
       )}
 
       {/* ===== FAQ ===== */}
-      <section className="relative border-t border-white/10 py-20">
+      <section className="relative border-t border-zinc-800 py-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">
             Questions finance firms ask
@@ -198,15 +198,15 @@ export const Pricing: React.FC = () => {
             {faqs.map((f) => (
               <details
                 key={f.q}
-                className="group glass-dark rounded-xl p-5 border border-white/10"
+                className="group bg-zinc-900 border border-zinc-800 rounded-xl p-5 border border-zinc-800"
               >
                 <summary className="flex items-center justify-between cursor-pointer list-none font-semibold text-white">
                   {f.q}
-                  <span className="ml-4 shrink-0 text-cyan-400 transition-transform group-open:rotate-45">
+                  <span className="ml-4 shrink-0 text-emerald-400 transition-transform group-open:rotate-45">
                     +
                   </span>
                 </summary>
-                <p className="mt-4 text-sm text-slate-400 leading-relaxed">{f.a}</p>
+                <p className="mt-4 text-sm text-zinc-400 leading-relaxed">{f.a}</p>
               </details>
             ))}
           </div>
@@ -214,12 +214,12 @@ export const Pricing: React.FC = () => {
       </section>
 
       {/* ===== Closing CTA ===== */}
-      <section className="relative border-t border-white/10 py-20">
+      <section className="relative border-t border-zinc-800 py-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-5">
             Not sure which tier fits your practice?
           </h2>
-          <p className="text-slate-400 leading-relaxed mb-9">
+          <p className="text-zinc-400 leading-relaxed mb-9">
             Tell us how your firm brings in clients today and we will tell you which tier
             actually makes sense — including when the answer is the cheapest one.
           </p>
