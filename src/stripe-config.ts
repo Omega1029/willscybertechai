@@ -6,6 +6,11 @@ export interface StripeProduct {
   price: number;
   currency: string;
   mode: 'payment' | 'subscription';
+  /**
+   * Stripe Payment Link — buyers check out on Stripe's hosted page with no
+   * account or sign-in. Null falls back to a contact CTA rather than a dead button.
+   */
+  paymentLink: string | null;
 }
 
 export const STRIPE_PRODUCTS: StripeProduct[] = [
@@ -16,7 +21,9 @@ export const STRIPE_PRODUCTS: StripeProduct[] = [
     description: 'Professional consultation service tailored to your specific needs',
     price: 200.00,
     currency: 'usd',
-    mode: 'payment'
+    mode: 'payment',
+    // TODO: paste the Payment Link for the $200 Specialty Consultation.
+    paymentLink: null
   }
 ];
 

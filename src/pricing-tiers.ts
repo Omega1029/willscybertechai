@@ -20,6 +20,12 @@ export interface PricingTier {
    * here for billing reference rather than for checkout.
    */
   stripe: { setupPriceId: string; retainerPriceId: string } | null;
+  /**
+   * Stripe Payment Link for the setup fee. Buyers go straight to Stripe's hosted
+   * page — no account or sign-in required. Until this is set the card falls back
+   * to the contact CTA, so an empty value never leaves a dead button on the page.
+   */
+  paymentLink: string | null;
 }
 
 export const PRICING_TIERS: PricingTier[] = [
@@ -46,6 +52,8 @@ export const PRICING_TIERS: PricingTier[] = [
       setupPriceId: 'price_1UCigxD13Nn7arbMEdQe6rum',
       retainerPriceId: 'price_1UCigxD13Nn7arbMVmVLkzRP',
     },
+    // TODO: paste the Payment Link for the $400 Essentials setup fee.
+    paymentLink: null,
   },
   {
     id: 'foundation',
@@ -70,6 +78,8 @@ export const PRICING_TIERS: PricingTier[] = [
       setupPriceId: 'price_1UCigyD13Nn7arbMAJQy9nBa',
       retainerPriceId: 'price_1UCigyD13Nn7arbMR2r44ge4',
     },
+    // TODO: paste the Payment Link for the $1,500 Foundation setup fee.
+    paymentLink: null,
   },
   {
     id: 'professional',
@@ -92,6 +102,7 @@ export const PRICING_TIERS: PricingTier[] = [
     ctaLabel: 'Book a Discovery Call',
     highlight: true,
     stripe: null,
+    paymentLink: null,
   },
   {
     id: 'growth',
@@ -114,6 +125,7 @@ export const PRICING_TIERS: PricingTier[] = [
     ctaLabel: 'Book a Discovery Call',
     highlight: false,
     stripe: null,
+    paymentLink: null,
   },
   {
     id: 'custom',
@@ -136,6 +148,7 @@ export const PRICING_TIERS: PricingTier[] = [
     ctaLabel: 'Talk to Us',
     highlight: false,
     stripe: null,
+    paymentLink: null,
   },
 ];
 

@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Loader2, AlertCircle, ArrowRight, Clock } from 'lucide-react';
+import { Check, ArrowRight, Clock } from 'lucide-react';
 import { PricingTier, OPEN_ENDED_TIERS } from '../pricing-tiers';
-import { supabase } from '../lib/supabase';
 
 const money = (n: number) =>
   new Intl.NumberFormat('en-US', {
@@ -16,60 +14,10 @@ interface Props {
 }
 
 export const PricingTierCard: React.FC<Props> = ({ tier }) => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
   const openEnded = OPEN_ENDED_TIERS.includes(tier.id);
   const suffix = openEnded ? '+' : '';
-  const canCheckout = tier.cta === 'checkout' && tier.stripe !== null;
-
-  const handleCheckout = async () => {
-    if (!tier.stripe) return;
-    try {
-      setLoading(true);
-      setError(null);
-
-      if (!supabase) {
-        setError('Checkout is unavailable right now. Please contact us and we will invoice you directly.');
-        return;
-      }
-
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        window.location.href = '/login';
-        return;
-      }
-
-      const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/stripe-checkout`,
-        {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${session.access_token}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            price_id: tier.stripe.setupPriceId,
-            mode: 'payment',
-            success_url: `${window.location.origin}/success`,
-            cancel_url: window.location.href,
-          }),
-        },
-      );
-
-      const data = await response.json();
-      if (!response.ok || data.error) {
-        setError(data.error ?? 'Failed to start checkout. Please try again.');
-        return;
-      }
-      if (data.url) window.location.href = data.url;
-    } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
-      console.error('Checkout error:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Buying goes straight to Stripe's hosted page — no account, no sign-in.
+  const buyUrl = tier.cta === 'checkout' ? tier.paymentLink : null;
 
   return (
     <div
@@ -120,30 +68,14 @@ export const PricingTierCard: React.FC<Props> = ({ tier }) => {
         <p className="text-xs text-zinc-400 leading-relaxed">{tier.allocation}</p>
       </div>
 
-      {error && (
-        <div className="flex items-start gap-2 mt-4 p-3 bg-red-500/10 border border-red-400/30 rounded-lg text-sm text-red-300">
-          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-          {error}
-        </div>
-      )}
-
-      {canCheckout ? (
+      {buyUrl ? (
         <>
-          <button
-            onClick={handleCheckout}
-            disabled={loading}
-            className="w-full btn-cyber font-semibold py-3.5 px-4 rounded-xl mt-6 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+          <a
+            href={buyUrl}
+            className="w-full btn-cyber font-semibold py-3.5 px-4 rounded-xl mt-6 flex items-center justify-center gap-2"
           >
-            {loading ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" /> Processing...
-              </>
-            ) : (
-              <>
-                {tier.ctaLabel} <ArrowRight className="w-4 h-4" />
-              </>
-            )}
-          </button>
+            {tier.ctaLabel} <ArrowRight className="w-4 h-4" />
+          </a>
           <p className="text-[11px] text-zinc-500 text-center mt-3 leading-relaxed">
             Checkout collects the {money(tier.setupFee)} setup fee. The{' '}
             {money(tier.retainer)}/mo retainer begins once onboarding is complete.
@@ -154,7 +86,8 @@ export const PricingTierCard: React.FC<Props> = ({ tier }) => {
           to="/contact"
           className="w-full border border-zinc-700 text-slate-100 font-semibold py-3.5 px-4 rounded-xl mt-6 flex items-center justify-center gap-2 hover:bg-zinc-800 hover:border-zinc-600 transition-all"
         >
-          {tier.ctaLabel} <ArrowRight className="w-4 h-4" />
+          {tier.cta === 'checkout' ? 'Get Started' : tier.ctaLabel}{' '}
+          <ArrowRight className="w-4 h-4" />
         </Link>
       )}
     </div>
