@@ -16,7 +16,6 @@ import { DEMO_ANSWERS, REFUSAL, matchAnswer, DemoCitation } from '../demo-qa';
 import { loadEmbedder, search, RELEVANCE_FLOOR } from '../demo-search';
 
 const QUERY_LIMIT = 5;
-const STORAGE_KEY = 'ni-demo-queries-used';
 
 interface Msg {
   role: 'user' | 'assistant';
@@ -65,15 +64,6 @@ export const DemoPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    try {
-      const v = parseInt(window.localStorage.getItem(STORAGE_KEY) ?? '0', 10);
-      if (!Number.isNaN(v)) setUsed(v);
-    } catch {
-      /* private browsing — start fresh, the cap still holds for this session */
-    }
-  }, []);
-
-  useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, [messages, thinking]);
 
@@ -88,13 +78,9 @@ export const DemoPage: React.FC = () => {
     setMessages((prev) => [...prev, { role: 'user', text: question }]);
     setThinking(true);
 
-    const next = used + 1;
-    setUsed(next);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, String(next));
-    } catch {
-      /* nothing to persist to — the in-memory count still applies */
-    }
+    // Deliberately not persisted: the allowance is per page load, so a refresh
+    // gives the visitor a fresh set of questions.
+    setUsed(used + 1);
 
     const canned = matchAnswer(question);
     let reply: Msg;
