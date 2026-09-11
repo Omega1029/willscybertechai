@@ -21,6 +21,7 @@ const Navbar = () => {
     { label: 'Features', href: '/features' },
     { label: 'Security', href: '/security' },
     { label: 'Use Cases', href: '/use-cases' },
+    { label: 'Live Demo', href: '/demo' },
     { label: 'For IT', href: '/it' },
     // { label: 'Pricing', href: '/pricing' },   // pricing disabled
     { label: 'Contact', href: '/contact' },

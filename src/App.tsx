@@ -22,6 +22,7 @@ import AboutPage from './pages/AboutPage';
 import Contact from './components/Contact';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ITPage from './pages/ITPage';
+import DemoPage from './pages/DemoPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import UseCasesPage from './pages/UseCasesPage';
 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/it" element={<ITPage />} />
+            <Route path="/demo" element={<DemoPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
             <Route path="/features" element={<AIAssistantsPage />} />
             <Route path="/security" element={<CustomAIPage />} />

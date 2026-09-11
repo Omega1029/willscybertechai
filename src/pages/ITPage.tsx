@@ -5,7 +5,9 @@ import {
   ShieldCheck,
   Ban,
   FileCheck,
-  AlertTriangle,
+  Boxes,
+  Wrench,
+  GraduationCap,
   Check,
 } from 'lucide-react';
 
@@ -51,6 +53,24 @@ const procurement = [
     title: 'We are not a breach vector',
     body:
       'No exposed service, no shared tenancy, no database on our side with your files in it. If we were compromised tomorrow, your documents would be unaffected, because we never held them.',
+  },
+];
+
+const implementation = [
+  {
+    icon: Boxes,
+    title: 'We spec the hardware',
+    body: 'Tell us how many people need it and how much material it has to read, and we tell you exactly what to buy — or supply it ourselves as part of the engagement.',
+  },
+  {
+    icon: Wrench,
+    title: 'We install it on site',
+    body: 'We come in, set it up on your network, load your documents and confirm the answers are right before anyone else touches it. Your IT can watch every step.',
+  },
+  {
+    icon: GraduationCap,
+    title: 'We hand it over',
+    body: 'Your team gets a walkthrough and full control of the deployment. Nothing depends on us being reachable afterwards, and we keep no access of any kind.',
   },
 ];
 
@@ -252,37 +272,39 @@ export const ITPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Limitations */}
+      {/* We implement it */}
       <section className="py-20 border-b border-zinc-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="rounded-2xl border border-amber-700/40 bg-amber-950/20 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <AlertTriangle className="w-6 h-6 text-amber-400" /> Current limitations
-            </h2>
-            <ul className="space-y-4 text-sm text-zinc-300 leading-relaxed">
-              <li>
-                <span className="font-semibold text-white">macOS on Apple Silicon only.</span>{' '}
-                There is no Windows or Linux build today. If your firm is standardised on
-                Windows, this is a blocker right now &mdash; talk to us about timelines
-                before you spend time evaluating.
-              </li>
-              <li>
-                <span className="font-semibold text-white">Per-machine deployment.</span>{' '}
-                Each machine keeps its own index, so a document set is prepared on each
-                machine that needs it. There is no shared firm-wide index yet.
-              </li>
-              <li>
-                <span className="font-semibold text-white">No central management console.</span>{' '}
-                No fleet dashboard and no directory-integrated policy layer today.
-                Configuration is per machine.
-              </li>
-              <li>
-                <span className="font-semibold text-white">No built-in query audit log.</span>{' '}
-                Questions and answers are not retained in a queryable record. If your
-                retention obligations require one, raise it with us before deployment
-                rather than assuming it.
-              </li>
-            </ul>
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-[0.18em] text-emerald-400 font-semibold mb-4">
+            If you are not set up for it
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            We come and <span className="text-gradient-bright">build it in.</span>
+          </h2>
+          <p className="text-zinc-400 mb-12 max-w-2xl leading-relaxed">
+            Firms rarely have the right machines sitting idle, and most do not have spare
+            IT capacity to run a rollout. That is part of the engagement, not a reason to
+            stop reading. Tell us what your network looks like and we handle the rest.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {implementation.map((s2) => (
+              <div key={s2.title} className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
+                <div className="bg-emerald-900/30 border border-emerald-700/20 p-2.5 rounded-lg inline-flex mb-5">
+                  <s2.icon className="w-5 h-5 text-emerald-400" />
+                </div>
+                <h3 className="font-semibold text-white mb-2">{s2.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">{s2.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex items-start gap-3 rounded-xl border border-emerald-700/30 bg-emerald-900/10 p-5">
+            <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <p className="text-sm text-zinc-300 leading-relaxed">
+              <span className="font-semibold text-white">You do not need in-house expertise for this.</span>{' '}
+              We scope the hardware, install it on your network, load your documents and
+              hand your team something that already works. Your IT keeps full control
+              afterwards &mdash; we retain no access.
+            </p>
           </div>
         </div>
       </section>

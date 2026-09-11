@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   ShieldCheck,
-  CreditCard,
+  PlayCircle,
   Search,
   Server,
   WifiOff,
@@ -156,10 +156,10 @@ export const Home: React.FC = () => {
                 Book a Demo <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
-                to="/pricing"
+                to="/demo"
                 className="border border-zinc-700 text-slate-100 font-semibold py-4 px-8 rounded-xl hover:bg-zinc-900 hover:border-zinc-600 transition-all inline-flex items-center gap-2"
               >
-                View Pricing <CreditCard className="w-5 h-5" />
+                Try the Live Demo <PlayCircle className="w-5 h-5" />
               </Link>
             </div>
 
@@ -393,10 +393,10 @@ export const Home: React.FC = () => {
                   Book a Demo <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
-                  to="/pricing"
+                  to="/demo"
                   className="border border-zinc-700 text-slate-100 font-semibold py-4 px-8 rounded-xl hover:bg-zinc-800 transition-all"
                 >
-                  View Pricing
+                  Try the Live Demo
                 </Link>
               </div>
             </div>
