@@ -12,9 +12,9 @@ export const ITCallout: React.FC = () => (
         Handing this to your IT team?
       </h2>
       <p className="text-zinc-400 leading-relaxed max-w-2xl mx-auto mb-9">
-        There is a whole page written in their language: where it runs, what is in the
-        stack, every host it talks to, what it stores, and the limitations we would
-        rather they hear from us than find on their own.
+        There is a whole page written in their language: where it runs, how deployment
+        works, what a security review will ask, and the limitations we would rather they
+        hear from us than find on their own.
       </p>
       <Link
         to="/it"
