@@ -8,9 +8,12 @@ import {
   Lock,
   Sparkles,
   ShieldCheck,
+  Cpu,
+  Loader2,
 } from 'lucide-react';
 import { DEMO_DOCS, getDoc } from '../demo-corpus';
 import { DEMO_ANSWERS, REFUSAL, matchAnswer, DemoCitation } from '../demo-qa';
+import { loadEmbedder, search, RELEVANCE_FLOOR } from '../demo-search';
 
 const QUERY_LIMIT = 5;
 const STORAGE_KEY = 'ni-demo-queries-used';
@@ -20,6 +23,8 @@ interface Msg {
   text: string;
   citations?: DemoCitation[];
   refused?: boolean;
+  /** Verbatim passage pulled by retrieval rather than a written answer. */
+  quoted?: boolean;
 }
 
 /** Wraps the cited phrase in a highlight without trusting the text as markup. */
@@ -43,7 +48,21 @@ export const DemoPage: React.FC = () => {
   const [thinking, setThinking] = useState(false);
   const [source, setSource] = useState<DemoCitation | null>(null);
   const [used, setUsed] = useState(0);
+  const [modelState, setModelState] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
+  const [modelPct, setModelPct] = useState(0);
   const endRef = useRef<HTMLDivElement>(null);
+
+  // Warm the in-browser model up front so the first question is not the slow one.
+  useEffect(() => {
+    let cancelled = false;
+    setModelState('loading');
+    loadEmbedder((pct) => !cancelled && setModelPct(pct))
+      .then(() => !cancelled && setModelState('ready'))
+      .catch(() => !cancelled && setModelState('failed'));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     try {
@@ -61,7 +80,7 @@ export const DemoPage: React.FC = () => {
   const remaining = Math.max(0, QUERY_LIMIT - used);
   const exhausted = remaining === 0;
 
-  const ask = (q: string) => {
+  const ask = async (q: string) => {
     const question = q.trim();
     if (!question || thinking || exhausted) return;
 
@@ -77,17 +96,37 @@ export const DemoPage: React.FC = () => {
       /* nothing to persist to — the in-memory count still applies */
     }
 
-    // A short pause so the answer reads as a response rather than a lookup.
-    window.setTimeout(() => {
-      const hit = matchAnswer(question);
-      setMessages((prev) => [
-        ...prev,
-        hit
-          ? { role: 'assistant', text: hit.answer, citations: hit.citations }
-          : { role: 'assistant', text: REFUSAL, refused: true },
-      ]);
-      setThinking(false);
-    }, 550);
+    const canned = matchAnswer(question);
+    let reply: Msg;
+
+    try {
+      const hits = await search(question);
+      const top = hits[0];
+
+      if (canned) {
+        // A written answer exists; keep its prose and its verified citation.
+        reply = { role: 'assistant', text: canned.answer, citations: canned.citations };
+      } else if (top && top.score >= RELEVANCE_FLOOR) {
+        // No written answer, but retrieval found a relevant passage — quote it
+        // rather than generate prose we cannot stand behind.
+        reply = {
+          role: 'assistant',
+          text: top.sentence,
+          quoted: true,
+          citations: [{ docId: top.docId, page: top.page, anchor: top.sentence.slice(0, 90) }],
+        };
+      } else {
+        reply = { role: 'assistant', text: REFUSAL, refused: true };
+      }
+    } catch {
+      // Model unavailable — fall back to the keyword match alone.
+      reply = canned
+        ? { role: 'assistant', text: canned.answer, citations: canned.citations }
+        : { role: 'assistant', text: REFUSAL, refused: true };
+    }
+
+    setMessages((prev) => [...prev, reply]);
+    setThinking(false);
   };
 
   const sourceDoc = source ? getDoc(source.docId) : null;
@@ -101,13 +140,14 @@ export const DemoPage: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" /> Interactive Demo
           </span>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Ask these documents <span className="text-gradient-bright">anything.</span>
+            Ask the tax code <span className="text-gradient-bright">anything.</span>
           </h1>
           <p className="text-zinc-400 leading-relaxed max-w-3xl">
-            A working slice of the real interface, loaded with four genuine federal
-            rules. Ask a question and you get an answer with citations you can open and
-            read. In the product these are your own files, and everything runs on your
-            machine instead of in this browser tab.
+            A working slice of the real interface, loaded with genuine federal rules on
+            tax, accounting and investing. A small language model loads into this page
+            and does the searching right here &mdash; nothing you type is sent to a
+            server. Ask a question and you get an answer with citations you can open and
+            read.
           </p>
         </div>
       </section>
@@ -135,6 +175,9 @@ export const DemoPage: React.FC = () => {
                           <span className="block text-[11px] text-zinc-500 mt-1">
                             {d.citation} · {d.pages.length} pages
                           </span>
+                          <span className="inline-block mt-2 text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-900/30 border border-emerald-700/25 text-emerald-400">
+                            {d.topic}
+                          </span>
                         </span>
                       </span>
                     </button>
@@ -148,8 +191,26 @@ export const DemoPage: React.FC = () => {
 
             {/* Chat */}
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900 flex flex-col min-h-[32rem]">
-              <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-3.5">
-                <p className="text-sm font-semibold text-white">Chat</p>
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800 px-5 py-3.5">
+                <div className="flex items-center gap-3">
+                  <p className="text-sm font-semibold text-white">Chat</p>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-1 rounded-full border border-zinc-700 bg-zinc-950 text-zinc-400">
+                    {modelState === 'ready' && (
+                      <>
+                        <Cpu className="w-3 h-3 text-emerald-400" />
+                        Model running in this browser
+                      </>
+                    )}
+                    {modelState === 'loading' && (
+                      <>
+                        <Loader2 className="w-3 h-3 animate-spin text-emerald-400" />
+                        Loading local model{modelPct > 0 ? ` ${Math.round(modelPct * 100)}%` : '…'}
+                      </>
+                    )}
+                    {modelState === 'failed' && <>Local model unavailable</>}
+                    {modelState === 'idle' && <>Starting…</>}
+                  </span>
+                </div>
                 <span
                   className={`text-[11px] px-2.5 py-1 rounded-full border ${
                     exhausted
@@ -198,7 +259,14 @@ export const DemoPage: React.FC = () => {
                             : 'border-emerald-700/25 bg-emerald-900/10 text-zinc-200'
                         }`}
                       >
-                        <p className="text-sm leading-relaxed">{m.text}</p>
+                        {m.quoted && (
+                          <p className="text-[11px] uppercase tracking-wider text-emerald-400/80 mb-2">
+                            Closest passage in these documents
+                          </p>
+                        )}
+                        <p className={`text-sm leading-relaxed ${m.quoted ? 'font-serif italic text-zinc-300' : ''}`}>
+                          {m.quoted ? `“${m.text}”` : m.text}
+                        </p>
                         {m.refused && (
                           <p className="text-xs text-zinc-500 mt-2 leading-relaxed">
                             The demo workspace only holds the four rules listed on the
@@ -263,7 +331,7 @@ export const DemoPage: React.FC = () => {
                     <input
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
-                      placeholder="Ask a question about these documents…"
+                      placeholder="Ask about deductions, audits, or best interest…"
                       className="flex-1 bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:border-emerald-500/50"
                     />
                     <button
@@ -319,11 +387,13 @@ export const DemoPage: React.FC = () => {
           <div className="mt-8 flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-5">
             <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
             <p className="text-sm text-zinc-400 leading-relaxed">
-              <span className="font-semibold text-white">How this differs from the product.</span>{' '}
-              This page runs in your browser on a fixed set of public documents, with
-              answers prepared in advance so it stays fast and free to try. The installed
-              application reads your own private files, generates answers on your own
-              machine, and never sends them anywhere.
+              <span className="font-semibold text-white">What is real here, and what is not.</span>{' '}
+              The search is real: a language model loads into this page and finds the
+              relevant passage locally, so your questions never leave your browser. What
+              is scaled down is the rest &mdash; a fixed set of public documents, and
+              written answers for the common questions rather than generated prose. The
+              installed product runs a far larger model on your own machine, over your own
+              private files.
             </p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { Home } from './pages/Home';
@@ -22,7 +22,8 @@ import AboutPage from './pages/AboutPage';
 import Contact from './components/Contact';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ITPage from './pages/ITPage';
-import DemoPage from './pages/DemoPage';
+// Demo carries its corpus and embeddings; keep it out of the main bundle.
+const DemoPage = lazy(() => import('./pages/DemoPage'));
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import UseCasesPage from './pages/UseCasesPage';
 
@@ -58,7 +59,20 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/it" element={<ITPage />} />
-            <Route path="/demo" element={<DemoPage />} />
+            <Route
+              path="/demo"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center text-zinc-500 text-sm">
+                      Loading demo…
+                    </div>
+                  }
+                >
+                  <DemoPage />
+                </Suspense>
+              }
+            />
             <Route path="/terms" element={<TermsOfServicePage />} />
             <Route path="/features" element={<AIAssistantsPage />} />
             <Route path="/security" element={<CustomAIPage />} />
