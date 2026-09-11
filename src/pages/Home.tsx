@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import TestimonialCard from '../components/TestimonialCard';
 import PricingSection from '../components/PricingSection';
+import ITCallout from '../components/ITCallout';
 
 const stats = [
   { value: '100%', label: 'Self-hosted / on-prem' },
@@ -367,6 +368,8 @@ export const Home: React.FC = () => {
       </section>
 
       <PricingSection />
+
+      <ITCallout />
 
       {/* ===== Final CTA ===== */}
       <section className="pb-28 pt-4">
