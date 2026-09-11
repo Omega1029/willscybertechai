@@ -22,7 +22,7 @@ const Navbar = () => {
     { label: 'Security', href: '/security' },
     { label: 'Use Cases', href: '/use-cases' },
     { label: 'For IT', href: '/it' },
-    { label: 'Pricing', href: '/pricing' },
+    // { label: 'Pricing', href: '/pricing' },   // pricing disabled
     { label: 'Contact', href: '/contact' },
   ];
 

@@ -28,48 +28,48 @@ const inTheBox = [
 ];
 
 const deploymentSteps = [
-  { n: 'Scoping', body: 'A short call with your IT about the machines it will run on and what documents go in.' },
-  { n: 'Install', body: 'The signed installer runs on each machine. Nothing leaves your network.' },
-  { n: 'Handoff', body: 'Your team gets a walkthrough, and the keys. There is nothing for us to retain access to.' },
+  { n: 'Scoping', body: 'A short call with your IT covering which machines it goes on and which files it should read.' },
+  { n: 'Install', body: 'The installer runs on each machine. Nothing crosses your network boundary.' },
+  { n: 'Handoff', body: 'We walk your team through it and hand over control. We keep no access of any kind.' },
 ];
 
 const procurement = [
   {
     icon: FileCheck,
-    title: 'Documents in, nothing out',
+    title: 'Your files stay yours',
     body:
-      'The corpus is whatever your firm puts in it. The guarantee does not rest on what goes in: nothing connects out, so the document set can grow without the exposure growing with it.',
+      'You decide what goes in, and that decision carries no downstream risk. Because nothing is transmitted anywhere, adding another thousand documents adds nothing to your exposure.',
   },
   {
     icon: Ban,
-    title: 'No connections out',
+    title: 'Nothing phones home',
     body:
-      'No cloud accounts, no telemetry, no callbacks, no vendor-side processing. It runs air-gapped, so the data-flow diagram for your security review has exactly one box on it: yours.',
+      'No accounts to create, no usage pings, no background sync, no processing on our side. Sketch the data flow for your security reviewer and it is a single box with your name on it.',
   },
   {
     icon: ShieldCheck,
-    title: 'Nothing to breach remotely',
+    title: 'We are not a breach vector',
     body:
-      'There is no server to expose, no tenant to isolate, and no vendor database holding your documents. The blast radius of a vendor compromise is zero, because we hold nothing.',
+      'No exposed service, no shared tenancy, no database on our side with your files in it. If we were compromised tomorrow, your documents would be unaffected, because we never held them.',
   },
 ];
 
 const posture = [
   {
-    title: 'No inbound attack surface',
-    body: 'The application accepts no external connections and is unreachable from any other machine on the network. No firewall exception is required to run it.',
+    title: 'Nothing listening',
+    body: 'The application takes no connections from outside and cannot be reached from another machine on your network. Your firewall needs no new rule to let it work.',
   },
   {
-    title: 'Signed and notarised',
-    body: 'The installer is code-signed and notarised, so it validates on install without a network round trip. Installed files are integrity-checked before they are trusted.',
+    title: 'Verified before it installs',
+    body: 'The installer carries a verified publisher signature that the operating system checks on its own, with no call out to us. Files are validated for tampering before anything will load them.',
   },
   {
-    title: 'No telemetry',
-    body: 'There is no analytics, crash reporting, or usage beacon in the application. There is no setting to switch off, because there is nothing collecting.',
+    title: 'Nothing is measured',
+    body: 'No analytics, no crash reports, no usage counters. You will not find a privacy toggle in the settings, because there is nothing for one to turn off.',
   },
   {
-    title: 'Removal is complete',
-    body: 'Everything lives under one application data directory. Remove the application and delete that directory and nothing remains — there is no cloud account still holding a copy.',
+    title: 'Uninstalling leaves nothing',
+    body: 'Everything the application creates sits in a single folder. Delete the application and that folder and it is genuinely gone, with no account elsewhere quietly holding a copy.',
   },
 ];
 
@@ -83,12 +83,12 @@ export const ITPage: React.FC = () => {
             <Server className="w-3.5 h-3.5" /> For IT &amp; Security Teams
           </span>
           <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-            It meets your network <span className="text-gradient-bright">where it is.</span>
+            Runs where your firm <span className="text-gradient-bright">already runs.</span>
           </h1>
           <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
-            An analyst&rsquo;s laptop, a handful of machines in one office, or a hardened
-            room with no route out &mdash; the same install, and the same guarantee.
-            Nothing leaves the building.
+            One analyst&rsquo;s laptop, a few machines in a single office, or a locked room with
+            no way out to the internet. Same install each time, same promise each time:
+            your files stay on your hardware.
           </p>
         </div>
       </section>
@@ -97,9 +97,9 @@ export const ITPage: React.FC = () => {
       <section className="py-20 border-b border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <p className="text-xs uppercase tracking-[0.18em] text-emerald-400 font-semibold mb-4">
-            Where it runs
+            Deployment targets
           </p>
-          <h2 className="text-3xl font-bold mb-10">Environments</h2>
+          <h2 className="text-3xl font-bold mb-10">Where it can run today</h2>
           <div className="overflow-x-auto rounded-2xl border border-zinc-800 bg-zinc-900">
             <table className="w-full min-w-[44rem] text-sm">
               <thead>
@@ -140,23 +140,24 @@ export const ITPage: React.FC = () => {
       <section className="py-20 border-b border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <p className="text-xs uppercase tracking-[0.18em] text-emerald-400 font-semibold mb-4">
-            The shape of it
+            What you are installing
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            A deliberately <span className="text-gradient-bright">boring</span> install.
+            Nothing exotic to <span className="text-gradient-bright">stand up.</span>
           </h2>
           <p className="text-zinc-400 mb-12 max-w-2xl leading-relaxed">
-            No cloud accounts, no telemetry, no exotic infrastructure to stand up. It is
-            an application, a local index of your documents, and a language model that
-            runs on hardware your IT already knows how to manage.
+            There is no tenant to provision, no account to federate, and no new platform for
+            your team to learn. It is an application, a searchable index of your own
+            files, and a model that answers from them &mdash; all on hardware you already
+            support.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-7">
-              <h3 className="text-xl font-semibold text-white mb-2">What&rsquo;s in the box</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">What gets installed</h3>
               <p className="text-sm text-zinc-400 leading-relaxed mb-6">
-                Every piece runs locally and can be inspected, patched and backed up by
-                your own team.
+                Each piece sits on the machine itself, where your team can inspect it, patch it
+                and fold it into an existing backup routine.
               </p>
               <div className="flex flex-wrap gap-2">
                 {inTheBox.map((c) => (
@@ -171,7 +172,7 @@ export const ITPage: React.FC = () => {
             </div>
 
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-7">
-              <h3 className="text-xl font-semibold text-white mb-6">How deployment works</h3>
+              <h3 className="text-xl font-semibold text-white mb-6">Getting it running</h3>
               <ol className="space-y-5">
                 {deploymentSteps.map((s, i) => (
                   <li key={s.n} className="flex gap-4">
@@ -199,16 +200,16 @@ export const ITPage: React.FC = () => {
       <section className="py-20 border-b border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <p className="text-xs uppercase tracking-[0.18em] text-emerald-400 font-semibold mb-4">
-            Procurement &amp; vetting
+            Vendor review
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Built to be <span className="text-gradient-bright">easy to approve.</span>
+            Short answers to the <span className="text-gradient-bright">hard questions.</span>
           </h2>
           <p className="text-zinc-400 mb-12 max-w-2xl leading-relaxed">
-            Before a firm can use a vendor, the purchase usually clears two internal
-            reviews: a business review of the company, and a technology review of what
-            data the product touches and where that data goes. This is designed so those
-            questionnaires have short answers.
+            Most firms put a new vendor through two gates: someone checks the company, and
+            someone else checks what the software touches and where that data ends up.
+            Both reviews tend to stall on the same handful of questions. Here they are,
+            answered up front.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {procurement.map((p) => (
@@ -243,9 +244,9 @@ export const ITPage: React.FC = () => {
             <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
             <p className="text-sm text-zinc-300 leading-relaxed">
               <span className="font-semibold text-white">Air-gapped operation is supported.</span>{' '}
-              Once set up, the application needs no network route at all. Documents,
-              questions and generated answers never leave the machine under any
-              configuration.
+              After setup it needs no route to the internet whatsoever. Your files, the
+              questions your staff ask, and every answer produced all stay on the machine,
+              in every configuration we ship.
             </p>
           </div>
         </div>
@@ -290,10 +291,11 @@ export const ITPage: React.FC = () => {
       <section className="py-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-5">
-            Questions this page did not answer?
+            Still have questions?
           </h2>
           <p className="text-zinc-400 leading-relaxed mb-9">
-            Send them over. Technical questions get a technical answer, not a sales reply.
+            Send them over. A technical question gets a technical answer from someone who
+            works on the product, not a sales reply.
           </p>
           <Link
             to="/contact"
