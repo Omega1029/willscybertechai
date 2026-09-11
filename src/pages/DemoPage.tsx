@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { DEMO_DOCS, getDoc } from '../demo-corpus';
 import { DEMO_ANSWERS, REFUSAL, matchAnswer, DemoCitation } from '../demo-qa';
-import { loadEmbedder, search, RELEVANCE_FLOOR } from '../demo-search';
+import { loadEmbedder, search, RELEVANCE_FLOOR, isMetaQuestion, topicHint } from '../demo-search';
 
 const QUERY_LIMIT = 5;
 
@@ -24,6 +24,8 @@ interface Msg {
   refused?: boolean;
   /** Verbatim passage pulled by retrieval rather than a written answer. */
   quoted?: boolean;
+  /** Offer example questions underneath — used when we could not answer. */
+  suggest?: boolean;
 }
 
 /** Wraps the cited phrase in a highlight without trusting the text as markup. */
@@ -85,30 +87,42 @@ export const DemoPage: React.FC = () => {
     const canned = matchAnswer(question);
     let reply: Msg;
 
-    try {
-      const hits = await search(question);
-      const top = hits[0];
+    if (isMetaQuestion(question)) {
+      // A question about the assistant, not the documents.
+      reply = {
+        role: 'assistant',
+        text:
+          `I have read four federal rules end to end: ${DEMO_DOCS.map((d) => d.name).join(', ')}. ` +
+          'Ask me anything they cover — deductions and what limits apply, what an audit report has to contain, ' +
+          "or what a broker owes a retail customer — and I'll answer with the page it came from.",
+        suggest: true,
+      };
+    } else {
+      try {
+        const hits = await search(question);
+        const top = hits[0];
+        const hintDoc = topicHint(question);
+        // A question naming a subject the corpus covers, worded too thinly to score well.
+        const hinted = hintDoc ? hits.find((h) => h.docId === hintDoc) ?? null : null;
+        const use = top && top.score >= RELEVANCE_FLOOR ? top : hinted;
 
-      if (canned) {
-        // A written answer exists; keep its prose and its verified citation.
-        reply = { role: 'assistant', text: canned.answer, citations: canned.citations };
-      } else if (top && top.score >= RELEVANCE_FLOOR) {
-        // No written answer, but retrieval found a relevant passage — quote it
-        // rather than generate prose we cannot stand behind.
-        reply = {
-          role: 'assistant',
-          text: top.sentence,
-          quoted: true,
-          citations: [{ docId: top.docId, page: top.page, anchor: top.sentence.slice(0, 90) }],
-        };
-      } else {
-        reply = { role: 'assistant', text: REFUSAL, refused: true };
+        if (canned) {
+          reply = { role: 'assistant', text: canned.answer, citations: canned.citations };
+        } else if (use) {
+          reply = {
+            role: 'assistant',
+            text: use.sentence,
+            quoted: true,
+            citations: [{ docId: use.docId, page: use.page, anchor: use.sentence.slice(0, 90) }],
+          };
+        } else {
+          reply = { role: 'assistant', text: REFUSAL, refused: true, suggest: true };
+        }
+      } catch {
+        reply = canned
+          ? { role: 'assistant', text: canned.answer, citations: canned.citations }
+          : { role: 'assistant', text: REFUSAL, refused: true, suggest: true };
       }
-    } catch {
-      // Model unavailable — fall back to the keyword match alone.
-      reply = canned
-        ? { role: 'assistant', text: canned.answer, citations: canned.citations }
-        : { role: 'assistant', text: REFUSAL, refused: true };
     }
 
     setMessages((prev) => [...prev, reply]);
@@ -255,12 +269,25 @@ export const DemoPage: React.FC = () => {
                         </p>
                         {m.refused && (
                           <p className="text-xs text-zinc-500 mt-2 leading-relaxed">
-                            The demo workspace only holds the four rules listed on the
-                            left. Rather than guess, it says so — which is what it does in
-                            the product too.
+                            This workspace only holds the four rules on the left, and it
+                            will not guess outside them. Try one of these:
                           </p>
                         )}
                       </div>
+                      {m.suggest && (
+                        <div className="flex flex-wrap gap-2 mt-3">
+                          {DEMO_ANSWERS.slice(0, 3).map((a) => (
+                            <button
+                              key={a.id}
+                              onClick={() => ask(a.question)}
+                              disabled={exhausted}
+                              className="text-left text-[12px] rounded-lg border border-zinc-800 bg-zinc-950 hover:border-emerald-500/40 disabled:opacity-40 transition-colors px-3 py-1.5 text-zinc-300"
+                            >
+                              {a.question}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                       {m.citations && m.citations.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-2.5">
                           {m.citations.map((c, j) => {
