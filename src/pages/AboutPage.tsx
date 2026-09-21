@@ -46,7 +46,7 @@ const AboutPage = () => {
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About Our Founder</h1>
           <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-            Meet Justin Williams, the AI engineer behind Neural Index
+            Meet Justin Williams, the AI engineer behind FinLocal
           </p>
         </div>
       </section>

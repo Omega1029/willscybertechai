@@ -24,7 +24,7 @@ const PrivacyPolicyPage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">1. Introduction</h2>
               <p className="text-zinc-400 leading-relaxed">
-                Neural Index ("we," "us," or "our") is an on-premise AI document assistant platform built for organizations that require total data sovereignty. This Privacy Policy describes how we collect, use, and protect information when you access our website, platform, or services. By using Neural Index, you agree to the practices described in this policy. If you do not agree, please discontinue use of our services.
+                FinLocal ("we," "us," or "our") is an on-premise AI document assistant platform built for organizations that require total data sovereignty. This Privacy Policy describes how we collect, use, and protect information when you access our website, platform, or services. By using FinLocal, you agree to the practices described in this policy. If you do not agree, please discontinue use of our services.
               </p>
             </div>
 
@@ -33,7 +33,7 @@ const PrivacyPolicyPage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">2. Information We Collect</h2>
               <p className="text-zinc-400 leading-relaxed">
-                We collect information you provide directly when you create an account, subscribe to a plan, or contact us. This includes your name, email address, organization name, billing details, and any documents or files you upload to our platform. We also collect information necessary to provision your deployment environment, including configuration preferences and integration settings. We do not collect or access the contents of your documents for any purpose other than delivering the Neural Index service you have subscribed to.
+                We collect information you provide directly when you create an account, subscribe to a plan, or contact us. This includes your name, email address, organization name, billing details, and any documents or files you upload to our platform. We also collect information necessary to provision your deployment environment, including configuration preferences and integration settings. We do not collect or access the contents of your documents for any purpose other than delivering the FinLocal service you have subscribed to.
               </p>
             </div>
 
@@ -51,7 +51,7 @@ const PrivacyPolicyPage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">4. How We Use Your Information</h2>
               <p className="text-zinc-400 leading-relaxed">
-                The information we collect is used solely to deliver, improve, and support the Neural Index platform. Specifically, we use your data to provision your account and deployment, process payments securely through Stripe, respond to support requests, send service-related communications (such as receipts and security alerts), and improve the reliability of our document intelligence features. We may use aggregated, anonymized usage data to guide product development. We will never use your uploaded documents to train third-party AI models, and your document data never leaves your designated infrastructure unless you explicitly configure it to do so.
+                The information we collect is used solely to deliver, improve, and support the FinLocal platform. Specifically, we use your data to provision your account and deployment, process payments securely through Stripe, respond to support requests, send service-related communications (such as receipts and security alerts), and improve the reliability of our document intelligence features. We may use aggregated, anonymized usage data to guide product development. We will never use your uploaded documents to train third-party AI models, and your document data never leaves your designated infrastructure unless you explicitly configure it to do so.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ const PrivacyPolicyPage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">5. Information Sharing</h2>
               <p className="text-zinc-400 leading-relaxed">
-                Neural Index does not sell, rent, or trade your personal information to third parties for marketing purposes. We share data only with the minimum number of trusted service providers needed to operate our platform — including Stripe for payment processing and Supabase for authentication infrastructure. Each provider is subject to strict data processing agreements. We may disclose information if required by law, court order, or governmental authority, or if we believe in good faith that disclosure is necessary to protect user safety, prevent fraud, or enforce our terms of service.
+                FinLocal does not sell, rent, or trade your personal information to third parties for marketing purposes. We share data only with the minimum number of trusted service providers needed to operate our platform — including Stripe for payment processing and Supabase for authentication infrastructure. Each provider is subject to strict data processing agreements. We may disclose information if required by law, court order, or governmental authority, or if we believe in good faith that disclosure is necessary to protect user safety, prevent fraud, or enforce our terms of service.
               </p>
             </div>
 
@@ -69,7 +69,7 @@ const PrivacyPolicyPage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">6. Data Security</h2>
               <p className="text-zinc-400 leading-relaxed">
-                Your data is stored on infrastructure with industry-standard security controls. All data in transit is encrypted using TLS 1.2 or higher, and all data at rest is encrypted using AES-256. For on-premise deployments, your data never leaves your own network or server environment. Access to your personal data is restricted to authorized Neural Index personnel who require it to perform their job functions, and all access is logged and audited. We implement row-level security controls to ensure no user can access another user's data. While we take every reasonable precaution, no system is completely immune to breaches — we encourage users to maintain strong, unique passwords and enable multi-factor authentication where available.
+                Your data is stored on infrastructure with industry-standard security controls. All data in transit is encrypted using TLS 1.2 or higher, and all data at rest is encrypted using AES-256. For on-premise deployments, your data never leaves your own network or server environment. Access to your personal data is restricted to authorized FinLocal personnel who require it to perform their job functions, and all access is logged and audited. We implement row-level security controls to ensure no user can access another user's data. While we take every reasonable precaution, no system is completely immune to breaches — we encourage users to maintain strong, unique passwords and enable multi-factor authentication where available.
               </p>
             </div>
 
@@ -100,7 +100,7 @@ const PrivacyPolicyPage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">9. Changes to This Policy</h2>
               <p className="text-zinc-400 leading-relaxed">
-                We reserve the right to update this Privacy Policy from time to time to reflect changes in our practices, technology, or applicable law. Material changes will be communicated via email or a prominent notice on our platform at least 14 days before taking effect. The updated effective date will always appear at the top of this page. Continued use of Neural Index after changes take effect constitutes your acceptance of the revised policy.
+                We reserve the right to update this Privacy Policy from time to time to reflect changes in our practices, technology, or applicable law. Material changes will be communicated via email or a prominent notice on our platform at least 14 days before taking effect. The updated effective date will always appear at the top of this page. Continued use of FinLocal after changes take effect constitutes your acceptance of the revised policy.
               </p>
             </div>
 
@@ -113,7 +113,7 @@ const PrivacyPolicyPage = () => {
                 <a href="mailto:willscybertech@gmail.com" className="text-emerald-400 hover:underline font-medium">
                   willscybertech@gmail.com
                 </a>
-                . Neural Index is operated by Wills Cyber Tech. We are committed to resolving privacy concerns promptly and transparently.
+                . FinLocal is operated by Wills Cyber Tech. We are committed to resolving privacy concerns promptly and transparently.
               </p>
             </div>
 

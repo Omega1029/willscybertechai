@@ -22,7 +22,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
               <p className="text-zinc-400 leading-relaxed">
-                By accessing or using Neural Index ("the Service"), you agree to be bound by these Terms of Service. If you are using the Service on behalf of an organization, you represent that you have authority to bind that organization to these terms. If you do not agree to these terms, do not use the Service.
+                By accessing or using FinLocal ("the Service"), you agree to be bound by these Terms of Service. If you are using the Service on behalf of an organization, you represent that you have authority to bind that organization to these terms. If you do not agree to these terms, do not use the Service.
               </p>
             </div>
 
@@ -31,7 +31,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">2. Description of Service</h2>
               <p className="text-zinc-400 leading-relaxed">
-                Neural Index provides on-premise AI document intelligence software designed for accounting, finance, and related professional services firms. The Service enables users to query, analyze, and extract insights from financial documents using large language models deployed within the customer's own infrastructure. Neural Index does not transmit customer document data to external servers unless explicitly configured to do so.
+                FinLocal provides on-premise AI document intelligence software designed for accounting, finance, and related professional services firms. The Service enables users to query, analyze, and extract insights from financial documents using large language models deployed within the customer's own infrastructure. FinLocal does not transmit customer document data to external servers unless explicitly configured to do so.
               </p>
             </div>
 
@@ -40,7 +40,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">3. Account Registration</h2>
               <p className="text-zinc-400 leading-relaxed">
-                To access certain features of the Service, you must create an account. You agree to provide accurate, current, and complete information during registration and to keep your account credentials confidential. You are responsible for all activity that occurs under your account. Neural Index is not liable for losses arising from unauthorized account access resulting from your failure to protect your credentials.
+                To access certain features of the Service, you must create an account. You agree to provide accurate, current, and complete information during registration and to keep your account credentials confidential. You are responsible for all activity that occurs under your account. FinLocal is not liable for losses arising from unauthorized account access resulting from your failure to protect your credentials.
               </p>
             </div>
 
@@ -49,7 +49,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">4. Permitted Use</h2>
               <p className="text-zinc-400 leading-relaxed">
-                You may use Neural Index solely for lawful business purposes consistent with its intended function as a financial document intelligence platform. You agree not to: (a) reverse engineer, decompile, or disassemble any component of the Service; (b) use the Service to process data in violation of applicable laws or regulations; (c) attempt to gain unauthorized access to any system or network; (d) resell or sublicense the Service without prior written consent from Neural Index; or (e) use the Service to generate outputs that are fraudulent, defamatory, or in violation of any third-party rights.
+                You may use FinLocal solely for lawful business purposes consistent with its intended function as a financial document intelligence platform. You agree not to: (a) reverse engineer, decompile, or disassemble any component of the Service; (b) use the Service to process data in violation of applicable laws or regulations; (c) attempt to gain unauthorized access to any system or network; (d) resell or sublicense the Service without prior written consent from FinLocal; or (e) use the Service to generate outputs that are fraudulent, defamatory, or in violation of any third-party rights.
               </p>
             </div>
 
@@ -58,7 +58,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">5. Intellectual Property</h2>
               <p className="text-zinc-400 leading-relaxed">
-                All software, interfaces, documentation, and content comprising the Neural Index platform are the exclusive intellectual property of Wills Cyber Tech and are protected by applicable copyright, trademark, and trade secret laws. These Terms do not grant you any ownership interest in the Service. You retain all rights to documents and data you upload to the platform — Neural Index claims no intellectual property rights over your content.
+                All software, interfaces, documentation, and content comprising the FinLocal platform are the exclusive intellectual property of Wills Cyber Tech and are protected by applicable copyright, trademark, and trade secret laws. These Terms do not grant you any ownership interest in the Service. You retain all rights to documents and data you upload to the platform — FinLocal claims no intellectual property rights over your content.
               </p>
             </div>
 
@@ -67,7 +67,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">6. Fees and Payment</h2>
               <p className="text-zinc-400 leading-relaxed">
-                Subscription fees are charged in advance on a monthly or annual basis as specified in your chosen plan. All payments are processed securely through Stripe. Fees are non-refundable except as expressly required by applicable law. Neural Index reserves the right to modify pricing with 30 days' advance notice. Failure to pay may result in suspension or termination of your access to the Service.
+                Subscription fees are charged in advance on a monthly or annual basis as specified in your chosen plan. All payments are processed securely through Stripe. Fees are non-refundable except as expressly required by applicable law. FinLocal reserves the right to modify pricing with 30 days' advance notice. Failure to pay may result in suspension or termination of your access to the Service.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ const TermsOfServicePage = () => {
               <p className="text-zinc-400 leading-relaxed">
                 Your use of the Service is also governed by our{' '}
                 <a href="/privacy" className="text-emerald-400 hover:underline font-medium">Privacy Policy</a>
-                , which is incorporated into these Terms by reference. For on-premise deployments, your documents and outputs remain entirely within your designated infrastructure. Neural Index personnel do not access your document data except as necessary to resolve a specific support request you have initiated, and with your explicit consent.
+                , which is incorporated into these Terms by reference. For on-premise deployments, your documents and outputs remain entirely within your designated infrastructure. FinLocal personnel do not access your document data except as necessary to resolve a specific support request you have initiated, and with your explicit consent.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">8. Disclaimers</h2>
               <p className="text-zinc-400 leading-relaxed">
-                THE SERVICE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. Neural Index does not warrant that outputs generated by the AI are accurate, complete, or free from errors. You are solely responsible for verifying any information, analysis, or documents generated by the Service before relying on them for business, tax, audit, legal, or regulatory purposes.
+                THE SERVICE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. FinLocal does not warrant that outputs generated by the AI are accurate, complete, or free from errors. You are solely responsible for verifying any information, analysis, or documents generated by the Service before relying on them for business, tax, audit, legal, or regulatory purposes.
               </p>
             </div>
 
@@ -96,7 +96,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">9. Limitation of Liability</h2>
               <p className="text-zinc-400 leading-relaxed">
-                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NEURAL INDEX SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SERVICE. OUR TOTAL CUMULATIVE LIABILITY FOR ANY CLAIMS ARISING UNDER THESE TERMS SHALL NOT EXCEED THE FEES YOU PAID TO NEURAL INDEX IN THE TWELVE MONTHS PRECEDING THE CLAIM.
+                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, FINLOCAL SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SERVICE. OUR TOTAL CUMULATIVE LIABILITY FOR ANY CLAIMS ARISING UNDER THESE TERMS SHALL NOT EXCEED THE FEES YOU PAID TO FINLOCAL IN THE TWELVE MONTHS PRECEDING THE CLAIM.
               </p>
             </div>
 
@@ -105,7 +105,7 @@ const TermsOfServicePage = () => {
             <div>
               <h2 className="text-xl font-semibold text-white mb-4">10. Termination</h2>
               <p className="text-zinc-400 leading-relaxed">
-                Either party may terminate these Terms at any time with reasonable notice. Neural Index may immediately suspend or terminate your account if you breach these Terms, engage in fraudulent activity, or fail to pay fees when due. Upon termination, your right to access the Service ceases immediately. Provisions that by their nature should survive termination (including intellectual property, disclaimers, and limitation of liability) shall survive.
+                Either party may terminate these Terms at any time with reasonable notice. FinLocal may immediately suspend or terminate your account if you breach these Terms, engage in fraudulent activity, or fail to pay fees when due. Upon termination, your right to access the Service ceases immediately. Provisions that by their nature should survive termination (including intellectual property, disclaimers, and limitation of liability) shall survive.
               </p>
             </div>
 
@@ -127,7 +127,7 @@ const TermsOfServicePage = () => {
                 <a href="mailto:willscybertech@gmail.com" className="text-emerald-400 hover:underline font-medium">
                   willscybertech@gmail.com
                 </a>
-                . Neural Index is operated by Wills Cyber Tech.
+                . FinLocal is operated by Wills Cyber Tech.
               </p>
             </div>
 

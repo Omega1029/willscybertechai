@@ -42,7 +42,7 @@ const services = [
     examples: ['PDF & contract indexing', 'Compliance monitoring', 'Knowledge base Q&A'],
     link: null,
     formModal: {
-      title: 'Document Intelligence (Neural Index) – Technical Discovery Form',
+      title: 'Document Intelligence (FinLocal) – Technical Discovery Form',
       src: 'https://airtable.com/embed/appRwTy67k4QiQOS5/pagYgEcQfT53M4Qn7/form',
     },
   },

@@ -38,7 +38,7 @@ const LoginPage = () => {
 
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center gap-2 mb-6">
-              <span className="text-xl font-bold tracking-tighter text-white uppercase">NEURAL INDEX</span>
+              <span className="text-xl font-bold tracking-tighter text-white uppercase">FINLOCAL</span>
             </Link>
             <h1 className="text-2xl font-bold text-white">Welcome Back</h1>
             <p className="mt-1.5 text-zinc-400">Sign in to your account</p>

@@ -156,7 +156,7 @@ export const PRICING_TIERS: PricingTier[] = [
 export const OPEN_ENDED_TIERS = ['custom'];
 
 /* ------------------------------------------------------------------------- *
- * NeuralIndex software licences
+ * FinLocal software licences
  *
  * The desktop product, sold as a licence rather than an engagement. Figures and
  * per-tier capabilities mirror the app itself: prices come from the payments
@@ -220,7 +220,7 @@ export const LICENSE_TIERS: LicenseTier[] = [
     name: 'Practice / Firm',
     audience: 'Small advisory teams running a shared corpus',
     blurb:
-      'Up to five seats, the advanced model library, and the integrations that wire NeuralIndex into the systems your practice already runs on.',
+      'Up to five seats, the advanced model library, and the integrations that wire FinLocal into the systems your practice already runs on.',
     price: 799,
     billing: 'annual',
     // A $1,299 perpetual alternative is noted in the payments README but is not

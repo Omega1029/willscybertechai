@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
         <Link to="/" className="flex items-center gap-3">
           <span className="text-xl font-bold tracking-tighter uppercase text-white">
-            NEURAL INDEX
+            FINLOCAL
           </span>
         </Link>
 

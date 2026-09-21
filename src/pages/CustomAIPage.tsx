@@ -217,7 +217,7 @@ const CustomAIPage = () => {
             Stop sending client financials to the cloud
           </h2>
           <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
-            See how Neural Index gives your firm all the power of AI without ever exposing sensitive client data.
+            See how FinLocal gives your firm all the power of AI without ever exposing sensitive client data.
           </p>
           <Link
             to="/contact"

@@ -78,7 +78,7 @@ export const Pricing: React.FC = () => {
             <span className="text-gradient-bright">financial advisory firms.</span>
           </h1>
           <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">
-            Licence the NeuralIndex desktop app and run it entirely on your own hardware,
+            Licence the FinLocal desktop app and run it entirely on your own hardware,
             or hand us the build. Transparent scope, fixed allocations, and no surprise
             invoices either way.
           </p>
@@ -93,10 +93,10 @@ export const Pricing: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== NeuralIndex licences ===== */}
+      {/* ===== FinLocal licences ===== */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 pb-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">The NeuralIndex app</h2>
+          <h2 className="text-3xl font-bold mb-3">The FinLocal app</h2>
           <p className="text-zinc-400 max-w-2xl mx-auto leading-relaxed">
             A licence to run the indexer and the models on your own machines. Your
             documents stay on your hardware — there is no cloud tier, because there is no

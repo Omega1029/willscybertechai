@@ -194,7 +194,7 @@ const UseCasesPage = () => {
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to see it in action?</h2>
           <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
-            Let's show you how Neural Index handles your firm's specific documents and workflows — entirely on your own infrastructure.
+            Let's show you how FinLocal handles your firm's specific documents and workflows — entirely on your own infrastructure.
           </p>
           <Link
             to="/contact"

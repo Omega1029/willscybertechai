@@ -69,7 +69,7 @@ const steps = [
   {
     icon: FileStack,
     title: 'Connect your documents',
-    body: 'Point Neural Index at your financial files, workpapers, and client records.',
+    body: 'Point FinLocal at your financial files, workpapers, and client records.',
   },
   {
     icon: Cpu,
@@ -144,7 +144,7 @@ export const Home: React.FC = () => {
               <span className="text-emerald-400">Privately.</span>
             </h1>
             <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-xl">
-              Neural Index turns your firm's financial documents into a secure AI assistant
+              FinLocal turns your firm's financial documents into a secure AI assistant
               your staff can query — self-hosted on your own infrastructure, so sensitive
               client data never leaves your network.
             </p>
@@ -259,7 +259,7 @@ export const Home: React.FC = () => {
       <section className="py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Why Neural Index</span>
+            <span className="text-emerald-400 text-xs font-semibold tracking-[0.18em] uppercase">Why FinLocal</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-3 mb-4">
               Private AI for your{' '}
               <span className="text-emerald-400">financial documents</span>
