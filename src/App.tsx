@@ -1,8 +1,8 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { Home } from './pages/Home';
-// import { Pricing } from './pages/Pricing';   // pricing page disabled for now
+import { Pricing } from './pages/Pricing';
 import { Success } from './pages/Success';
 import { Dashboard } from './pages/Dashboard';
 import Login from './components/auth/LoginPage';
@@ -38,11 +38,7 @@ function App() {
         <main className="pt-20">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* Pricing page disabled for now — restore by uncommenting the import,
-                this route, and the entries marked "pricing disabled" in Navbar,
-                Footer and Home. */}
-            {/* <Route path="/pricing" element={<Pricing />} /> */}
-            <Route path="/pricing" element={<Navigate to="/contact" replace />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/success" element={<Success />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />

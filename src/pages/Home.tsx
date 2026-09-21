@@ -22,7 +22,7 @@ import {
   DollarSign,
 } from 'lucide-react';
 import TestimonialCard from '../components/TestimonialCard';
-// import PricingSection from '../components/PricingSection';   // pricing disabled
+import PricingSection from '../components/PricingSection';
 import ITCallout from '../components/ITCallout';
 
 const stats = [
@@ -367,8 +367,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* pricing disabled */}
-      {/* <PricingSection /> */}
+      <PricingSection />
 
       <ITCallout />
 

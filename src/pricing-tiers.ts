@@ -154,3 +154,113 @@ export const PRICING_TIERS: PricingTier[] = [
 
 /** Tiers whose published figures are a floor rather than a fixed fee. */
 export const OPEN_ENDED_TIERS = ['custom'];
+
+/* ------------------------------------------------------------------------- *
+ * NeuralIndex software licences
+ *
+ * The desktop product, sold as a licence rather than an engagement. Figures and
+ * per-tier capabilities mirror the app itself: prices come from the payments
+ * README, and the feature rows come from `Tier::features()` in
+ * crates/core/src/license/mod.rs — keep the two in step.
+ * ------------------------------------------------------------------------- */
+
+export type LicenseBilling = 'one-time' | 'annual' | 'quote';
+
+export interface LicenseTier {
+  id: string;
+  name: string;
+  audience: string;
+  blurb: string;
+  /** Null means the figure is quoted per engagement rather than published. */
+  price: number | null;
+  billing: LicenseBilling;
+  /** Sits under the price — the renewal/update terms in plain words. */
+  priceNote: string;
+  seats: string;
+  features: string[];
+  cta: TierCta;
+  ctaLabel: string;
+  highlight: boolean;
+  /**
+   * LemonSqueezy hosted checkout. They are merchant of record and handle sales
+   * tax/VAT; the licence key is issued by Keygen off the order webhook. Until
+   * this is set the card falls back to the contact CTA rather than a dead button.
+   */
+  checkoutUrl: string | null;
+  /** Keygen policy that issues this tier's key. Reference only — never used client-side. */
+  keygenPolicyId: string;
+}
+
+export const LICENSE_TIERS: LicenseTier[] = [
+  {
+    id: 'solo',
+    name: 'Solo Practitioner',
+    audience: 'Independent advisors and single-seat users',
+    blurb:
+      'The full local engine on one machine. Your documents are indexed and queried on your own hardware, with nothing leaving the device.',
+    price: 199,
+    billing: 'one-time',
+    priceNote: 'Perpetual licence, billed once, with an included update window.',
+    seats: 'Single seat',
+    features: [
+      'Unlimited local document indexing',
+      'Fully offline — air-gap capable',
+      'Perpetual licence with update window',
+      'Email support',
+    ],
+    cta: 'checkout',
+    ctaLabel: 'Buy Solo',
+    highlight: false,
+    // TODO: paste the LemonSqueezy checkout URL for Solo Practitioner.
+    checkoutUrl: null,
+    keygenPolicyId: 'ec62487a-c7ec-4a18-80fe-8eda1b602783',
+  },
+  {
+    id: 'practice',
+    name: 'Practice / Firm',
+    audience: 'Small advisory teams running a shared corpus',
+    blurb:
+      'Up to five seats, the advanced model library, and the integrations that wire NeuralIndex into the systems your practice already runs on.',
+    price: 799,
+    billing: 'annual',
+    // A $1,299 perpetual alternative is noted in the payments README but is not
+    // published here until the LemonSqueezy variant for it exists.
+    priceNote: 'Billed annually. Includes updates for the duration of the term.',
+    seats: 'Up to 5 seats',
+    features: [
+      'Everything in Solo',
+      'Advanced model library',
+      'Integrations with your existing systems',
+      'Priority support',
+    ],
+    cta: 'checkout',
+    ctaLabel: 'Buy Practice',
+    highlight: true,
+    // TODO: paste the LemonSqueezy checkout URL for Practice / Firm.
+    checkoutUrl: null,
+    keygenPolicyId: 'e71f042b-ecbf-41b8-aa89-e64d4bccbde6',
+  },
+  {
+    id: 'enterprise',
+    name: 'Enterprise',
+    audience: 'Firms with compliance and audit obligations',
+    blurb:
+      'Unlimited seats, audit logging for every query, and integrations built against your own infrastructure. Invoiced against agreed scope.',
+    price: null,
+    billing: 'quote',
+    priceNote: 'Invoiced per engagement — seat count and scope agreed up front.',
+    seats: 'Unlimited seats',
+    features: [
+      'Everything in Practice',
+      'Unlimited seats',
+      'Audit logging',
+      'Custom integrations',
+      'Priority support',
+    ],
+    cta: 'contact',
+    ctaLabel: 'Talk to Us',
+    highlight: false,
+    checkoutUrl: null,
+    keygenPolicyId: 'cbc7991d-224f-4d94-8ac0-29aea3339ccb',
+  },
+];

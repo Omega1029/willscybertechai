@@ -20,8 +20,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-3">
               <li><Link to="/features" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Features</Link></li>
               <li><Link to="/security" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Security</Link></li>
-              {/* pricing disabled */}
-              {/* <li><Link to="/pricing" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Pricing</Link></li> */}
+              <li><Link to="/pricing" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Pricing</Link></li>
               <li><Link to="/use-cases" className="text-sm text-zinc-400 hover:text-emerald-400 transition-colors">Use Cases</Link></li>
             </ul>
           </div>

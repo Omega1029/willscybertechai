@@ -23,7 +23,7 @@ const Navbar = () => {
     { label: 'Use Cases', href: '/use-cases' },
     { label: 'Live Demo', href: '/demo' },
     { label: 'For IT', href: '/it' },
-    // { label: 'Pricing', href: '/pricing' },   // pricing disabled
+    { label: 'Pricing', href: '/pricing' },
     { label: 'Contact', href: '/contact' },
   ];
 

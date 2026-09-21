@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ShieldCheck, Check, Minus } from 'lucide-react';
-import { PRICING_TIERS, OPEN_ENDED_TIERS } from '../pricing-tiers';
+import { PRICING_TIERS, OPEN_ENDED_TIERS, LICENSE_TIERS } from '../pricing-tiers';
 import PricingTierCard from '../components/PricingTierCard';
+import LicenseTierCard from '../components/LicenseTierCard';
 import { ProductCard } from '../components/ProductCard';
 import { STRIPE_PRODUCTS } from '../stripe-config';
 
@@ -77,9 +78,9 @@ export const Pricing: React.FC = () => {
             <span className="text-gradient-bright">financial advisory firms.</span>
           </h1>
           <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">
-            Every engagement pairs a one-time build with a monthly retainer that keeps the
-            site fast, monitored and current. Transparent scope, fixed allocations, and no
-            surprise invoices.
+            Licence the NeuralIndex desktop app and run it entirely on your own hardware,
+            or hand us the build. Transparent scope, fixed allocations, and no surprise
+            invoices either way.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-sm text-zinc-400">
             <span className="inline-flex items-center gap-2">
@@ -92,8 +93,43 @@ export const Pricing: React.FC = () => {
         </div>
       </section>
 
+      {/* ===== NeuralIndex licences ===== */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 pb-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-3">The NeuralIndex app</h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            A licence to run the indexer and the models on your own machines. Your
+            documents stay on your hardware — there is no cloud tier, because there is no
+            cloud.
+          </p>
+        </div>
+        <div className="flex flex-wrap justify-center gap-6">
+          {LICENSE_TIERS.map((tier) => (
+            <div
+              key={tier.id}
+              className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] flex"
+            >
+              <LicenseTierCard tier={tier} />
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-xs text-zinc-500 mt-8 max-w-2xl mx-auto leading-relaxed">
+          Figures shown in USD. Checkout is handled by LemonSqueezy as merchant of record,
+          so sales tax and VAT are calculated at the till. Your licence key is issued
+          automatically once the order completes.
+        </p>
+      </section>
+
       {/* ===== Tier grid ===== */}
-      <section className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+      <section className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20 border-t border-zinc-800 pt-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-3">Build and retainer engagements</h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            For firms who want the site and the systems around it built for them: a
+            one-time build paired with a monthly retainer that keeps everything fast,
+            monitored and current.
+          </p>
+        </div>
         <div className="flex flex-wrap justify-center gap-6">
           {PRICING_TIERS.map((tier) => (
             <div
@@ -114,9 +150,9 @@ export const Pricing: React.FC = () => {
       {/* ===== Comparison table ===== */}
       <section className="relative border-t border-zinc-800 py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-3">Compare every tier</h2>
+          <h2 className="text-3xl font-bold text-center mb-3">Compare every engagement</h2>
           <p className="text-center text-zinc-400 mb-12">
-            The full scope of each engagement, side by side.
+            The full scope of each build engagement, side by side.
           </p>
 
           <div className="overflow-x-auto rounded-2xl bg-zinc-900 border border-zinc-800">
